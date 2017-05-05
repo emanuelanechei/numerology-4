@@ -261,3 +261,6 @@ personal_year = single_digit_uno(personal_year_raw)
 print ""
 print "Personal year number gives insight into what surrounds you for this year cycle and represents various themes and events that will likely occur for you during the year (from your birthday until your next birthday)."
 print ""
+
+date(year, month, day)
+date.today()
