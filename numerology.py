@@ -1,4 +1,4 @@
-# introduction to numerology
+# introduction to numerology (option 1)
 
 while True:
     welcome = raw_input("Welcome to the world of numerology. Do you want to learn more about your core numbers? (Y/N) ")
@@ -33,7 +33,7 @@ while True:
                                     if (month in [1, 3, 5, 7, 8, 10, 12]) and ((day < 1) or (day > 31)):
                                         print "That may be a day on Jupiter, but not on Earth!"
                                     elif (month in [4, 6, 9, 11]) and ((day < 1) or (day > 30)):
-                                        print "That may be a day on Saturn, but not on Earth!"         
+                                        print "That may be a day on Saturn, but not on Earth!"
                                     elif (month == 2) and (((year % 100 == 0) and (year % 400 == 0)) or ((year % 4 == 0) and (year % 100 != 0))) and ((day < 1) or (day > 29)):
                                         # For leap year, if divisible by 100 but not 400, then not leap year. otherwise, divisible by 4.
                                         print "You took a flying leap off of this planet!"
@@ -46,12 +46,54 @@ while True:
             break
     break
 
+
+# definition of function to input birthdate (option 2)
+
+
+def birthdate():
+    while True:
+        year = raw_input("Input your year of birth: ")
+        if not year.isdigit():
+            print "Please input the year based on the Gregorian calendar."
+        else:
+            year = int(year)
+            while True:
+                month = raw_input("Input your month (1-12) of birth: ")
+                if not month.isdigit():
+                    print "Please input the numerical value of the month."
+                else:
+                    month = int(month)
+                    if (month < 1) or (month > 12):
+                        print "That may be a month on Mars, but not on Earth!"
+                    else:
+                        while True:
+                            day = raw_input("Input your day of birth: ")
+                            if not day.isdigit():
+                                print "Please input the numerical value of the day."
+                            else:
+                                day = int(day)
+                                if (month in [1, 3, 5, 7, 8, 10, 12]) and ((day < 1) or (day > 31)):
+                                    print "That may be a day on Jupiter, but not on Earth!"
+                                elif (month in [4, 6, 9, 11]) and ((day < 1) or (day > 30)):
+                                    print "That may be a day on Saturn, but not on Earth!"
+                                elif (month == 2) and (((year % 100 == 0) and (year % 400 == 0)) or ((year % 4 == 0) and (year % 100 != 0))) and ((day < 1) or (day > 29)):
+                                    # for leap year, if divisible by 100 but not 400, then not leap year. otherwise, divisible by 4.
+                                    print "You took a flying leap off of Pluto!"
+                                elif (month == 2) and ((year % 4 != 0) or ((year % 4 == 0) and (year % 100 == 0))) and ((day < 1) or (day > 28)):
+                                    print "That may be a day on Venus, but not on Earth!"
+                                else:
+                                    return year, month, day
+
+
+birthdate()
+
+
 # definition of function to calculate various items to single digit or master number
 
 
 def single_digit_master(single_digit):
     while True:
-        if (single_digit < 10) or (single_digit == 11) or single_digit == 22:
+        if (single_digit < 10) or (single_digit == 11) or (single_digit == 22):
             single_digit_master = single_digit
             break
         elif single_digit > 99:
@@ -75,7 +117,8 @@ life_path_raw = single_year_master + single_month_master + single_day_master
 life_path = single_digit_master(life_path_raw)
 
 print ""
-print "Your life path number is number is " + str(life_path) + "! Life path number defines limitations or possibilities in life due to ancestry or physicality."
+print "Your life path number is " + str(life_path) + "! Life path number defines limitations or possibilities in life due to ancestry or physicality."
+# "Your life path numer is {}! Life path number defines limitations or possibilities in life due to ancestry or physicality".format(life_path)
 print ""
 
 if life_path == 1:
@@ -145,7 +188,7 @@ while True:
 
 def single_digit_uno(single_digit):
     while True:
-        if (single_digit < 10) or (single_digit == 11) or single_digit == 22:
+        if (single_digit < 10):
             single_digit_uno = single_digit
             break
         elif single_digit > 99:
