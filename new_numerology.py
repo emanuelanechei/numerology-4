@@ -4,7 +4,7 @@
 def greeting():
     print """\nWelcome to the nexus of numerology.\n
 Numerology is the study of the numerical value of letters in words, names and birthdays.\n
-It is similar to astrology, and often associated with the belief in the divine, mystical relationship between numbers and one or more coinciding events.\n"""
+It is similar to astrology, and often associated with the belief in the divine, mystical relationship between numbers (and their related vibrations) and one or more coinciding events.\n"""
 
 #greeting()
 
@@ -84,6 +84,9 @@ def single_digit_master(single_digit):
 
     return single_digit_master
 
+
+# calculate individual single master digits for year, month and day
+
 #single_year_master = single_digit_master(year)
 #single_month_master = single_digit_master(month)
 #single_day_master = single_digit_master(day)
@@ -106,6 +109,9 @@ def single_digit_uno(single_digit):
             single_digit = partial_sum
 
     return single_digit_uno
+
+
+# calculate individual single digits for year, month and day
 
 #single_year_uno = single_digit_uno(year)
 #single_month_uno = single_digit_uno(month)
@@ -138,7 +144,7 @@ They are motivated by personal success and competition. Highly independent by na
 Number 1s who stray from their paths often end up in clingy co-dependent relationships.\n"""
     elif life_path == 2:
         print """\nYou are all about love. People with life path 2 love to find and maintain balance. They are natural peacemakers and tend to be drawn towards service to others.\n
-Often they are too self-sacrificing and struggle to find balance in life when it comes to valuing themselves as much as others. People with this life path numer tend to be somewhat reserved and quiet. They have excellent listening skills and tend to be very drwan to music.\n
+Often they are too self-sacrificing and struggle to find balance in life when it comes to valuing themselves as much as others. People with this life path number tend to be somewhat reserved and quiet. They have excellent listening skills and tend to be very drwan to music.\n
 It is very important for them to get out and socialize. A number 2 who is isolated courts pessimism, lethargy and depression.\n"""
     elif life_path == 3:
         print """\nYou are all about performance! This is the life path numer of creative people who are very expressive and unique. They are skilled communicators, naturally charming and attractive to others. They know how to convey ideas.\n
@@ -157,8 +163,8 @@ However, 5s tend to be very self-absorbed and unaware of the effect of their act
 6 people are typically very organized and efficient and dislike waste - whether it be wasted time or resources. Those with this life path are sometimes seen as strict or sharp, but in actuality, they do have the best interest s of others at heart and love to see people reach their potentical. People with this life path make good personal trainers, drill instructors, etc. ecause they can push others to their personal limits in ways that are both compassionate and motivating.\n
 6s that find themselves enslaved to an addicted or mentally ill partner might not be following their true path, as this is a sign that they have become enablers, rather than healers of the diseases.\n"""
     elif life_path == 7:
-        print """\nYou are all about knowledge! 7 is the life path numer of the Seeker. People with this life path numer are drawn to the igger mysteries in life and are always looking for a larger purpose behind their circumstances.\n
-7s are often psychic or extremely intuitive by nature with an innate aility to see to the heart and soul of others and situations. 7 people tend to love people, but are also very independent, requiring a great deal of solitary time to recharge their batteries. 7 people can be prone to being slow movers and procrastinators and need to work to keep their motivation levels up.\n
+        print """\nYou are all about knowledge! 7 is the life path number of the Seeker. People with this life path number are drawn to the bigger mysteries in life and are always looking for a larger purpose behind their circumstances.\n
+7s are often psychic or extremely intuitive by nature with an innate ability to see to the heart and soul of others and situations. 7 people tend to love people, but are also very independent, requiring a great deal of solitary time to recharge their batteries. 7 people can be prone to being slow movers and procrastinators and need to work to keep their motivation levels up.\n
 A sign that a number 7 has strayed completely off his or her life path is a complete withdrawal from society. In this case, the troubled 7 should try to recognize his or her original ambitions to improve the world through the application of wisdom.\n"""
     elif life_path == 8:
         print """\nYou are all about wealth. 8 is the life path of the natural born leader. These are people who are often very good at business and attracting wealth and favors. 8 people are often visionaries and capable of great things because they can also do the hard work required to make thier visions a reality.\n
@@ -188,31 +194,31 @@ def birth_day_meaning(single_day_master):
 
     if single_day_master == 1:
         print """\nYour birth day number is 1. This birth day signifies natural born leaders, those with a lot of drive and initiative.\n
-One people are ambitious, hard working, and often very career focused. One people have a keen intelligence and are quick learners who are able to do things on a grand scale.\n"""
+1 people are ambitious, hard working, and often very career focused. One people have a keen intelligence and are quick learners who are able to do things on a grand scale.\n"""
     elif single_day_master == 2:
-        print """\nTwo people are very balanced and tend to be natural peace keepers and diplomats. Natural negotiators, two people dislike conflict and will work hard to make compromises that benefit everyone.\n
-Two people love to do important things behind the scenes and tend to have a good blend of both creative and analytical skills.\n"""
+        print """\n2 people are very balanced and tend to be natural peace keepers and diplomats. Natural negotiators, two people dislike conflict and will work hard to make compromises that benefit everyone.\n
+2 people love to do important things behind the scenes and tend to have a good blend of both creative and analytical skills.\n"""
     elif single_day_master == 3:
-        print """\nThree people are natural artists and love to express themselves creatively in a variety of forms. Three people are inspiring and display greath enthusiasm.\n
-Three people have great imagination and vision and are also sharp and able to pick up on subtle details.\n"""
+        print """\n3 people are natural artists and love to express themselves creatively in a variety of forms. 3 people are inspiring and display greath enthusiasm.\n
+3 people have great imagination and vision and are also sharp and able to pick up on subtle details.\n"""
     elif single_day_master == 4:
-        print """\nFour people are very hard-working and diligent. They are those who build a strong foundation and like structure and stability.\n
+        print """\n4 people are very hard-working and diligent. They are those who build a strong foundation and like structure and stability.\n
 Loyal and genuinely honest, four people find others trust and rely upon their quiet strength and strong common sense approach to life.\n"""
     elif single_day_master == 5:
-        print """\nFive people are your movers and shakers who long for adventure and new experience. Five people love and embrace diversity and require a lot of changes to keep them motivated and inspired.\n
-Five people can be prone to carelessness at times, but their deep love of adventure and naturally keep social skills make them a joy to know - 'never a dull moment' as the saying goes.\n"""
+        print """\n5 people are your movers and shakers who long for adventure and new experience. Five people love and embrace diversity and require a lot of changes to keep them motivated and inspired.\n
+5 people can be prone to carelessness at times, but their deep love of adventure and naturally keep social skills make them a joy to know - 'never a dull moment' as the saying goes.\n"""
     elif single_day_master == 6:
-        print """\nSix people work hard to walk the 'middle ground' in life and feel the need for balance weighing on them quite often. Naturally artistic and expressive, but highly sensitive, six people tend to be very vulnerable to criticism and require a lot of positive reinforcement in life to keep them motivated.\n
+        print """\n6 people work hard to walk the 'middle ground' in life and feel the need for balance weighing on them quite often. Naturally artistic and expressive, but highly sensitive, six people tend to be very vulnerable to criticism and require a lot of positive reinforcement in life to keep them motivated.\n
 They are naturally good at working for compromise, but have a strong sense of duty and don't tolerate excuses or 'victim' mentality in others. 'If they can do it, you can too' is their motto, but they are always eager to extend themselves to encourage and help others find their own inner strength.\n"""
     elif single_day_master == 7:
-        print """\nSeven people are your natural born seekers and philosophers, those who seek truth and higher wisdom in all experiences Seven people tend to have a naturally strong intuition, but often struggle with their emotions which can sometimes cloud their judgment unless they learn to work through their emotional sensitivities with honesty.\n
-Seven people are often highly intellectual as well and need to learn to balance that with their deep emotions so that they don't become cynical or detached from others.\n"""
+        print """\n7 people are your natural born seekers and philosophers, those who seek truth and higher wisdom in all experiences Seven people tend to have a naturally strong intuition, but often struggle with their emotions which can sometimes cloud their judgment unless they learn to work through their emotional sensitivities with honesty.\n
+7 people are often highly intellectual as well and need to learn to balance that with their deep emotions so that they don't become cynical or detached from others.\n"""
     elif single_day_master == 8:
-        print """\nEight people are daring and bold, usually naturally good in business, and they have a knack for making or acquiring money. Eight people are very motivated by success and are quite competitive.\n
+        print """\n8 people are daring and bold, usually naturally good in business, and they have a knack for making or acquiring money. Eight people are very motivated by success and are quite competitive.\n
 They are also prone to being very self-confident, practical and efficient which lends to others trusting them with their business. Eight people are often seen as 'lucky' or having lucky breaks in life - but this is typically due to a natural drive and persistence that helps them attract what they want/need for success.\n"""
     elif single_day_master == 9:
-        print """\nNine people are compassionate, dreamy and idealistic in nature. They are highly creative and often devote themselves to life-long learning. Many people with multiple degrees will have this number; they are never 'finished' or 'masters' as they embrace continued growth and personal expansion.\n
-Nine people are visionaries who do best when they learn to assert themselves and master their insecurities. Worldly, creative and ever expansive, nine people often appear larger than life.\n"""
+        print """\n9 people are compassionate, dreamy and idealistic in nature. They are highly creative and often devote themselves to life-long learning. Many people with multiple degrees will have this number; they are never 'finished' or 'masters' as they embrace continued growth and personal expansion.\n
+9 people are visionaries who do best when they learn to assert themselves and master their insecurities. Worldly, creative and ever expansive, 9 people often appear larger than life.\n"""
     elif single_day_master == 11:
         print """\nPeople with master number 11 are exceptionally intuitive and are often naturally drawn to the healing arts. 11 people are compelled with a strong drive towards service to others.\n
 Highly sensitive, a dreamer, 11 people have to work hard to stay motivated and take action on their loftier goals.\n"""
@@ -231,7 +237,7 @@ def chall_meaning(challenge):
         print """\nThe zero challenge number tends to indicate no one specific area or challenge being greater than others. It can also mean a sort of mixed bag when it comes to minor challenges, but these are all designed to help you find your strength.\n
 Zero challenges are more about developing one's strengths and having confidence in your abilities - becoming more well-rounded.\n"""
     elif challenge == 1:
-        print """\nThe challenge with one is learning to exert your independence and speak out authentically. One people tend ot struggle with the need for approval from others from which they base their own sense of self-worth.\n
+        print """\nThe challenge with 1 is learning to exert your independence and speak out authentically. 1 people tend to struggle with the need for approval from others from which they base their own sense of self-worth.\n
 The challenge is to value oneself enough to be unique.\n"""
     elif challenge == 2:
         print """\nPeople with this challenge struggle with balance emotionally. They take criticism very personally and struggle to assert themselves.\n
@@ -391,7 +397,7 @@ More breathing room and a feeling of a burden eing lifted often accompany a pers
         print """\nA personal year 4 means a lot of responsibility, hard work, and diligent effots will be required. 4 speakds of "hands on" effort and making every effort count.\n
 This is a year of uilding solid foundations and likely a year where you may feel you are not accomplishing as much as you actually are. The personal year 4 speaks of ground work and solidifying.\n"""
     elif personal_year == 5:
-        print """\nA personal year 5 speaks of a strong desire for change, adventure and trying new things. This is a year where you will e more inclined to travel, move, or even change career paths.\n
+        print """\nA personal year 5 speaks of a strong desire for change, adventure and trying new things. This is a year where you will be more inclined to travel, move, or even change career paths.\n
 This cycle brings out the pioneering spirit and the desire for new experience and expression. This is a personal year cycle where it can be easy to become distracted, and self-discipline is more difficult.\n"""
     elif personal_year == 6:
         print """\nThis personal year cycle tends to focus more on personal relationships. It is an excellent cycle for meeting new people, deepening or finding love with a special someone and otherwise, forming or strengthening lasting bonds with others.\n
@@ -489,6 +495,8 @@ def name_calc(name):
     return name_value
 
 
+# calculate single master digits for first, middle and last names
+
 #single_last_master = single_digit_master(name_calc(last_name))
 #single_middle_master = single_digit_master(name_calc(middle_name))
 #single_first_master = single_digit_master(name_calc(first_name))
@@ -519,12 +527,12 @@ def exp_dest_meaning(exp_dest):
 This number speaks of someone with the desire to win, who will work harder than most to reach his/her goals. Independent and competitive - always growing and striving.\n"""
     elif exp_dest == 2:
         print """\nThe natural diplomat is represented with this destiny number. 2 people are well-balanced, able to bring people together and reach compromise.\n
-They are quite intuitive and can sense the feelings of others which leads to this innate aility for teamwork. 2s emody fairness and balance. They also tend to develop strong musical talents as well due to their natural sense of rhythm and harmony.\n"""
+They are quite intuitive and can sense the feelings of others which leads to this innate ability for teamwork. 2s embody fairness and balance. They also tend to develop strong musical talents as well due to their natural sense of rhythm and harmony.\n"""
     elif exp_dest == 3:
         print """\nThe 3 expression number speaks of someone who is very theatrical by nature - very expressive, outgoing, and a natural charmer. People with this number are often drawn towards writing, acting, or the arts - anywhere they can express themselves and share their views with others.\n
 3s are capable of abstract thought and can paint pictures easily with words and communication. They have an innate ability to explain complex concepts in a way that is easy for everyone to grasp.\n"""
     elif exp_dest == 4:
-        print """People with a 4 expression numer are considered down to earth, practical and orderly. 4 people thrive in environments that are well-organized, and they love structure and staility.\n
+        print """\nPeople with a 4 expression numer are considered down to earth, practical and orderly. 4 people thrive in environments that are well-organized, and they love structure and staility.\n
 They are often seen as "the rock" or pillar strength in their families and businesses because of their strong sense of duty and discipline.\n"""
     elif exp_dest == 5:
         print """\nThe person with the 5 expression numer is a natural adventurer - someone who thrives on new experiences and who is a life long seeker and learner through hands on methods. These people are often "jack of all trades" types who are self-taught in many areas and are always wanting to tray something new.\n
@@ -549,6 +557,257 @@ They are driven by a need to be accpeted and loved by others and often become ve
 Natural builders, those with a 22 expression number are blessed as visionaries with strong leadership abilities. They can see a project through from start to finish - build what they envision with ease and grace.\n"""
 
 #exp_dest_meaning(exp_dest)
+
+
+# set list of vowels
+
+vowel = ("a", "e", "i", "o", "u")
+
+
+# definition of a function to calculate only consonants
+
+
+def consonants(name, vowel):
+    cons_name = name
+    for letter in name:
+        if letter in vowel:
+            cons_name = cons_name.replace(letter, "")
+
+    return cons_name
+
+
+# definition of a function to calculate only vowels
+
+
+def vowels(name, vowel):
+    vow_name = name
+    for letter in name:
+        if letter not in vowel:
+            vow_name = vow_name.replace(letter, "")
+
+    return vow_name
+
+
+# separate first, middle and last names between consonants and vowels only
+
+#cons_last_name = consonants(last_name, vowel)
+#cons_middle_name = consonants(middle_name, vowel)
+#cons_first_name = consonants(first_name, vowel)
+
+#vow_last_name = vowels(last_name, vowel)
+#vow_middle_name = vowels(middle_name, vowel)
+#vow_first_name = vowels(first_name, vowel)
+
+
+# calculate single master digits for first, middle and last names by consonants or vowels only
+
+#single_cons_last_master = single_digit_master(name_calc(cons_last_name))
+#single_cons_middle_master = single_digit_master(name_calc(cons_middle_name))
+#single_cons_first_master = single_digit_master(name_calc(cons_first_name))
+
+#single_vow_last_master = single_digit_master(name_calc(vow_last_name))
+#single_vow_middle_master = single_digit_master(name_calc(vow_middle_name))
+#single_vow_first_master = single_digit_master(name_calc(vow_first_name))
+
+
+# definition of a function to calculate soul surge number
+
+
+def soul_surge_calc(single_vow_last_master, single_vow_middle_master, single_vow_first_master):
+    soul_surge_raw = single_vow_last_master + single_vow_middle_master + single_vow_first_master
+    soul_surge = single_digit_master(soul_surge_raw)
+
+    return soul_surge
+
+#soul_surge = soul_surge_calc(single_vow_last_master, single_vow_middle_master, single_vow_first_master)
+
+
+# definition of a function to display soul surge meaning
+
+
+def soul_surge_meaning(soul_surge):
+    print """\nYour soul surge number is {}. Soul surge number defines your reason for being and what gives you true fulfillment - your very essence or heart's desire.\n""".format(soul_surge)
+
+    if soul_surge == 1:
+        print """\nYour soul urge is to be the best. As you believe you are directly connected to a higher power, you just can't bear it when you let yourself and others down. In your universe you are the sun, and everything and everybody else rotates around you. You live to be the center of attention.\n
+One of your soul lessons might be to recognize that "to rule is truly to serve".\n"""
+    elif soul_surge == 2:
+        print """\nYour soul urge is to be admired and loved by all. The height of personal gratification for you is to be desired by a special someone. You have an enormous faith in other people, and if they do let you down, you tend to behave as if it's the end of the world.\n
+One of your soul challenges is to realize that only the divine is perfect, and others are not god-like in their actions.\n"""
+    elif soul_surge == 3:
+        print """\nYour soul surge is about the cultivation and expression of your personality. Usually this energy manifests as a great achievement in the theatrical or atistic world. You shine at any kind of activity that involves public performance including acting, singing or politics.\n
+You desire to be admired for your craft, and one of your soul challenges might be to recognize that there will always be a critic.\n"""
+    elif soul_surge == 4:
+        print """\nStability, beauty and order satiate your soul. You find a zen-life satisfaction in performing the simplest of repetitive chores as you feel closest to the divine when you are restoring harmony to unbalanced situations. You are a perfectionist that loves art and design.\n
+One of the challenges of your number is that sometimes others don't understand your need for everything to be perfect and see you as controlling.\n"""
+    elif soul_surge == 5:
+        print """\nChange rules the fires of your inner passions. You have an inquisitive mind and a thirst for adventure that is only satisifed by the collecting of unusual experiences and plenty of travel. You appreciate the act that life is short and are bound and determined to make the most of every minute you have on this earth.\n
+One of the challenges of this soul number is setting down real roots and foundations in life.\n"""
+    elif soul_surge == 6:
+        print """\nYour soul urge is to nurture and take care of others. You love people and believe the greatest expression of your inner divinitiy is through teaching and guidance. You are happiest when you see the positive results of your influence blossom in other people. However, you also have a tendency to become very attached to a perceived soulmate.\n
+One of your challenges is to learn to "let go" when relationships end.\n"""
+    elif soul_surge == 7:
+        print """\nThe highest calling of your soul is to learn about everything scientific and esoteric. It is knowledge that feeds your soul. You love to read and subjects such as history, science, metaphysics, physics, archaelogy and religion fuel your rich imagination with inspiration and ideas.\n
+Many of you are geniuses, and because of this, one of the challenges of your number is to be understood by a stupid world.\n"""
+    elif soul_surge == 8:
+        print """\nYour soul urge is to "go forth and multiply" especially when it comes to family dynasties and aggregating wealth. The highest expression of your soul urge number is when you are in power and improving the lives of those that work for you or love you. You support anything that brings beauty, meaning and profit to the world.\n
+The challenge of this number is to realize that "money isn't everything".\n"""
+    elif soul_surge == 9:
+        print """\nThe highest expression of your soul's urge is to connect in a mystical way with others. Although your aspirations are lofty, you are also a humanitarian who is often gifted with a sharp intuition and keep analytical skills. Your fatih in yourself, the divine and the future is so strong that you live by your convictions.\n
+Your challenge in life is to be understood as more than a fanatic or flake by others who may not understand your idealism.\n"""
+    elif soul_surge == 11:
+        print """\nYour soul's purpose is to manifest ideals into reality. Your highest calling is to become the master of a religion or of a spiritual realm. You are the ultimate seeker of truth and will go to any lengths to find a spiritual teacher or guru.\n
+This search often leads you on a path that is full of many pitfalls and disappointemnets as you realize that one spiritual system doesn't work for you or that a guru or teacher is only human after all.\n"""
+    else:
+        print """\nYou have the highest soul calling of all of the numbers, as it is the call to transform the world permanently and for the better. Usually you are born with all of the tools that you need to accomplish this including a stable personality, intelligence, courage and charisma.\n
+Perhaps the most healing thing for your soul is simply to read out loud the words of ancient texts as these writings resonate very strongly with the noblest apsirations of your higher self.\n"""
+
+#soul_surge_meaning(soul_surge)
+
+
+# definition of a function to calculate personality number
+
+
+def personality_cal(single_cons_last_master, single_cons_middle_master, single_cons_first_master):
+    personality_raw = single_cons_last_master + single_cons_middle_master + single_cons_first_master
+    personality = single_digit_master(personality_raw)
+
+    return personality
+
+#personality = personality_cal(single_cons_last_master, single_cons_middle_master, single_cons_first_master)
+
+
+# definition of a function to display personality meaning
+
+
+def personality_meaning(personality):
+    print """\nYour personality number is {}. Personality number defines how you present yourself to the public and how others perceive you.\n""".format(personality)
+
+    if personality == 1:
+        print """\nAmbitious, strong willed and determined. A natural leader who commands attention and usually rises to the forefront of the group. When they have a strong sense of purpose, they are very inspiring and motivating.\n
+When they don't, they can appear egotistical or attention starved.\n"""
+    elif personality == 2:
+        print """\nFair-minded and well-rounded. Two people are seen as trustworthy and reliable. People with this personality number are often asked for help by strangers or approached because they have an openness about them and a caring demeanor.\n
+Sometimes they are seen as indecisive because they carefully weigh all things before making decisions.\n"""
+    elif personality == 3:
+        print """\nCreative and articulate, three people are seen as interesting and great story tellers. Three people seem to have a knack for finding opportunities and can always see a silver lining in the clouds.\n
+People see them as creative thinkers who sometimes get carried away or may be prone to a bit of exaggeration to highlight their point.\n"""
+    elif personality == 4:
+        print """\nStability and a solid foundation. People with this personality are pillars of strength who are well-organized and structured.\n
+People tend to view them as having the answers and being knowledgeable. Four people are considered reliable and steady - sometimes a tad too predictable or serious.\n"""
+    elif personality == 5:
+        print """\n5 personalities are community leaders who take an active interest socially and love to be involved with others. They are adventurous, highly passionate people who love to travel and immerse themselves in different cultures.\n
+Five people are seen as stimulating, interesting, but not always the most reliable or dependable. They tend to do their own thing on their own time.\n"""
+    elif personality == 6:
+        print """\nThe 6 personality is someone who loves to help others and who will give of him/herself tirelessly when needed. They love to see others reach their personal best. Six people are typically peacemakers and try to avoid conflict. They can fit in well with a variety of people and are very easy going and agreeable.\n"""
+    elif personality == 7:
+        print """\nThe 7 personality tends to be somewhat introverted. They are keenly observant and highly intelligent. This ability to "see through" people coupled with their intelligence/observation skills can make them intimidating to others initially. Seven people are seekers of truth, highly opinionated, but always looking for the greater wisdom in all experience.\n
+People often see them as wise or "old souls".\n"""
+    elif personality == 8:
+        print """\nThe 8 personality is very ambitious and competitive, but typically good-natured about it. They appear confident, lucky, and highly resourceful. Eight people love to push themselves to reach consistently higher goals. They are very good at envisioning and developing projects.\n
+People see them as well rounded and having good business sense.\n"""
+    elif personality == 9:
+        print """\nThe 9 personality is naturally charming, very well-versed in many subjects, and very idealistic and positive. This personality is seen as conscientious, inspiring and having a strong charisma and influence.\n
+9 personalities tend to be naturally able to lead groups of people and others tend to gravitate towards their strong positive energy.\n"""
+    elif personality == 11:
+        print """\n11 personalities go to great lengths to hid their inner shyness and nervousness. Highly intuitive and emotional, the 11 personality is a soul who radiates warmth and genuine kindness.\n
+People often gravitate to this person for their gentle spirit.\n"""
+    else:
+        print """\nThis master number equates to someone who is both highly creative and intuitive, but also deeply practical and hard working. People with this personality number crave consistency and balance in their lives and will work hard to achieve it.\n
+The person with a 22 personality number often does not give him/herself enough credit and doesn't fully recognize the extremely strong energy which they posess. 22 is capable of great creative accomplishments due to their talent and discipline.\n"""
+
+#personality_meaning(personality)
+
+
+# definition of a function to calculate hidden passion number
+
+
+#full_name = last_name + middle_name + first_name
+
+def pass_calc(name):
+    for letter in range(len(name)):
+        partial_name = ((ord(name[letter]) - ord("a")) % 9) + 1
+
+    partial_name = str(partial_name)
+    hid_pass = int(max(partial_name, key=partial_name.count))
+
+    return hid_pass
+
+#hid_pass = pass_calc(full_name)
+
+
+# definition of a function to display hidden passion meaning
+
+
+def hid_pass_meaning(hid_pass):
+    print """\nYour hidden passion number is {}. Hidden passion number defines your greatest natural talents, strengths and motivations. They are strengths that are readily available to you, that you can easily develop and use throughout your life.\n""".format(hid_pass)
+
+    if hid_pass == 1:
+        print """\nThis person is driven y a strong individualism and need to stand out in the crowd and get noticed. Ambitious and motivated, those with this hidden passion number are natural leaders.\n"""
+    elif hid_pass == 2:
+        print """\n2 people are natural peacemakers and negotiators who strive to create harmony in the family, workplace, and wherever they may go. People naturally gravitate to you because they feel a strong innate sense of trust.\n
+You are patient and persistent. 2 people are naturally inclined towards music and the arts.\n"""
+    elif hid_pass == 3:
+        print """\nThe 3 person is a natural born entertainer who is very social. You have a natural charm which is alluring to others. 3 people are naturally gifted creatively and are often multi-talented in various forms of art, music, writing, etc.\n"""
+    elif hid_pass == 4:
+        print """\n4 people are extremely diligent, determined hard-workers, and for this reason, they are capable of uilding great successes from the ground up. Practical, disciplined, and seen as a great provider or support sytem to others.\n
+You are "the rock" of your family/group. 4 people are very organized and efficient and need a sense of order in their lives.\n"""
+    elif hid_pass == 5:
+        print """\n5 is the number of those who love adventure and new experiences. People with this number love to indulge the senses and are natural communicators. Many are drawn to writing and other forms of communication.\n
+People with this number can be prone to being a it too impulsive at times and need to work to cultivate self-discipline. 5 people thrive on change in life and often struggle when they feel they have to "choose" one path.\n"""
+    elif hid_pass == 6:
+        print """\n6 people have a natural call to service and are often healers, counselors, teachers, etc. Responsile and self-sacrificing 6 people have an inner need to be recognized and valued by others in order to feel a strong sense of self-worth.\n"""
+    elif hid_pass == 7:
+        print """\n7 people are naturally intuitive and highly intelligent. They are the thinkers who seek the deeper meanings behind experience and are often drawn to philosophy, metaphysics, psychology and any area that explores the subconscious or hidden truths. 7 people are often sought out for their insight and keen understanding.\n"""
+    elif hid_pass == 8:
+        print """\n8people are natural salesmen and business people. They have an innate dirve that pushes them to accomplish great things. The right blend of vision and amition, people with an 8 passion are driven by material success and the need to compete with themselves and others. No other number is as energetic and motivated by winning/reaching goals.\n"""
+    else:
+        print """\n9 people are visionaries with a deep sense of humanitarianism. They have lofty ideals and strive to make their communities and even the world a better place.\n
+Highly emotional and idealistic, it can be difficult for 9s to bring their ideas down to earh in a more practical way. 9s see the future and have great vision and need to surround themselves with those who can help them actually manifest these goals/dreams.\n"""
+
+#hid_pass_meaning(hid_pass)
+
+
+# definition of a function to calculate karmic number
+
+
+#cons_full_name = consonants(full_name, vowel)
+
+def karmic_calc(cons_full_name):
+    karmic = single_digit_uno(name_calc(cons_full_name))
+
+    return karmic
+
+#karmic = karmic_calc(cons_full_name)
+
+
+# definition of a function to display karmic meaning
+
+
+def karmic_meaning(karmic):
+    print """\nYour karmic number is {}. Karmic number reflects your subconscious and highlights your deepest fears and insecurities. It shows you what you need to work to overcome during this lifetime.\n
+It gives insights into hopes and dreams, as well as fears, to show you where to focus your energy for spiritual growth.\n""".format(karmic)
+
+    if karmic == 1:
+        print """\nThis number speaks of learning to be more independent and able to stand on your own. Karma number 1 can indicate a tendency to become too dependent on others.\n"""
+    elif karmic == 2:
+        print """\nThe karmic number 2 has to do with learning to trust your instincts and intuitions. You struggle with choices and need to learn to develop confidence in your decision making.\n"""
+    elif karmic == 3:
+        print """\nThe 3 karmic number must learn balance between work and play. Organization and managing one's time and resources effectively and efficiently can be a challenge for those with a 3 karma number.\n"""
+    elif karmic == 4:
+        print """\nThe 4 karmic number speaks of someone who may need to work harder than others at times in order to be successful. This number speaks of pushing oneself to new limits through effort and perseverance despite obstacles.\n"""
+    elif karmic == 5:
+        print """\nThe 5 karmic number points to a tendency towards overindulgence and addiction. It is very important for people with this karmic number to learn the true meaning of moderation and to avoid excesses in life which can quickly grow out of control.\n"""
+    elif karmic == 6:
+        print """\nThe 6 karmic number speaks of obligation and loyalty to family and domestic duties. People with this karma number often face challenges with certain family members and may also struggle with meeting familial obligations.\n"""
+    elif karmic == 7:
+        print """\nThe 7 karmic lesson number speaks of developing more spiritually and coming to a place where you feel ready and able to seek your own truth without being swayed by the judgements of others.\n"""
+    elif karmic == 8:
+        print """\nThis is the karmic card that deals with prosperity and abundance and learning to appreciate what one has been given. People with this karmic number often struggle with money in life until they learn to focus on gratitude and simple abundance, which in turn draw true prosperity.\n"""
+    else:
+        print """\nThis karmic number deals with learning to be more selfless and put others needs ahead of your own desires. 9 is the number of the humanitarian who is called in life to help the suffering and struggling. They often develop their empathy for others through difficult experiences of their own in life.\n"""
+
+#karmic_meaning(karmic)
 
 
 # definition of a function to display cornerstone/capstone meaning
@@ -629,54 +888,6 @@ def corn_cap(first_name):
 #corn_cap(first_name)
 
 
-# definition of a function to calculate hidden passion number
-
-
-def pass_calc(last_name, middle_name, first_name):
-    full_name = last_name + middle_name + first_name
-    for letter in range(len(full_name)):
-        partial_name = ((ord(full_name[letter]) - ord("a")) % 9) + 1
-
-    partial_name = str(partial_name)
-    hid_pass = int(max(partial_name, key=partial_name.count))
-
-    return hid_pass
-
-#hid_pass = pass_calc(last_name, middle_name, first_name)
-
-
-# definition of a function to display hidden passion meaning
-
-
-def hid_pass_meaning(hid_pass):
-    print """\nYour hidden passion number is {}. Hidden passion number defines your greatest natural talents, strengths and motivations. They are strengths that are readily available to you, that you can easily develop and use throughout your life.\n""".format(hid_pass)
-
-    if hid_pass == 1:
-        print """\nThis person is driven y a strong individualism and need to stand out in the crowd and get noticed. Ambitious and motivated, those with this hidden passion number are natural leaders.\n"""
-    elif hid_pass == 2:
-        print """\n2 people are natural peacemakers and negotiators who strive to create harmony in the family, workplace, and wherever they may go. People naturally gravitate to you because they feel a strong innate sense of trust.\n
-You are patient and persistent. 2 people are naturally inclined towards music and the arts.\n"""
-    elif hid_pass == 3:
-        print """\nThe 3 person is a natural born entertainer who is very social. You have a natural charm which is alluring to others. 3 people are naturally gifted creatively and are often multi-talented in various forms of art, music, writing, etc.\n"""
-    elif hid_pass == 4:
-        print """\n4 people are extremely diligent, determined hard-workers, and for this reason, they are capable of uilding great successes from the ground up. Practical, disciplined, and seen as a great provider or support sytem to others.\n
-You are "the rock" of your family/group. 4 people are very organized and efficient and need a sense of order in their lives.\n"""
-    elif hid_pass == 5:
-        print """5 is the number of those who love adventure and new experiences. People with this number love to indulge the senses and are natural communicators. Many are drawn to writing and other forms of communication.\n
-People with this number can be prone to being a it too impulsive at times and need to work to cultivate self-discipline. 5 people thrive on change in life and often struggle when they feel they have to "choose" one path.\n"""
-    elif hid_pass == 6:
-        print """\n6 people have a natural call to service and are often healers, counselors, teachers, etc. Responsile and self-sacrificing 6 people have an inner need to be recognized and valued by others in order to feel a strong sense of self-worth.\n"""
-    elif hid_pass == 7:
-        print """\n7 people are naturally intuitive and highly intelligent. They are the thinkers who seek the deeper meanings behind experience and are often drawn to philosophy, metaphysics, psychology and any area that explores the subconscious or hidden truths. 7 people are often sought out for their insight and keen understanding.\n"""
-    elif hid_pass == 8:
-        print """\n8people are natural salesmen and business people. They have an innate dirve that pushes them to accomplish great things. The right blend of vision and amition, people with an 8 passion are driven by material success and the need to compete with themselves and others. No other number is as energetic and motivated by winning/reaching goals.\n"""
-    else:
-        print """\n9 people are visionaries with a deep sense of humanitarianism. They have lofty ideals and strive to make their communities and even the world a better place.\n
-Highly emotional and idealistic, it can be difficult for 9s to bring their ideas down to earh in a more practical way. 9s see the future and have great vision and need to surround themselves with those who can help them actually manifest these goals/dreams.\n"""
-
-#hid_pass_meaning(hid_pass)
-
-
 # definition of a function to display main menu
 
 
@@ -742,13 +953,14 @@ def name_menu_choice():
 
 
 def challenge_exec_repl(single_day_uno, single_month_uno, single_year_uno):
+    # display purpose of challenge numbers
     challenge_intro()
 
     while True:
         # get choice from user from challenge menu
         choice = challenge_menu_choice()
 
-        if (choice < 0) or (choice > 4):
+        if not ((choice >= 0) and (choice <= 4)):
             # if choice was not on menu, note error
             print """\nPlease choose from the menu options.\n"""
         else:
@@ -783,9 +995,11 @@ def birthday_exec_repl():
     year = ask_year()
     month = ask_month()
     day = ask_day(year, month)
+    # calculate single digits master for year, month and day
     single_year_master = single_digit_master(year)
     single_month_master = single_digit_master(month)
     single_day_master = single_digit_master(day)
+    # calculate single digits for year, month and day
     single_year_uno = single_digit_uno(year)
     single_month_uno = single_digit_uno(month)
     single_day_uno = single_digit_uno(day)
@@ -794,7 +1008,7 @@ def birthday_exec_repl():
         # get choice from user from birthday menu
         choice = birthday_menu_choice()
 
-        if (choice < 0) or (choice > 4):
+        if not ((choice >= 0) and (choice <= 4)):
             # if choice was not on menu, note error
             print """\nPlease choose from the menu options.\n"""
         else:
@@ -825,15 +1039,35 @@ def name_exec_repl(birth_or_nick):
     last_name = ask_last_name(birth_or_nick)
     middle_name = ask_middle_name(birth_or_nick)
     first_name = ask_first_name(birth_or_nick)
+    # concatenate full name
+    full_name = last_name + middle_name + first_name
+    # calculate single digits master for first, middle and last names
     single_last_master = single_digit_master(name_calc(last_name))
     single_middle_master = single_digit_master(name_calc(middle_name))
     single_first_master = single_digit_master(name_calc(first_name))
+    # separate consonants only of first, middle and last names
+    cons_last_name = consonants(last_name, vowel)
+    cons_middle_name = consonants(middle_name, vowel)
+    cons_first_name = consonants(first_name, vowel)
+    cons_full_name = consonants(full_name, vowel)
+    # separate vowels only of first, middle and last names
+    vow_last_name = vowels(last_name, vowel)
+    vow_middle_name = vowels(middle_name, vowel)
+    vow_first_name = vowels(first_name, vowel)
+    # calculate single digits master of first, middle and last names by consonants only
+    single_cons_last_master = single_digit_master(name_calc(cons_last_name))
+    single_cons_middle_master = single_digit_master(name_calc(cons_middle_name))
+    single_cons_first_master = single_digit_master(name_calc(cons_first_name))
+    # calculate single digits master of first, middle and last names by vowels only
+    single_vow_last_master = single_digit_master(name_calc(vow_last_name))
+    single_vow_middle_master = single_digit_master(name_calc(vow_middle_name))
+    single_vow_first_master = single_digit_master(name_calc(vow_first_name))
 
     while True:
         # get choice from user from name menu
         choice = name_menu_choice()
 
-        if (choice < 0) or (choice > 6):
+        if not ((choice >= 0) and (choice <= 6)):
             # if choice was not on menu, note error
             print """\nPlease choose from the menu options.\n"""
         else:
@@ -845,18 +1079,21 @@ def name_exec_repl(birth_or_nick):
                 exp_dest = exp_calc(single_last_master, single_middle_master, single_first_master)
                 exp_dest_meaning(exp_dest)
             elif choice == 2:
-                # calculate and display meaning for soul urge number - STILL NEED TO CODE
-                continue
+                # calculate and display meaning for soul surge number
+                soul_surge = soul_surge_calc(single_vow_last_master, single_vow_middle_master, single_vow_first_master)
+                soul_surge_meaning(soul_surge)
             elif choice == 3:
-                # calculate and display meaning for personality number - STILL NEED TO CODE
-                continue
+                # calculate and display meaning for personality number
+                personality = personality_cal(single_cons_last_master, single_cons_middle_master, single_cons_first_master)
+                personality_meaning(personality)
             elif choice == 4:
                 # calculate and display meaning for hidden passion number
-                hid_pass = pass_calc(last_name, middle_name, first_name)
+                hid_pass = pass_calc(full_name)
                 hid_pass_meaning(hid_pass)
             elif choice == 5:
-                # calculate and display meaning for karmic number = STILL NEED TO CODE
-                continue
+                # calculate and display meaning for karmic number
+                karmic = karmic_calc(cons_full_name)
+                karmic_meaning(karmic)
             elif choice == 6:
                 corn_cap(first_name)
 
@@ -871,7 +1108,7 @@ def execute_repl():
         # get choice from user from main menu
         choice = main_menu_choice()
 
-        if (choice < 1) or (choice > 4):
+        if not ((choice >= 1) and (choice <= 4)):
             print """\nPlease choose from the menu options.\n"""
 
         if choice == 1:
