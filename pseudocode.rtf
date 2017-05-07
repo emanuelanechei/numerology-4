@@ -1,7 +1,7 @@
 {\rtf1\ansi\ansicpg1252\cocoartf1504\cocoasubrtf820
-{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
-{\colortbl;\red255\green255\blue255;}
-{\*\expandedcolortbl;;}
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\froman\fcharset0 Times-Roman;}
+{\colortbl;\red255\green255\blue255;\red0\green0\blue0;}
+{\*\expandedcolortbl;;\cssrgb\c0\c0\c0;}
 {\*\listtable{\list\listtemplateid1\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid1\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{hyphen\}}{\leveltext\leveltemplateid2\'01\uc0\u8259 ;}{\levelnumbers;}\fi-360\li1440\lin1440 }{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{hyphen\}}{\leveltext\leveltemplateid3\'01\uc0\u8259 ;}{\levelnumbers;}\fi-360\li2160\lin2160 }{\listname ;}\listid1}
 {\list\listtemplateid2\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid101\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid2}
 {\list\listtemplateid3\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid201\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid3}}
@@ -46,7 +46,32 @@ Nice to haves:\
 \cf0 \
 To go over with Sang:\
 \pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
-\ls3\ilvl0\cf0 {\listtext	\'95	}why does birthday def not end at break and go up to raw input of month again?\
-{\listtext	\'95	}name numerology - use definition to assign value to different letters?\
-{\listtext	\'95	}name numerology - how to know how many letters are in a word? using len function and then define variable as len - 1 in a loop?\
+\ls3\ilvl0\cf0 {\listtext	\'95	}sum only if consonants or vowels\'85perhaps create list of vowels.\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 \
+\pard\pardeftab720\sl280\partightenfactor0
+
+\f1 \cf2 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 def main(): \
+	VOWELS = "AEIOU" \
+	ans = "yes" \
+	\
+	# Allow multiple cases. \
+	while ans == "yes": \
+		mystr = input("Enter a word, all uppercase letters.\\n") \
+		# Pig Latin Rule - Find first vowel \
+		index = 0 while index < len(mystr) and (not mystr[index] in VOWELS): \
+			index = index+1 \
+		# Just add "way" to words that start with a vowel. \
+		if index == 0: \
+			print(mystr+"WAY") \
+		# Move first consonant cluster to end and add "ay" \
+		elif index < len(mystr): \
+			print(mystr[index:]+mystr[:index]+"AY") \
+		# If there are no vowels, just keep it as is!!! \
+		else: \
+			print(mystr) ans = input("Would you like to translate another word?\\n") \
+\
+main()
+\f0 \cf0 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 \
 }
