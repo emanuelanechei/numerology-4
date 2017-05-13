@@ -107,7 +107,8 @@ def ask_day(year, month, who):
 def single_digit_master(single_digit):
     # if digits are not 1-9, 11 or 22, continue to add individual digits together until total equals one of those options
     while True:
-        if ((single_digit >= 1) and (single_digit <= 9)) or (single_digit == 11) or (single_digit == 22):
+        #if ((single_digit >= 1) and (single_digit <= 9)) or (single_digit == 11) or (single_digit == 22):
+        if (single_digit <= 9) or (single_digit == 11) or (single_digit == 22):
             single_digit_master = single_digit
             break
         else:
@@ -125,7 +126,8 @@ def single_digit_master(single_digit):
 def single_digit_uno(single_digit):
     # if digits are not 1-9, continue to add individual digits together until total equals one of those options
     while True:
-        if (single_digit >= 1) and (single_digit <= 9):
+        #if (single_digit >= 1) and (single_digit <= 9):
+        if single_digit <= 9:
             single_digit_uno = single_digit
             break
         else:
@@ -509,7 +511,7 @@ def ask_partner():
 
 # definition of a function to obtain partner's birthday information and calculate life path number
 
-def partner_life_path():
+def partner_life_path(ind_life_path):
     # asks for partner's birthday
     year = ask_year("partner")
     month = ask_month("partner")
@@ -524,7 +526,7 @@ def partner_life_path():
     life_path = life_path_calc(single_year_master, single_month_master, single_day_master)
 
     # displays partner's life path number
-    print """\nYour partner's life path number is {}.\n""".format(life_path)
+    print """\nYour and your partner's life path numbers are {} and {}, respectively.\n""".format(ind_life_path, life_path)
 
     # calculates life path number to single digit
     partner_life_path = single_digit_uno(life_path)
@@ -534,7 +536,7 @@ def partner_life_path():
 
 # definition of a function to obtain partner's name information and calculate expression number
 
-def partner_exp_dest():
+def partner_exp_dest(ind_exp_dest):
     # asks for partner's birthday
     last_name = clean_name(ask_last_name("partner"))
     middle_name = clean_name(ask_middle_name("partner"))
@@ -549,7 +551,7 @@ def partner_exp_dest():
     exp_dest = exp_calc(single_last_master, single_middle_master, single_first_master)
 
     # displays partner's expression (destiny) number
-    print """\nYour partner's expression (destiny) number is {}.\n""".format(exp_dest)
+    print """\nYour and your partner's expression (destiny) numbers are {} and {}, respectively.\n""".format(ind_exp_dest, exp_dest)
 
     # calculates expression (destiny) number to single digit
     partner_exp_dest = single_digit_uno(exp_dest)
@@ -715,8 +717,8 @@ def birthday_exec_repl(year, month, day):
 
 
 def name_exec_repl(last, middle, first):
-    # concatenate full name
-    full_name = last + middle.strip("0") + first
+    # concatenate full name (maybe use strip function if "0" used for blank names but it seems to not work)
+    full_name = last + middle + first
 
     # calculate single digits master for first, middle and last names
     single_last_master = single_digit_master(name_calc(last))
@@ -825,10 +827,10 @@ def compatibility_exec_repl(year, month, day, last, middle, first):
                     # return to main menu
                     break
                 elif choice == 1:
-                    partner_life_uno = partner_life_path()
+                    partner_life_uno = partner_life_path(life_path)
                     comp_life_meaning(life_path_uno, partner_life_uno)
                 elif choice == 2:
-                    partner_exp_uno = partner_exp_dest()
+                    partner_exp_uno = partner_exp_dest(exp_dest)
                     comp_exp_meaning(exp_dest_uno, partner_exp_uno)
 
 
