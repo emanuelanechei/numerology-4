@@ -13,17 +13,21 @@ It is similar to astrology, and often associated with the belief in the divine, 
 
 def ask_year(who):
     # asks individual for birth year, with error message for any response that are not integers
-    while True:
-        if who == "partner":
+    if who == "partner":
+        while True:
             year = raw_input("\nInput your partner's year of birth: ")
-        else:
-            year = raw_input("\nInput your year of birth: ")
-
             if not year.isdigit():
                 print "Please input the year based on the Gregorian calendar."
             else:
                 year = int(year)
-
+                return year
+    else:
+        while True:
+            year = raw_input("\nInput your year of birth: ")
+            if not year.isdigit():
+                print "Please input the year based on the Gregorian calendar."
+            else:
+                year = int(year)
                 return year
 
 
@@ -32,19 +36,25 @@ def ask_year(who):
 
 def ask_month(who):
     # asks individual for birth month, with error message for any response that is not within month numbers of 1 to 12
-    while True:
-        if who == "partner":
+    if who == "partner":
+        while True:
             month = raw_input("Input your partner's month (1-12) of birth: ")
-        else:
-            month = raw_input("Input your month (1-12) of birth: ")
-
             if not month.isdigit():
                 print "Please input the numerical value of the month."
             elif (int(month) < 1) or (int(month) > 12):
                 print "That may be a month on Mars, but not on Earth!"
             else:
                 month = int(month)
-
+                return month
+    else:
+        while True:
+            month = raw_input("Input your month (1-12) of birth: ")
+            if not month.isdigit():
+                print "Please input the numerical value of the month."
+            elif (int(month) < 1) or (int(month) > 12):
+                print "That may be a month on Mars, but not on Earth!"
+            else:
+                month = int(month)
                 return month
 
 
@@ -53,12 +63,27 @@ def ask_month(who):
 
 def ask_day(year, month, who):
     # asks individual for birth day, with various error messages for days that do not match the respective month, as well as adjusting February for leap years
-    while True:
-        if who == "partner":
+    if who == "partner":
+        while True:
             day = raw_input("Input your partner's day of birth: ")
-        else:
+            if not day.isdigit():
+                print "Please input the numerical value of the day."
+            else:
+                day = int(day)
+                if (month in [1, 3, 5, 7, 8, 10, 12]) and ((day < 1) or (day > 31)):
+                    print "That may be a day on Jupiter, but not on Earth!"
+                elif (month in [4, 6, 9, 11]) and ((day < 1) or (day > 30)):
+                    print "That may be a day on Saturn, but not on Earth!"
+                elif (month == 2) and (((year % 100 == 0) and (year % 400 == 0)) or ((year % 4 == 0) and (year % 100 != 0))) and ((day < 1) or (day > 29)):
+                    # for leap year, if divisible by 100 but not 400, then not leap year. otherwise, divisible by 4.
+                    print "You took a flying leap off of Pluto!"
+                elif (month == 2) and ((year % 4 != 0) or ((year % 4 == 0) and (year % 100 == 0))) and ((day < 1) or (day > 28)):
+                    print "That may be a day on Venus, but not on Earth!"
+                else:
+                    return day
+    else:
+        while True:
             day = raw_input("Input your day of birth: ")
-
             if not day.isdigit():
                 print "Please input the numerical value of the day."
             else:
@@ -82,7 +107,7 @@ def ask_day(year, month, who):
 def single_digit_master(single_digit):
     # if digits are not 1-9, 11 or 22, continue to add individual digits together until total equals one of those options
     while True:
-        if (single_digit < 10) or (single_digit == 11) or (single_digit == 22):
+        if ((single_digit >= 1) and (single_digit <= 9)) or (single_digit == 11) or (single_digit == 22):
             single_digit_master = single_digit
             break
         else:
@@ -100,7 +125,7 @@ def single_digit_master(single_digit):
 def single_digit_uno(single_digit):
     # if digits are not 1-9, continue to add individual digits together until total equals one of those options
     while True:
-        if (single_digit < 10):
+        if (single_digit >= 1) and (single_digit <= 9):
             single_digit_uno = single_digit
             break
         else:
@@ -184,7 +209,8 @@ Many of them are 'wounded healers' who at some point in their life suffer a deva
 The company you keep (8%): Ronald Reagan, Michael Jordan, Wolfgang Amadeus Mozart, Bill Clinton, Edgar Allan Poe, Robert Downey Jr.\n"""
     else:
         print """\nYou are a master builder. The strongest of the life path numbers, the 22 carries great potential, but also great weight and responsibility. This number represents those who can be master builders and visionaries, who can rally around a cause and bring people together for the common good.\n
-Those with this life path often face weighty decisions at several points in their life where they must embrace the crossroads with confidence and make a choice. Those who are not fully in tune with this higher vibration may find they struggle with choice in life and must work to take the path that challenges them over the path of least resistence. Sometimes they display what looks like insensitivity but actually they are just very focused on their goals. This is part of a spiritual directive to be detached from objects and the outcomes of events.\n
+Those with this life path often face weighty decisions at several points in their life where they must embrace the crossroads with confidence and make a choice. Those who are not fully in tune with this higher vibration may find they struggle with choice in life and must work to take the path that challenges them over the path of least resistence.\n
+Sometimes they display what looks like insensitivity but actually they are just very focused on their goals. This is part of a spiritual directive to be detached from objects and the outcomes of events.\n
 Twenty-two life path people who push themselves and embrace change can live truly astounding, creative lives.\n
 The company you keep (5%): Tina Fey, Dalai Lama, Paul McCartney, Matthew McConaughey, Will Smith, Tupac Shakur\n"""
 
@@ -417,15 +443,24 @@ This cycle rings the strong desire to make changes, to clear away areas that are
 
 def ask_last_name(birth_or_nick):
     # asks individual for last name, with error for integers
-    while True:
-        # gives option for individual to provide birth name vs. common (nick) name
-        if birth_or_nick == "birth":
+    # gives option for individual to provide birth name vs. common (nick) name, includes option for partner input
+    if birth_or_nick == "birth":
+        while True:
             last_name = raw_input("\nInput your family (last) name at birth: ")
-        elif birth_or_nick == "partner":
+            if last_name.isdigit():
+                print "Your parents named you a number?"
+            else:
+                return last_name
+    elif birth_or_nick == "partner":
+        while True:
             last_name = raw_input("\nInput your partner's family (last) name: ")
-        else:
+            if last_name.isdigit():
+                print "Your parents named you a number?"
+            else:
+                return last_name
+    else:
+        while True:
             last_name = raw_input("\nInput your family (last) name: ")
-
             if last_name.isdigit():
                 print "Your parents named you a number?"
             else:
@@ -437,15 +472,24 @@ def ask_last_name(birth_or_nick):
 
 def ask_middle_name(birth_or_nick):
     # asks individual for middle name, with error for integers
-    while True:
-        # gives option for individual to provide birth name vs. common (nick) name
-        if birth_or_nick == "birth":
+    # gives option for individual to provide birth name vs. common (nick) name, includes option for partner input
+    if birth_or_nick == "birth":
+        while True:
             middle_name = raw_input("Input your middle name at birth: ")
-        elif birth_or_nick == "partner":
+            if middle_name.isdigit():
+                print "Your parents named you a number?"
+            else:
+                return middle_name
+    elif birth_or_nick == "partner":
+        while True:
             middle_name = raw_input("Input your partner's middle name: ")
-        else:
+            if middle_name.isdigit():
+                print "Your parents named you a number?"
+            else:
+                return middle_name
+    else:
+        while True:
             middle_name = raw_input("Input your middle name: ")
-
             if middle_name.isdigit():
                 print "Your parents named you a number?"
             else:
@@ -457,15 +501,24 @@ def ask_middle_name(birth_or_nick):
 
 def ask_first_name(birth_or_nick):
     # asks individual for first name, with error for integers
-    while True:
-        # gives option for individual to provide birth name vs. common (nick) name
-        if birth_or_nick == "birth":
+    # gives option for individual to provide birth name vs. common (nick) name, includes option for partner input
+    if birth_or_nick == "birth":
+        while True:
             first_name = raw_input("Input your first (given) name at birth: ")
-        elif birth_or_nick == "partner":
+            if first_name.isdigit():
+                print "Your parents named you a number?"
+            else:
+                return first_name
+    elif birth_or_nick == "partner":
+        while True:
             first_name = raw_input("Input your partner's first name: ")
-        else:
+            if first_name.isdigit():
+                print "Your parents named you a number?"
+            else:
+                return first_name
+    else:
+        while True:
             first_name = raw_input("Input your first (nick) name: ")
-
             if first_name.isdigit():
                 print "Your parents named you a number?"
             else:
@@ -602,54 +655,54 @@ def vowels(name, vowel):
 # definition of a function to calculate soul surge number
 
 
-def soul_surge_calc(single_vow_last_master, single_vow_middle_master, single_vow_first_master):
+def soul_urge_calc(single_vow_last_master, single_vow_middle_master, single_vow_first_master):
     # takes each category of last, middle and first names after it has been sum to 1-9, 11 or 22 based on vowels only and then adds the three variables together
-    soul_surge_raw = single_vow_last_master + single_vow_middle_master + single_vow_first_master
+    soul_urge_raw = single_vow_last_master + single_vow_middle_master + single_vow_first_master
     # the individual digits of the result are then added together until it equals 1-9, 11 or 22
-    soul_surge = single_digit_master(soul_surge_raw)
+    soul_urge = single_digit_master(soul_surge_raw)
 
-    return soul_surge
+    return soul_urge
 
 
 # definition of a function to display soul surge meaning
 
 
-def soul_surge_meaning(soul_surge):
+def soul_urge_meaning(soul_urge):
     # displays objective of soul surge number
-    print """\nYour soul surge number is {}. Soul surge number defines your reason for being and what gives you true fulfillment - your very essence or heart's desire.\n""".format(soul_surge)
+    print """\nYour soul urge number is {}. Soul urge number defines your reason for being and what gives you true fulfillment - your very essence or heart's desire.\n""".format(soul_urge)
 
     # display meaning of soul surge number calculation
-    if soul_surge == 1:
-        print """\nYour soul surge is to be the best. As you believe you are directly connected to a higher power, you just can't bear it when you let yourself and others down. In your universe you are the sun, and everything and everybody else rotates around you. You live to be the center of attention.\n
+    if soul_urge == 1:
+        print """\nYour soul urge is to be the best. As you believe you are directly connected to a higher power, you just can't bear it when you let yourself and others down. In your universe you are the sun, and everything and everybody else rotates around you. You live to be the center of attention.\n
 One of your soul lessons might be to recognize that 'to rule is truly to serve'.\n"""
-    elif soul_surge == 2:
-        print """\nYour soul surge is to be admired and loved by all. The height of personal gratification for you is to be desired by a special someone. You have an enormous faith in other people, and if they do let you down, you tend to behave as if it's the end of the world.\n
+    elif soul_urge == 2:
+        print """\nYour soul urge is to be admired and loved by all. The height of personal gratification for you is to be desired by a special someone. You have an enormous faith in other people, and if they do let you down, you tend to behave as if it's the end of the world.\n
 One of your soul challenges is to realize that only the divine is perfect, and others are not god-like in their actions.\n"""
-    elif soul_surge == 3:
-        print """\nYour soul surge is about the cultivation and expression of your personality. Usually this energy manifests as a great achievement in the theatrical or atistic world. You shine at any kind of activity that involves public performance including acting, singing or politics.\n
+    elif soul_urge == 3:
+        print """\nYour soul urge is about the cultivation and expression of your personality. Usually this energy manifests as a great achievement in the theatrical or atistic world. You shine at any kind of activity that involves public performance including acting, singing or politics.\n
 You desire to be admired for your craft, and one of your soul challenges might be to recognize that there will always be a critic.\n"""
-    elif soul_surge == 4:
+    elif soul_urge == 4:
         print """\nStability, beauty and order satiate your soul. You find a zen-life satisfaction in performing the simplest of repetitive chores as you feel closest to the divine when you are restoring harmony to unbalanced situations. You are a perfectionist that loves art and design.\n
 One of the challenges of your number is that sometimes others don't understand your need for everything to be perfect and see you as controlling.\n"""
-    elif soul_surge == 5:
+    elif soul_urge == 5:
         print """\nChange rules the fires of your inner passions. You have an inquisitive mind and a thirst for adventure that is only satisifed by the collecting of unusual experiences and plenty of travel. You appreciate the fact that life is short and are bound and determined to make the most of every minute you have on this earth.\n
 One of the challenges of this soul number is setting down real roots and foundations in life.\n"""
-    elif soul_surge == 6:
-        print """\nYour soul surge is to nurture and take care of others. You love people and believe the greatest expression of your inner divinitiy is through teaching and guidance. You are happiest when you see the positive results of your influence blossom in other people. However, you also have a tendency to become very attached to a perceived soulmate.\n
+    elif soul_urge == 6:
+        print """\nYour soul urge is to nurture and take care of others. You love people and believe the greatest expression of your inner divinitiy is through teaching and guidance. You are happiest when you see the positive results of your influence blossom in other people. However, you also have a tendency to become very attached to a perceived soulmate.\n
 One of your challenges is to learn to 'let go' when relationships end.\n"""
-    elif soul_surge == 7:
+    elif soul_urge == 7:
         print """\nThe highest calling of your soul is to learn about everything scientific and esoteric. It is knowledge that feeds your soul. You love to read, and subjects such as history, science, metaphysics, physics, archaeology and religion fuel your rich imagination with inspiration and ideas.\n
 Many of you are geniuses, and because of this, one of the challenges of your number is to be understood by a stupid world.\n"""
-    elif soul_surge == 8:
-        print """\nYour soul surge is to 'go forth and multiply' especially when it comes to family dynasties and aggregating wealth. The highest expression of your soul surge number is when you are in power and improving the lives of those that work for you or love you. You support anything that brings beauty, meaning and profit to the world.\n
+    elif soul_urge == 8:
+        print """\nYour soul urge is to 'go forth and multiply' especially when it comes to family dynasties and aggregating wealth. The highest expression of your soul urge number is when you are in power and improving the lives of those that work for you or love you. You support anything that brings beauty, meaning and profit to the world.\n
 The challenge of this number is to realize that 'money isn't everything'.\n"""
-    elif soul_surge == 9:
+    elif soul_urge == 9:
         print """\nThe highest expression of your soul's surge is to connect in a mystical way with others. Although your aspirations are lofty, you are also a humanitarian who is often gifted with a sharp intuition and keep analytical skills. Your fatih in yourself, the divine and the future is so strong that you live by your convictions.\n
 Your challenge in life is to be understood as more than a fanatic or flake by others who may not understand your idealism.\n"""
-    elif soul_surge == 11:
+    elif soul_urge == 11:
         print """\nYour soul's purpose is to manifest ideals into reality. Your highest calling is to become the master of a religion or of a spiritual realm. You are the ultimate seeker of truth and will go to any lengths to find a spiritual teacher or guru.\n
 This search often leads you on a path that is full of many pitfalls and disappointments as you realize that one spiritual system doesn't work for you or that a guru or teacher is only human after all.\n"""
-    else:
+    elif soul_urge == 22:
         print """\nYou have the highest soul calling of all of the numbers, as it is the call to transform the world permanently and for the better. Usually you are born with all of the tools that you need to accomplish this including a stable personality, intelligence, courage and charisma.\n
 Perhaps the most healing thing for your soul is simply to read out loud the words of ancient texts as these writings resonate very strongly with the noblest apsirations of your higher self.\n"""
 
@@ -1454,7 +1507,7 @@ def birthday_exec_repl(year, month, day):
 
 def name_exec_repl(last, middle, first):
     # concatenate full name
-    full_name = last + middle + first
+    full_name = last + middle.strip("0") + first
 
     # calculate single digits master for first, middle and last names
     single_last_master = single_digit_master(name_calc(last))
@@ -1499,8 +1552,8 @@ def name_exec_repl(last, middle, first):
                 exp_dest_meaning(exp_dest)
             elif choice == 2:
                 # calculates and display meaning for soul surge number
-                soul_surge = soul_surge_calc(single_vow_last_master, single_vow_middle_master, single_vow_first_master)
-                soul_surge_meaning(soul_surge)
+                soul_urge = soul_urge_calc(single_vow_last_master, single_vow_middle_master, single_vow_first_master)
+                soul_urge_meaning(soul_urge)
             elif choice == 3:
                 # calculates and display meaning for personality number
                 personality = personality_cal(single_cons_last_master, single_cons_middle_master, single_cons_first_master)
@@ -1583,15 +1636,27 @@ def execute_repl():
     # ask user for birth name information
     last_name = clean_name(ask_last_name("birth"))
     middle_name = clean_name(ask_middle_name("birth"))
+    # clean function strips name of all spaces so separating first_name variables so that it could be use for exit greeting
     first_name = ask_first_name("birth")
     clean_first_name = clean_name(first_name)
+
+    #error occurs if middle name is blank so temporary fix
+    if middle_name == :
+        middle_name = "0"
+    else:
+        middle_name
 
     # ask user for common (nick) name information, if applicable
     nick_name = ask_nick_name()
     if nick_name == "y":
-        nick_last_name = ask_last_name("nick")
-        nick_middle_name = ask_middle_name("nick")
-        nick_first_name = ask_first_name("nick")
+        nick_last_name = clean_name(ask_last_name("nick"))
+        nick_middle_name = clean_name(ask_middle_name("nick"))
+        nick_first_name = clean_name(ask_first_name("nick"))
+        # error occurs if middle name is blank so temporary fix
+        if nick_middle_name == "":
+            nick_middle_name = "0"
+        else:
+            nick_middle_name
 
     while True:
         # gets choice from user from main menu
