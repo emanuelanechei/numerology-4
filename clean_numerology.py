@@ -11,57 +11,69 @@ It is similar to astrology, and often associated with the belief in the divine, 
 # definition of function for birth year
 
 
-def ask_year():
+def ask_year(who):
     # asks individual for birth year, with error message for any response that are not integers
     while True:
-        year = raw_input("\nInput your year of birth: ")
-        if not year.isdigit():
-            print "Please input the year based on the Gregorian calendar."
+        if who == "partner":
+            year = raw_input("\nInput your partner's year of birth: ")
         else:
-            year = int(year)
+            year = raw_input("\nInput your year of birth: ")
 
-        return year
+            if not year.isdigit():
+                print "Please input the year based on the Gregorian calendar."
+            else:
+                year = int(year)
+
+                return year
 
 
 # definition of function for birth month
 
 
-def ask_month():
+def ask_month(who):
     # asks individual for birth month, with error message for any response that is not within month numbers of 1 to 12
     while True:
-        month = raw_input("Input your month (1-12) of birth: ")
-        if not month.isdigit():
-            print "Please input the numerical value of the month."
-        elif (int(month) < 1) or (int(month) > 12):
-            print "That may be a month on Mars, but not on Earth!"
+        if who == "partner":
+            month = raw_input("Input your partner's month (1-12) of birth: ")
         else:
-            month = int(month)
+            month = raw_input("Input your month (1-12) of birth: ")
 
-        return month
+            if not month.isdigit():
+                print "Please input the numerical value of the month."
+            elif (int(month) < 1) or (int(month) > 12):
+                print "That may be a month on Mars, but not on Earth!"
+            else:
+                month = int(month)
+
+                return month
 
 
 # definition of function for birth day
 
 
-def ask_day(year, month):
+def ask_day(year, month, who):
     # asks individual for birth day, with various error messages for days that do not match the respective month, as well as adjusting February for leap years
     while True:
-        day = raw_input("Input your day of birth: ")
-        if not day.isdigit():
-            print "Please input the numerical value of the day."
+        if who == "partner":
+            day = raw_input("Input your partner's day of birth: ")
         else:
-            day = int(day)
-            if (month in [1, 3, 5, 7, 8, 10, 12]) and ((day < 1) or (day > 31)):
-                print "That may be a day on Jupiter, but not on Earth!"
-            elif (month in [4, 6, 9, 11]) and ((day < 1) or (day > 30)):
-                print "That may be a day on Saturn, but not on Earth!"
-            elif (month == 2) and (((year % 100 == 0) and (year % 400 == 0)) or ((year % 4 == 0) and (year % 100 != 0))) and ((day < 1) or (day > 29)):
-                # for leap year, if divisible by 100 but not 400, then not leap year. otherwise, divisible by 4.
-                print "You took a flying leap off of Pluto!"
-            elif (month == 2) and ((year % 4 != 0) or ((year % 4 == 0) and (year % 100 == 0))) and ((day < 1) or (day > 28)):
-                print "That may be a day on Venus, but not on Earth!"
+            day = raw_input("Input your day of birth: ")
 
-        return day
+            if not day.isdigit():
+                print "Please input the numerical value of the day."
+            else:
+                day = int(day)
+                if (month in [1, 3, 5, 7, 8, 10, 12]) and ((day < 1) or (day > 31)):
+                    print "That may be a day on Jupiter, but not on Earth!"
+                elif (month in [4, 6, 9, 11]) and ((day < 1) or (day > 30)):
+                    print "That may be a day on Saturn, but not on Earth!"
+                elif (month == 2) and (((year % 100 == 0) and (year % 400 == 0)) or ((year % 4 == 0) and (year % 100 != 0))) and ((day < 1) or (day > 29)):
+                    # for leap year, if divisible by 100 but not 400, then not leap year. otherwise, divisible by 4.
+                    print "You took a flying leap off of Pluto!"
+                elif (month == 2) and ((year % 4 != 0) or ((year % 4 == 0) and (year % 100 == 0))) and ((day < 1) or (day > 28)):
+                    print "That may be a day on Venus, but not on Earth!"
+                else:
+                    return day
 
 
 # definition of function to calculate various items to single digit or master numbers of 11 or 22
@@ -82,13 +94,6 @@ def single_digit_master(single_digit):
     return single_digit_master
 
 
-# calculates individual single master digits for year, month and day
-
-#single_year_master = single_digit_master(year)
-#single_month_master = single_digit_master(month)
-#single_day_master = single_digit_master(day)
-
-
 # definition of function to calculate various items to single digit
 
 
@@ -105,13 +110,6 @@ def single_digit_uno(single_digit):
             single_digit = partial_sum
 
     return single_digit_uno
-
-
-# calculates individual single digits for year, month and day
-
-#single_year_uno = single_digit_uno(year)
-#single_month_uno = single_digit_uno(month)
-#single_day_uno = single_digit_uno(day)
 
 
 # definition of function to calculate life path number
@@ -423,19 +421,15 @@ def ask_last_name(birth_or_nick):
         # gives option for individual to provide birth name vs. common (nick) name
         if birth_or_nick == "birth":
             last_name = raw_input("\nInput your family (last) name at birth: ")
+        elif birth_or_nick == "partner":
+            last_name = raw_input("\nInput your partner's family (last) name: ")
         else:
             last_name = raw_input("\nInput your family (last) name: ")
 
-        if last_name.isdigit():
-            print "Your parents named you a number?"
-        else:
-            # cleans input for case sensitivities as well as for spaces, hyphenated names or abbreviations (e.g., Jr.)
-            last_name = last_name.lower()
-            last_name = last_name.replace("-", "")
-            last_name = last_name.replace(".", "")
-            last_name = last_name.replace(" ", "")
-
-        return last_name
+            if last_name.isdigit():
+                print "Your parents named you a number?"
+            else:
+                return last_name
 
 
 # definition of function for middle name
@@ -447,19 +441,15 @@ def ask_middle_name(birth_or_nick):
         # gives option for individual to provide birth name vs. common (nick) name
         if birth_or_nick == "birth":
             middle_name = raw_input("Input your middle name at birth: ")
+        elif birth_or_nick == "partner":
+            middle_name = raw_input("Input your partner's middle name: ")
         else:
             middle_name = raw_input("Input your middle name: ")
 
-        if middle_name.isdigit():
-            print "Your parents named you a number?"
-        else:
-            # cleans input for case sensitivities as well as for spaces, hyphenated names or abbreviations (e.g., Jr.)
-            middle_name = middle_name.lower()
-            middle_name = middle_name.replace("-", "")
-            middle_name = middle_name.replace(".", "")
-            middle_name = middle_name.replace(" ", "")
-
-        return middle_name
+            if middle_name.isdigit():
+                print "Your parents named you a number?"
+            else:
+                return middle_name
 
 
 # definition of function for first name
@@ -471,19 +461,27 @@ def ask_first_name(birth_or_nick):
         # gives option for individual to provide birth name vs. common (nick) name
         if birth_or_nick == "birth":
             first_name = raw_input("Input your first (given) name at birth: ")
+        elif birth_or_nick == "partner":
+            first_name = raw_input("Input your partner's first name: ")
         else:
             first_name = raw_input("Input your first (nick) name: ")
 
-        if first_name.isdigit():
-            print "Your parents named you a number?"
-        else:
-            # cleans input for case sensitivities as well as for spaces, hyphenated names or abbreviations (e.g., Jr.)
-            first_name = first_name.lower()
-            first_name = first_name.replace("-", "")
-            first_name = first_name.replace(".", "")
-            first_name = first_name.replace(" ", "")
+            if first_name.isdigit():
+                print "Your parents named you a number?"
+            else:
+                return first_name
 
-        return first_name
+
+# definition of function to clean name for miscellaneous characters that are non part of alphabet and case sensitivities
+
+
+def clean_name(name):
+    # cleans input for case sensitivities as well as for spaces, hyphenated names or abbreviations (e.g., Jr.)
+    name = name.lower()
+    name = name.replace("-", "")
+    name = name.replace(".", "")
+    name = name.replace(" ", "")
+    return name
 
 
 # definition of function for common (nick) name
@@ -492,7 +490,7 @@ def ask_nick_name():
     # asks individual if he/she has common (nick) name
     while True:
         # asks individual if he/she goes by another name
-        nick_raw = raw_input("Do you go by another name (e.g., nickname)? (Y/N): ")
+        nick_raw = raw_input("\nDo you go by another name (e.g., nickname)? (Y/N): ")
         nick_raw = nick_raw.lower()
 
         if not ((nick_raw == "y") or (nick_raw == "n")):
@@ -513,15 +511,6 @@ def name_calc(name):
     name_value = partial_sum
 
     return name_value
-
-
-# calculate single master digits for first, middle and last names
-
-#single_last_master = single_digit_master(name_calc(last_name))
-#single_middle_master = single_digit_master(name_calc(middle_name))
-#single_first_master = single_digit_master(name_calc(first_name))
-
-#print single_last_master, single_middle_master, single_first_master
 
 
 # definition of a function to calculate expression/destiny number
@@ -608,28 +597,6 @@ def vowels(name, vowel):
             vow_name = vow_name.replace(letter, "")
 
     return vow_name
-
-
-# separate first, middle and last names between consonants and vowels only
-
-#cons_last_name = consonants(last_name, vowel)
-#cons_middle_name = consonants(middle_name, vowel)
-#cons_first_name = consonants(first_name, vowel)
-
-#vow_last_name = vowels(last_name, vowel)
-#vow_middle_name = vowels(middle_name, vowel)
-#vow_first_name = vowels(first_name, vowel)
-
-
-# calculate single master digits for first, middle and last names by consonants or vowels only
-
-#single_cons_last_master = single_digit_master(name_calc(cons_last_name))
-#single_cons_middle_master = single_digit_master(name_calc(cons_middle_name))
-#single_cons_first_master = single_digit_master(name_calc(cons_first_name))
-
-#single_vow_last_master = single_digit_master(name_calc(vow_last_name))
-#single_vow_middle_master = single_digit_master(name_calc(vow_middle_name))
-#single_vow_first_master = single_digit_master(name_calc(vow_first_name))
 
 
 # definition of a function to calculate soul surge number
@@ -744,8 +711,6 @@ The person with a 22 personality number often does not give him/herself enough c
 # definition of a function to calculate hidden passion number
 
 
-#full_name = last_name + middle_name + first_name
-
 def pass_calc(name):
     # assigns each letter a numerical value from 1-9 and determines the number that is the most repetitive
     for letter in range(len(name)):
@@ -791,8 +756,6 @@ Highly emotional and idealistic, it can be difficult for 9s to bring their ideas
 
 # definition of a function to calculate karmic number
 
-
-#cons_full_name = consonants(full_name, vowel)
 
 def karmic_calc(cons_full_name):
     # strips full name of consonants only, converts into numerical value based on sum of each individual letter (assigned a numerical value from 1-9), and sum digits down to 1-9
@@ -899,10 +862,10 @@ def corn_cap(first_name):
 
     print """\nCornerstone gives insight into how you approach challenges in life and how you master situations. Capstone gives insight into how you make transitions in your life, how you finish projects or move from one thing into another.\n"""
 
-    print """Your cornerstone ({}): """.format(cornerstone.upper)
+    print """Your cornerstone ({}): """.format(cornerstone.upper())
     cc_meaning(cornerstone)
 
-    print """Your capstone ({}): """.format(capstone.upper)
+    print """Your capstone ({}): """.format(capstone.upper())
     cc_meaning(capstone)
 
     return cornerstone, capstone
@@ -915,7 +878,7 @@ def ask_partner():
     # asks individual if he/she has a partner in mind
     while True:
         # asks individual if he/she has a specific partner
-        partner_raw = raw_input("Do you currently have a specific partner that you would like to assess? (Y/N): ")
+        partner_raw = raw_input("\nDo you currently have a specific partner that you would like to assess? (Y/N): ")
         partner_raw = partner_raw.lower()
 
         if not ((partner_raw == "y") or (partner_raw == "n")):
@@ -998,7 +961,7 @@ Despite the positive aspects, there are some pitfalls they have to be careful ab
         print """\nThe compatibility of these two numbers is about as good as it gets. There will never be any danger of boredom, complacency, or emptiness in a relationship that has heads turning and people whispering.\n
 Both of these numbers like to have a lot of freedom in a relationship, and the one real threat is they try to impose their will on one another. The personality traits in this combination can both create and destroy, but like wind and fire, the 1 and 5 feed on each other and respect each other's powers, and when they set out side by side to fulfill their goals and dreams, nothing can withstand their combined forces.\n
 This is a relationship of intensity and moments of rarely achieved highs, where the promise of ecstatic experiences of love, spiritual bonding and shared dreams is very real.\n"""
-    elif (life_path_1 and life_path_2) == 2:
+    elif life_path_1 == life_path_2 == 2:
         print """\nThis is a great match of two souls who have a healthy respect for the power of feelings and emotions. You should have little difficulty finding common ground on just about any issue that might arise.\n
 The only word of caution for this pairing is that as two people who feel and experience emotions strongly, they must each remember how thin their own skin and realize how vulnerable you both are to criticism. You may need to consciously work on this in order to prevent verbal injury to one other.\n
 Generally this is not a problem because of your mutual respect and the ability to relate to each other's emotional experiences.\n"""
@@ -1017,18 +980,18 @@ This is a couple that knows how to build for the future and develop a very secur
     elif ((life_path_1 == 5) and (life_path_2 == 7)) or ((life_path_1 == 7) and (life_path_2 == 5)):
         print """\nThis is a combination of two numbers that can fulfill each other's needs and desires in many ways. The 7 enjoys its alone time, and the 5 is a busy body that appreciates the lack of demands for attention from its partner.\n
 When together, the pairing is able to find a stream of mutual interests to discuss and explore, particularly on the intellectual and spiritual planes, making this one of the best combinations for a long lasting relationship.\n"""
-    elif (life_path_1 and life_path_2) == 6:
+    elif life_path_1 == life_path_2 == 6:
         print """\nThis is a very good, highly committed number pairing. Just like in any other relationship, there will come a time when obstacles will need to be overcome; however, because of the harmonious and loving nature of the 6, this is a combination charged with romance, and one that has a very good chance to form a strong, long lasting romantic relationship.\n"""
     elif ((life_path_1 == 6) and (life_path_2 == 9)) or ((life_path_1 == 9) and (life_path_2 == 6)):
         print """\nWhen 6 and 9 are found between two partners, the compatibility is usually very good. It is important that your respective negative traits aren't allow to grow and fester, creating an environment where you are more likely to clash.\n
 The give and take compromise is something you will need to do, in order to prevent unnecessary arguments from escalating, but because both of you are self-sacrificing, caring people, this is something that is not hard for either of you to do. Overall this is a highly compatible match.\n"""
-    elif (life_path_1 and life_path_2) == 7:
+    elif life_path_1 == life_path_2 == 7:
         print """\nNo one understands the psyche of a 7 nearly as well as another 7. This is an excellent combination of two people who take life's mysteries seriously. With the right attitude, you will happily explore the world, or spend quiet days in solitude together.\n
 This is a beautiful pairing with potential for spiritual growth for both partners, and one where the term 'soul mates' often applies.\n"""
-    elif (life_path_1 and life_path_2) == 8:
+    elif life_path_1 == life_path_2 == 8:
         print """\nThis is a good pairing, not only in romance, but also in business. Having two 8s in a relationship puts each of you in a position where you are well suited to support each other.\n
 The pitfalls arise when you find yourselves competing with one another, or when you are both financially strapped. If you are able to unite your competitive natures against other forces, and follow your heart and intuition in the pursuit of success, this pairing has a strong chance of a long and happy relationship.\n"""
-    elif (life_path_1 and life_path_2) == 9:
+    elif life_path_1 == life_path_2 == 9:
         print """\nThe compatibility between two 9s is excellent, and offers much promise for a very happy, inspiring, and engaging relationship.\n
 The many similarities, coupled with the selfless nature of the 9, make for a combination that faces very few challenges. Despite some pitfalls that may exist, this number set has great potential to form an unbreakable bond ... one that will not weaken over time.\n"""
     # the following are "ok" pairings
@@ -1043,7 +1006,7 @@ Their priorities differ and if they are able to keep an eye open for their diffe
     elif ((life_path_1 == 2) and (life_path_2 == 6)) or ((life_path_1 == 6) and (life_path_2 == 2)):
         print """\nThis is in general a good compatibility match. The 6's priorities lie with family, to care for and comfort your loved ones, while the 2 is a sensitive, emotionally aware number, enabling you both to love easily and without holding back, forming a strong foundation for a long lasting relationship.\n
 Despite these common traits that bring a positive energy to your relationship, you both need to watch your own negative traits, such as 6's need for approval and praise, or 2's insecurity and occasional bouts of jealousy and envy. With these under control, and with considerations of feelings for each other on both sides, the likelihood of a clash in less likely than in most other number combinations.\n"""
-    elif (life_path_1 and life_path_2) == 3:
+    elif life_path_1 == life_path_2 == 3:
         print """\nHappy go lucky, interesting, and creative ... describes this pairing of two numbers who joke easily, and know how to please each other, while at the same time being able to enjoy each other's company within your dynamic social environment. This is a fun pair that understands and supports one another.\n
 Troubles might arise, however, when the question becomes as to who is going to take care of the mundane tasks. You both have a tendency to skim over the rough spots, and when fun and joy become too high a priority and neither partner is willing, or able, to take care of the practical everyday details, this can destabilize the foundations and bring friction to your relationship.\n"""
     elif ((life_path_1 == 3) and (life_path_2 == 6)) or ((life_path_1 == 6) and (life_path_2 == 3)):
@@ -1056,14 +1019,14 @@ The problem the couple faces is when they are both vying for the same limelight,
         print """\nDespite the common traits shared by this pairing, it is usually not very common for these two numbers to fall in love. However, because you are both responsible and family oriented, and you both value stability and security. If you do get involved in a romantic relationship, it is usually a strong, comfortable match straight from the beginning, with potential to last for a life time.\n"""
     elif ((life_path_1 == 4) and (life_path_2 == 7)) or ((life_path_1 == 7) and (life_path_2 == 4)):
         print """\nThis combination is one in which the earth meets the heaven, and just like earth and heaven, the two of you can't exist without one another. There are some sharp angles that will need to be rounded off, but this pairing, which makes life both secure and at the same time more interesting for both of you, can much more easily overcome the challenges inherit in every relationship.\n"""
-    elif (life_path_1 and life_path_2) == 5:
+    elif life_path_1 == life_path_2 == 5:
         print """\nThe two 5s form a very comfortable match. This is a relationship that is tolerant, easy going and flexible, and in which both of you take your commitment to each other seriously, allowing you to weather many storms.\n
 The dangers of this pairing come from within, and it is the adventurous, freewheeling lifestyle, which is normally a plus, that can cause difficulty in focusing on the mundane day-to-day affairs, and can lead to somewhat of a wild streak that can include drugs, alcohol, and other such vices.\n"""
     elif ((life_path_1 == 6) and (life_path_2 == 8)) or ((life_path_1 == 8) and (life_path_2 == 6)):
         print """\nThe practical, goal oriented, and responsible nature of these two numbers makes this a very positive and compatible pairing. The dangers lay in the different ways the 6 and the 8 view responsibility, and how they go about accomplishing their goals.\n
 The 6 is more oriented on family and friends, while the 8 is more focused on the executive lifestyle and the obligations that come with it. Despite these differences, the combination is all together a very good match.\n"""
     # the following could go either way
-    elif (life_path_1 and life_path_2) == 1:
+    elif life_path_1 == life_path_2 == 1:
         print """\nBoth of you are head strong, with a strong desire to lead, which can make this a challenging combination. Even though as 1s you might understand each other's needs, and share things in common, in this case this is not necessarily an advantage.\n
 This is a relationship of extremes with either partner refusing to surrender their leadership qualities, and the match can get dicey, especially when they start to compete, particularly at the onset of the relationship.\n
 Despite this 'butting of heads', when two people with such driving forces do get along, and their mutual competitive streaks are overcome, this can be a very ping combination.\n"""
@@ -1074,7 +1037,7 @@ You are two people who happily venture into new, strange or unknown intellectual
     elif ((life_path_1 == 1) and (life_path_2 == 9)) or ((life_path_1 == 9) and (life_path_2 == 1)):
         print """\nDue to the fact that both of you have a tendency towards arrogance, as well as to being somewhat egocentric, this is a very difficult relationship, as far as romance is concerned. It will only work if a certain amount of distance is maintained.\n
 Each of you has to live your own life. Ironically, although difficult, this is not a bad combination for most other kinds of relationships. Friendships, parent-child, as well as business relationships, often work very well with this combination.\n
-One and 9 stand on opposite ends of the spectrum … they complement and balance each other. Together, they represent a lot of talents and useful qualities that ensure a powerful combination in most relationships, except in romance.\n"""
+One and 9 stand on opposite ends of the spectrum ... they complement and balance each other. Together, they represent a lot of talents and useful qualities that ensure a powerful combination in most relationships, except in romance.\n"""
     elif ((life_path_1 == 2) and (life_path_2 == 7)) or ((life_path_1 == 7) and (life_path_2 == 2)):
         print """\nThis is a unique combination that has both strong and dissimilar needs, a combination where intuition meets intelligence, sensitivity meets analysis, and the heart meets the mind. Although these two numbers rarely express interest in one another, when they do, the result can often lead to a relationship that's welded for life.\n"""
     elif ((life_path_1 == 3) and (life_path_2 == 4)) or ((life_path_1 == 4) and (life_path_2 == 3)):
@@ -1083,7 +1046,7 @@ If the two of you can ever figure out how to meet in the middle, and balance eac
     elif ((life_path_1 == 3) and (life_path_2 == 8)) or ((life_path_1 == 8) and (life_path_2 == 3)):
         print """\nThis is a combination where the number set is compatible in some areas and incompatible in others; therefore, this relationship requires a bit of extra effort. Because of the 3 and the 8 having very different views as to what is important in life, unless they learn to respect each other's needs and expectations, the relationship will not last long.\n
 Despite this, because you complement each other well, more often than not, you can get along very well and can be quite compatible.\n"""
-    elif (life_path_1 and life_path_2) == 4:
+    elif life_path_1 == life_path_2 == 4:
         print """\nThis is a stable pairing; however, because of the nature of the 4, you both tend to get somewhat irritated when established routine is disturbed. This can lead to a relationship that is either very good, or extremely stressful, with little room in the middle, and so the compatibility can depend largely on how compatible your daily routines are.\n
 Upside of this pairing is stability and security ... the downside is that it is hard to relax, be spontaneous, and enjoy the moment.\n"""
     elif ((life_path_1 == 5) and (life_path_2 == 6)) or ((life_path_1 == 6) and (life_path_2 == 5)):
@@ -1099,7 +1062,7 @@ On the plus side, because of your unique energies, there is otherwise rarely any
 This can be a thriving relationship as long as 1 doesn't start on a path of unknowns and risky, questionable results. However, that will unavoidably happen, and 4 will at times be seen as a 'stick in the mud', a source of frustration for 1. When this kind of situation becomes overwhelming, it will almost certainly bring this relationship to an end.\n
 On the other hand, as long as 1 is able to respect 4's need for a secure, perhaps even predictable, lifestyle, and 4 can understand 1's need to try new avenues, take risks, occasionally venture out into unknown territories, the relationship can endure.\n"""
     elif ((life_path_1 == 1) and (life_path_2 == 8)) or ((life_path_1 == 8) and (life_path_2 == 1)):
-        print """\nFrom the love angle, this combination is questionable at best. Both of you are strong-willed, assertive and demanding, while at the same time stubborn people … it's like having two captains on deck … which leads to uneasiness, discomfort and distress.\n
+        print """\nFrom the love angle, this combination is questionable at best. Both of you are strong-willed, assertive and demanding, while at the same time stubborn people ... it's like having two captains on deck ... which leads to uneasiness, discomfort and distress.\n
 Neither one of you accepts anything less than full respect and an equal playing field, and neither one of you can be dominated or would accept being someone's sidekick. Even though both of you may share many common interests, any negative feedback from either of you can be deadly in this pairing.\n
 Success depends on a mutual willingness to compromise and limit demands, otherwise small arguments can be blown out of proportion.\n"""
     elif ((life_path_1 == 2) and (life_path_2 == 5)) or ((life_path_1 == 5) and (life_path_2 == 2)):
@@ -1143,7 +1106,7 @@ def comp_exp_meaning(exp_1, exp_2):
     print """\nFor relationship purposes, expression (destiny) numbers are reduced to single digits (e.g., master numbers 11 and 22 are reduced to 2 and 4, respectively).\n"""
 
     # the following are "very good" pairings
-    if (exp_1 and exp_2) == 1:
+    if exp_1 == exp_2 == 1:
         print """\nThis combination comprises two people with a strong desire to lead and two people who want very much to be independent. Two 1s in a relationship understand and accept each other perhaps better than any other number can understand the 1.\n
 This is a relationship not without pitfalls as the match can get dicey when they start to compete. But for the most part, it is a good one filled with excitement and activity.\n"""
     elif ((exp_1 == 1) and (exp_2 == 5)) or ((exp_1 == 5) and (exp_2 == 1)):
@@ -1151,7 +1114,7 @@ This is a relationship not without pitfalls as the match can get dicey when they
 They may be so busy with their own 'thing' that time together is limited, very special, and often exciting. As you might expect, the most serious threat is when either tries to impose his or her will on the other.\n"""
     elif ((exp_1 == 1) and (exp_2 == 7)) or ((exp_1 == 7) and (exp_2 == 1)):
         print """\nThese are very different energies but ones that somehow blend nicely. The 7 provides wise insights while the 1 becomes a needed motivator. The key is to understand the tendencies; the 1 can get too busy with the outer world to always be there for the 7, and the 7 can be too into their own world to be there for the 1. Neither should take this absence personally.\n"""
-    elif (exp_1 and exp_2) == 2:
+    elif exp_1 == exp_2 == 2:
         print """\nA great match of two souls both needing to give and receive love. Experts at mediation, they have little difficulty finding common ground on just about any issue that arises.\n
 The only word of caution for this pairing is that they must each remember how thin their own skin is so as to not cause verbal injury to the other. Generally this is not a problem because of their polite manner and mutual respect.\n"""
     elif ((exp_1 == 2) and (exp_2 == 4)) or ((exp_1 == 4) and (exp_2 == 2)):
@@ -1160,7 +1123,7 @@ The only difficulty likely here is one of perception. The 2 needs love to be sho
     elif ((exp_1 == 2) and (exp_2 == 8)) or ((exp_1 == 8) and (exp_2 == 2)):
         print """\nA pairing that usually works very well because it is likely that each has a clear vision of their role. The 8 is about the outer world of business and attainment, taking care of the financial needs of the family. The 2 takes care of the family and is there to pamper the ego of their partner.\n
 A pitfall in this relationship can occur if the 8 fails to sufficiently value the labors of the 2. Generally, this is the classic traditional family model, or in the case of the male 2, female 8, the classic male/female role reversal.\n"""
-    elif (exp_1 and exp_2) == 3:
+    elif exp_1 == exp_2 == 3:
         print """\nWild and interesting describes this pairing of two with so much creative and social potential. No one has more fun that a pair of 3s who understand and support one another.\n
 The question may become who is going to take care of the mundane. The pitfall of this relationship comes when neither partner can hold on to reins of practical everyday details.\n"""
     elif ((exp_1 == 3) and (exp_2 == 6)) or ((exp_1 == 6) and (exp_2 == 3)):
@@ -1169,14 +1132,14 @@ The challenge of this combination can come in the form of 6's jealous feelings t
     elif ((exp_1 == 3) and (exp_2 == 9)) or ((exp_1 == 9) and (exp_2 == 3)):
         print """\nThis is a wonderful combination of two people who are apt to keep each other endlessly engaged in a variety of creative ways. Both like to be on stage and both are interested in people. They care about people and the 9 can be generous to a fault.\n
 The 9 is the teacher, and the 3 is the ever eager student. Sharing experience is a never ending joy of this pairing. The problem the couple faces is settling down, feathering a nest, and keeping the bills paid. Even after they are settled and set, romantic adventures will always be important.\n"""
-    elif (exp_1 and exp_2) == 4:
+    elif exp_1 == exp_2 == 4:
         print """\nThe keywords for this combination are solid and secure. For individuals who need to know that the bills are paid and future is totally secure, who better to fill this need than another 4.\n
 These two will share goals that they work for and nearly always achieve. Success is measured by a sense that growth is continual, and this includes love and romance.\n
 The down side of this pairing, if there is one, is the sense that nothing is ever completely okay. It's hard to relax , be spontaneous, and enjoy the moment and each other. Nonetheless, there are few relationships destined to be more stable than this one.\n"""
     elif ((exp_1 == 4) and (exp_2 == 8)) or ((exp_1 == 8) and (exp_2 == 4)):
         print """\nThis is a comfortable pairing because both parties understand hard work and have a good head for business and getting ahead in the world. The 4 is the cautious planner, while the 8 has a more grandiose approach to endeavors.\n
 The only problem probably can be one of finding the time to spend together in a quest for romance. Yet this is a couple that knows how to build for the future and develop a very secure relationship.\n"""
-    elif (exp_1 and exp_2) == 5:
+    elif exp_1 == exp_2 == 5:
         print """\nA pair of 5s is a very compatible couple who prize their freedom to be different and adventuresome. Few others will be as open to the constant flow of new ideas and changes so common in the 5.\n
 In this relationship, partners easily anticipate what the other is thinking and where they are going. They also have a sense for staying out of the way and accepting the freewheeling lifestyle. Fives choosing to support one another can do just about anything.\n
 The difficulty with this pairing is focus, and there may be a problem handling the mundane day-to-day affairs.\n"""
@@ -1184,19 +1147,19 @@ The difficulty with this pairing is focus, and there may be a problem handling t
         print """\nThis is a relationship which is more or less free of rules and procedures. In some ways, these two are much alike and the relationship is generally very compatible.\n
 The 7 values the time to be alone and enjoy the world of study and reflection in their private space. At the same time, the 5 has plenty going on and appreciates not having demands for attention being the paramount feature of the relationship.\n
 Yet these two can get together and find a never ending stream of mutual interests to discuss and explore.\n"""
-    elif (exp_1 and exp_2) == 6:
+    elif exp_1 == exp_2 == 6:
         print """\nThis is a combination charged with romance, but in essence it is rather practical by nature. Home and family is second nature here, and these will be the top priorities for sure. This is a very compatible pairing.\n
 The 6 knows what's best for their partner, so they do a good job of taking care of each other, and a family is a must. Yet the 6 by its nature wants the whole family under his/her thumb, so the challenge may be in agreeing who is going to be charge. The circumstances of the relationship will usually be able to sort this out.\n"""
     elif ((exp_1 == 6) and (exp_2 == 9)) or ((exp_1 == 9) and (exp_2 == 6)):
         print """\nThis is generally a very compatible relationship prospect as the 9 is one of the few numbers to gain 6's utmost respect. In a family situation, the 6 is unsurpassed as a manager, and the 9 is never reticent in heaping praise in recognition. This often creates a mutual admiration environment that provides a happy home for both partners.\n
 The 6 helps the 9 stay focused on details and common sense issues, while the 9 broadens the 6's outlook and sense of the world at large. The expansiveness of this pairing may suggest the need to keep a close eye on the budget.\n"""
-    elif (exp_1 and exp_2) == 7:
+    elif exp_1 == exp_2 == 7:
         print """\nThis is one situation in which no one understands the eccentricities of a 7 nearly as well as another 7. Thus, this is a very compatible pairing. With the right attitude, this couple will find the interest to freely explore the world together, or spend their days in happy solitude together. Chances are you are on the same psychic wavelength, so you will surely catch the signals as they flash by.\n
 The downside of this pairing is the tendency to not communicate, so an effort may have to be made to keep the lines open and operating.\n"""
-    elif (exp_1 and exp_2) == 8:
+    elif exp_1 == exp_2 == 8:
         print """\nThis pairing might be known as the 'Dynamic Duo' as this is a combination that is full of passion and romance. Indeed, this pairing is a strong and enduring match-up. Yet both partners will be easily distracted by the events in their life as goals and professional demands often supersede romantic possibilities.\n
 Solid as the relationship probably is, the couple may have a hard time communicating the depth of feeling in either word or deed. Guard against competing with one another, and getting caught up in schedules and the demands of work. Make time for each other and always focus on being equal partners.\n"""
-    elif (exp_1 and exp_2) == 9:
+    elif exp_1 == exp_2 == 9:
         print """\nThis relationship has much promise as it usually engages two charismatic types possessing much intellectual stimulation. The nature of the 9 is selfless, so this combination usually faces few challenges; each wanting to please the other and always be there for each other. A relationship offering the opportunity to grow, learn, and serve, this is often an inspiring combination.\n"""
     # the following are "ok" pairings
     elif ((exp_1 == 1) and (exp_2 == 3)) or ((exp_1 == 3) and (exp_2 == 1)):
@@ -1286,9 +1249,9 @@ To have much of a chance, the 8 will have to appreciate the lessons that can be 
 
 def partner_life_path():
     # asks for partner's birthday
-    year = ask_year()
-    month = ask_month()
-    day = ask_day()
+    year = ask_year("partner")
+    month = ask_month("partner")
+    day = ask_day(year, month, "partner")
 
     # calculates single digits master for year, month and day
     single_year_master = single_digit_master(year)
@@ -1311,9 +1274,9 @@ def partner_life_path():
 
 def partner_exp_dest():
     # asks for partner's birthday
-    last_name = ask_last_name()
-    middle_name = ask_middle_name()
-    first_name = ask_first_name()
+    last_name = clean_name(ask_last_name("partner"))
+    middle_name = clean_name(ask_middle_name("partner"))
+    first_name = clean_name(ask_first_name("partner"))
 
     # calculate single digits master for first, middle and last names
     single_last_master = single_digit_master(name_calc(last_name))
@@ -1400,7 +1363,7 @@ def name_menu_choice():
 def compatibility_menu_choice():
     print """\n     0 - Return to main menu."""
     print """     1 - Based on birthday."""
-    print """     2 - Based on name."""
+    print """     2 - Based on name.\n"""
 
     choice = int(raw_input("Choose from the menu options (return to main menu to exit): "))
 
@@ -1613,17 +1576,19 @@ def compatibility_exec_repl(year, month, day, last, middle, first):
 def execute_repl():
     greeting()
     # ask user for birthday information
-    year = ask_year()
-    month = ask_month()
-    day = ask_day(year, month)
+    year = ask_year("individual")
+    month = ask_month("individual")
+    day = ask_day(year, month, "individual")
 
     # ask user for birth name information
-    last_name = ask_last_name("birth")
-    middle_name = ask_middle_name("birth")
+    last_name = clean_name(ask_last_name("birth"))
+    middle_name = clean_name(ask_middle_name("birth"))
     first_name = ask_first_name("birth")
+    clean_first_name = clean_name(first_name)
 
     # ask user for common (nick) name information, if applicable
-    if ask_nick_name() == "y":
+    nick_name = ask_nick_name()
+    if nick_name == "y":
         nick_last_name = ask_last_name("nick")
         nick_middle_name = ask_middle_name("nick")
         nick_first_name = ask_first_name("nick")
@@ -1632,7 +1597,7 @@ def execute_repl():
         # gets choice from user from main menu
         choice = main_menu_choice()
 
-        if not ((choice >= 1) and (choice <= 4)):
+        if not ((choice >= 1) and (choice <= 5)):
             print """\nPlease choose from the menu options.\n"""
 
         if choice == 1:
@@ -1640,15 +1605,18 @@ def execute_repl():
             birthday_exec_repl(year, month, day)
         elif choice == 2:
             # gets choice from user from name menu and repl within that menu based on birth name
-            name_exec_repl(last_name, middle_name, first_name)
+            name_exec_repl(last_name, middle_name, clean_first_name)
         elif choice == 3:
             # gets choice from user from name menu and repl within that menu based on nick name
             name_exec_repl(nick_last_name, nick_middle_name, nick_first_name)
         elif choice == 4:
             # gets choice from user from compatibility menu and repl within that menu
-            compatibility_exec_repl(year, month, day, last_name, middle_name, first_name)
+            compatibility_exec_repl(year, month, day, last_name, middle_name, clean_first_name)
         else:
-            print """\nHave a wonderful day with your numerical vibrations, {}. Namaste!\n""".format(first_name.title())
+            if nick_name == "y":
+                print """\nHave a wonderful day with your numerical vibrations, {}. Namaste!\n""".format(nick_first_name.title())
+            else:
+                print """\nHave a wonderful day with your numerical vibrations, {}. Namaste!\n""".format(first_name.title())
             break
 
 execute_repl()
