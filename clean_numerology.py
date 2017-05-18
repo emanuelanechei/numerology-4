@@ -567,7 +567,8 @@ def main_menu_choice():
     print """     2 - Show numerology by birth name."""
     print """     3 - Show numerology by common or nick name."""
     print """     4 - Show partner compatibility."""
-    print """     5 - Exit the program.\n"""
+    print """     5 - Create report of numerology results."""
+    print """     6 - Exit the program.\n"""
 
     choice = int(raw_input("Choose from the menu options: "))
 
@@ -646,7 +647,7 @@ def challenge_exec_repl(single_day_uno, single_month_uno, single_year_uno):
         choice = challenge_menu_choice()
 
         if (choice < 0) or (choice > 4):
-            # if choice was not on menu, note error
+            # if choice was not on menu, notes error
             print """\nPlease choose from the menu options.\n"""
         else:
             if choice == 0:
@@ -676,39 +677,39 @@ def challenge_exec_repl(single_day_uno, single_month_uno, single_year_uno):
 
 
 def birthday_exec_repl(year, month, day):
-    # calculate single digits master for year, month and day
+    # calculates single digits master for year, month and day
     single_year_master = single_digit_master(year)
     single_month_master = single_digit_master(month)
     single_day_master = single_digit_master(day)
 
-    # calculate single digits for year, month and day
+    # calculates single digits for year, month and day
     single_year_uno = single_digit_uno(year)
     single_month_uno = single_digit_uno(month)
     single_day_uno = single_digit_uno(day)
 
     while True:
-        # get choice from user from birthday menu
+        # gets choice from user from birthday menu
         choice = birthday_menu_choice()
 
         if (choice < 0) or (choice > 4):
-            # if choice was not on menu, note error
+            # if choice was not on menu, notes error
             print """\nPlease choose from the menu options.\n"""
         else:
             if choice == 0:
-                # return to main menu
+                # returns to main menu
                 break
             elif choice == 1:
-                # calculate and display meaning for life path number
+                # calculates and displays meaning for life path number
                 life_path = life_path_calc(single_year_master, single_month_master, single_day_master)
                 life_path_meaning(life_path)
             elif choice == 2:
-                # calculate and display meaning for birth day number
+                # calculates and displays meaning for birth day number
                 birth_day_meaning(single_day_master)
             elif choice == 3:
-                # execute repl loop for challenge numbers, which takes it to challenge numbers menu
+                # executes repl loop for challenge numbers, which takes it to challenge numbers menu
                 challenge_exec_repl(single_day_uno, single_month_uno, single_year_uno)
             elif choice == 4:
-                # calculate and display meaning for personal year number
+                # calculates and displays meaning for personal year number
                 personal_year = pers_year_calc(single_day_uno, single_month_uno, single_year_uno, month, day)
                 pers_year_meaning(personal_year)
 
@@ -717,31 +718,31 @@ def birthday_exec_repl(year, month, day):
 
 
 def name_exec_repl(last, middle, first):
-    # concatenate full name (maybe use strip function if "0" used for blank names but it seems to not work)
+    # concatenates full name (maybe use strip function if "0" used for blank names but it seems to not work)
     full_name = last + middle + first
 
-    # calculate single digits master for first, middle and last names
+    # calculates single digits master for first, middle and last names
     single_last_master = single_digit_master(name_calc(last))
     single_middle_master = single_digit_master(name_calc(middle))
     single_first_master = single_digit_master(name_calc(first))
 
-    # separate consonants only of first, middle and last names
+    # separates consonants only of first, middle and last names
     cons_last_name = consonants(last, vowel)
     cons_middle_name = consonants(middle, vowel)
     cons_first_name = consonants(first, vowel)
     cons_full_name = consonants(full_name, vowel)
 
-    # separate vowels only of first, middle and last names
+    # separates vowels only of first, middle and last names
     vow_last_name = vowels(last, vowel)
     vow_middle_name = vowels(middle, vowel)
     vow_first_name = vowels(first, vowel)
 
-    # calculate single digits master of first, middle and last names by consonants only
+    # calculates single digits master of first, middle and last names by consonants only
     single_cons_last_master = single_digit_master(name_calc(cons_last_name))
     single_cons_middle_master = single_digit_master(name_calc(cons_middle_name))
     single_cons_first_master = single_digit_master(name_calc(cons_first_name))
 
-    # calculate single digits master of first, middle and last names by vowels only
+    # calculates single digits master of first, middle and last names by vowels only
     single_vow_last_master = single_digit_master(name_calc(vow_last_name))
     single_vow_middle_master = single_digit_master(name_calc(vow_middle_name))
     single_vow_first_master = single_digit_master(name_calc(vow_first_name))
@@ -751,30 +752,30 @@ def name_exec_repl(last, middle, first):
         choice = name_menu_choice()
 
         if (choice < 0) or (choice > 6):
-            # if choice was not on menu, note error
+            # if choice was not on menu, notes error
             print """\nPlease choose from the menu options.\n"""
         else:
             if choice == 0:
                 # returns to main menu
                 break
             elif choice == 1:
-                # calculates and display meaning for expression (destiny) number
+                # calculates and displays meaning for expression (destiny) number
                 exp_dest = exp_calc(single_last_master, single_middle_master, single_first_master)
                 exp_dest_meaning(exp_dest)
             elif choice == 2:
-                # calculates and display meaning for soul urge number
+                # calculates and displays meaning for soul urge number
                 soul_urge = soul_urge_calc(single_vow_last_master, single_vow_middle_master, single_vow_first_master)
                 soul_urge_meaning(soul_urge)
             elif choice == 3:
-                # calculates and display meaning for personality number
+                # calculates and displays meaning for personality number
                 personality = personality_cal(single_cons_last_master, single_cons_middle_master, single_cons_first_master)
                 personality_meaning(personality)
             elif choice == 4:
-                # calculates and display meaning for hidden passion number
+                # calculates and displays meaning for hidden passion number
                 hid_pass = pass_calc(full_name)
                 hid_pass_meaning(hid_pass)
             elif choice == 5:
-                # calculates and display meaning for karmic number
+                # calculates and displays meaning for karmic number
                 karmic = karmic_calc(cons_full_name)
                 karmic_meaning(karmic)
             elif choice == 6:
@@ -816,15 +817,15 @@ def compatibility_exec_repl(year, month, day, last, middle, first):
         comp_gen(life_path_uno)
     else:
         while True:
-            # get choice from user from compatibility menu
+            # gets choice from user from compatibility menu
             choice = compatibility_menu_choice()
 
             if (choice < 0) or (choice > 2):
-                # if choice was not on menu, note error
+                # if choice was not on menu, notes error
                 print """\nPlease choose from the menu options.\n"""
             else:
                 if choice == 0:
-                    # return to main menu
+                    # returns to main menu
                     break
                 elif choice == 1:
                     partner_life_uno = partner_life_path(life_path)
@@ -834,30 +835,198 @@ def compatibility_exec_repl(year, month, day, last, middle, first):
                     comp_exp_meaning(exp_dest_uno, partner_exp_uno)
 
 
+def numerology_rpt(nick_name, first_name, nick_first_name, year, month, day, last_name, middle_name, clean_first_name, nick_last_name, nick_middle_name, clean_nick_first_name, vowel):
+    import sys
+    # keeps copy of original stdout
+    stdout_backup = sys.stdout
+
+    # creates file to write various results of numerology calculations
+    with open("report.txt", "w") as file:
+        # redirecting standard output point to output file so that subsequent calls to print will write to output file
+        sys.stdout = file
+
+        # writes to file introduction with individual's name
+        if nick_name == "y":
+            file.write("{}, the following is your numerology report:\n".format(nick_first_name.title()))
+        else:
+            file.write("{}, the following is your numerology report:\n".format(first_name.title()))
+
+        # calculates single digits master for year, month and day
+        single_year_master = single_digit_master(year)
+        single_month_master = single_digit_master(month)
+        single_day_master = single_digit_master(day)
+
+        # calculates single digits for year, month and day
+        single_year_uno = single_digit_uno(year)
+        single_month_uno = single_digit_uno(month)
+        single_day_uno = single_digit_uno(day)
+
+        # calculates and display meaning for life path number
+        life_path = life_path_calc(single_year_master, single_month_master, single_day_master)
+        life_path_meaning(life_path)
+
+        # calculates and display meaning for birth day number
+        birth_day_meaning(single_day_master)
+
+        # calculates and displays meanings for challenge numbers
+        challenge_intro()
+
+        # calculates and displays meaning for first challenge number
+        first_chall = first_chall_calc(single_day_uno, single_month_uno)
+        first_chall_meaning(first_chall)
+
+        # calculates and displays meaning for second challenge number
+        sec_chall = sec_chall_calc(single_day_uno, single_year_uno)
+        sec_chall_meaning(sec_chall)
+
+        # calculates and displays meaning for third challenge number (note that since user may not choose option 1 or 2, first and second challenge functions would have to be called here to calculate variabbles used in third challenge number)
+        third_chall = third_chall_calc(first_chall, sec_chall)
+        third_chall_meaning(third_chall)
+
+        # calculates and displays meaning for fourth challenge number
+        fourth_chall = fourth_chall_calc(single_month_uno, single_year_uno)
+        fourth_chall_meaning(fourth_chall)
+
+        # calculate and display meaning for personal year number
+        personal_year = pers_year_calc(single_day_uno, single_month_uno, single_year_uno, month, day)
+        pers_year_meaning(personal_year)
+
+        # concatenates full name (maybe use strip function if "0" used for blank names but it seems to not work)
+        full_name = last_name + middle_name + clean_first_name
+
+        # calculates single digits master for first, middle and last names
+        single_last_master = single_digit_master(name_calc(last_name))
+        single_middle_master = single_digit_master(name_calc(middle_name))
+        single_first_master = single_digit_master(name_calc(clean_first_name))
+
+        # separates consonants only of first, middle and last names
+        cons_last_name = consonants(last_name, vowel)
+        cons_middle_name = consonants(middle_name, vowel)
+        cons_first_name = consonants(clean_first_name, vowel)
+        cons_full_name = consonants(full_name, vowel)
+
+        # separates vowels only of first, middle and last names
+        vow_last_name = vowels(last_name, vowel)
+        vow_middle_name = vowels(middle_name, vowel)
+        vow_first_name = vowels(clean_first_name, vowel)
+
+        # calculates single digits master of first, middle and last names by consonants only
+        single_cons_last_master = single_digit_master(name_calc(cons_last_name))
+        single_cons_middle_master = single_digit_master(name_calc(cons_middle_name))
+        single_cons_first_master = single_digit_master(name_calc(cons_first_name))
+
+        # calculates single digits master of first, middle and last names by vowels only
+        single_vow_last_master = single_digit_master(name_calc(vow_last_name))
+        single_vow_middle_master = single_digit_master(name_calc(vow_middle_name))
+        single_vow_first_master = single_digit_master(name_calc(vow_first_name))
+
+        # calculates and displays meaning for expression (destiny) number
+        exp_dest = exp_calc(single_last_master, single_middle_master, single_first_master)
+        exp_dest_meaning(exp_dest)
+
+        # calculates and displays meaning for soul urge number
+        soul_urge = soul_urge_calc(single_vow_last_master, single_vow_middle_master, single_vow_first_master)
+        soul_urge_meaning(soul_urge)
+
+        # calculates and displays meaning for personality number
+        personality = personality_cal(single_cons_last_master, single_cons_middle_master, single_cons_first_master)
+        personality_meaning(personality)
+
+        # calculates and displays meaning for hidden passion number
+        hid_pass = pass_calc(full_name)
+        hid_pass_meaning(hid_pass)
+
+        # calculates and displays meaning for karmic number
+        karmic = karmic_calc(cons_full_name)
+        karmic_meaning(karmic)
+
+        # displays meanings for cornerstone and capstone
+        corn_cap(clean_first_name)
+
+        if nick_name == "y":
+            # writes to file introduction that following section relates to the nick name
+            file.write("The following section represents the various numbers as it relates to your common (nick) name. \nWhile the related numbers as it relates to your birth name represents your overall destiny, the numbers as it relates to your common (nick) name represents how you present yourself or how others perceive you.\n")
+
+            # concatenates full name (maybe use strip function if "0" used for blank names but it seems to not work)
+            nick_full_name = nick_last_name + nick_middle_name + clean_nick_first_name
+
+            # calculates single digits master for first, middle and last names
+            single_nick_last_master = single_digit_master(name_calc(nick_last_name))
+            single_nick_middle_master = single_digit_master(name_calc(nick_middle_name))
+            single_nick_first_master = single_digit_master(name_calc(clean_nick_first_name))
+
+            # separates consonants only of first, middle and last names
+            cons_nick_last_name = consonants(nick_last_name, vowel)
+            cons_nick_middle_name = consonants(nick_middle_name, vowel)
+            cons_nick_first_name = consonants(clean_nick_first_name, vowel)
+            cons_nick_full_name = consonants(nick_full_name, vowel)
+
+            # separates vowels only of first, middle and last names
+            vow_nick_last_name = vowels(nick_last_name, vowel)
+            vow_nick_middle_name = vowels(nick_middle_name, vowel)
+            vow_nick_first_name = vowels(clean_nick_first_name, vowel)
+
+            # calculates single digits master of first, middle and last names by consonants only
+            single_cons_nick_last_master = single_digit_master(name_calc(cons_nick_last_name))
+            single_cons_nick_middle_master = single_digit_master(name_calc(cons_nick_middle_name))
+            single_cons_nick_first_master = single_digit_master(name_calc(cons_nick_first_name))
+
+            # calculates single digits master of first, middle and last names by vowels only
+            single_vow_nick_last_master = single_digit_master(name_calc(vow_nick_last_name))
+            single_vow_nick_middle_master = single_digit_master(name_calc(vow_nick_middle_name))
+            single_vow_nick_first_master = single_digit_master(name_calc(vow_nick_first_name))
+
+            # calculates and displays meaning for expression (destiny) number
+            exp_dest = exp_calc(single_nick_last_master, single_nick_middle_master, single_nick_first_master)
+            exp_dest_meaning(exp_dest)
+
+            # calculates and displays meaning for soul urge number
+            soul_urge = soul_urge_calc(single_vow_nick_last_master, single_vow_nick_middle_master, single_vow_nick_first_master)
+            soul_urge_meaning(soul_urge)
+
+            # calculates and displays meaning for personality number
+            personality = personality_cal(single_cons_nick_last_master, single_cons_nick_middle_master, single_cons_nick_first_master)
+            personality_meaning(personality)
+
+           # calculates and displays meaning for hidden passion number
+            hid_pass = pass_calc(nick_full_name)
+            hid_pass_meaning(hid_pass)
+
+            # calculates and displays meaning for karmic number
+            karmic = karmic_calc(cons_nick_full_name)
+            karmic_meaning(karmic)
+
+            # displays meanings for cornerstone and capstone
+            corn_cap(clean_nick_first_name)
+
+            # calculates life path number to single digit for compatibility purposes
+            life_path_uno = single_digit_uno(life_path)
+            comp_gen(life_path_uno)
+
+        sys.stdout = stdout_backup
+
+
 # definition of a function to execute the numerology program
+
+
+#from print_to_file import numerology_rpt
 
 
 def execute_repl():
     greeting()
-    # ask user for birthday information
+    # asks user for birthday information
     year = ask_year("individual")
     month = ask_month("individual")
     day = ask_day(year, month, "individual")
 
-    # ask user for birth name information
+    # asks user for birth name information
     last_name = clean_name(ask_last_name("birth"))
     middle_name = clean_name(ask_middle_name("birth"))
     # clean function strips name of all spaces so separating first_name variables so that it could be use for exit greeting
     first_name = ask_first_name("birth")
     clean_first_name = clean_name(first_name)
 
-    #error occurs if middle name is blank so temporary fix
-    # if middle_name == "":
-    #     middle_name = "0"
-    # else:
-    #     middle_name
-
-    # ask user for common (nick) name information, if applicable
+    # asks user for common (nick) name information, if applicable
     nick_name = ask_nick_name()
     if nick_name == "y":
         nick_last_name = clean_name(ask_last_name("nick"))
@@ -865,17 +1034,13 @@ def execute_repl():
         # clean function strips name of all spaces so separating first_name variables so that it could be use for exit greeting
         nick_first_name = ask_first_name("nick")
         clean_nick_first_name = clean_name(nick_first_name)
-        # error occurs if middle name is blank so temporary fix
-        # if nick_middle_name == "":
-        #     nick_middle_name = "0"
-        # else:
-        #     nick_middle_name
 
     while True:
         # gets choice from user from main menu
         choice = main_menu_choice()
 
         if (choice < 1) and (choice > 5):
+            # if choice is not on menu, notes error
             print """\nPlease choose from the menu options.\n"""
 
         if choice == 1:
@@ -890,6 +1055,9 @@ def execute_repl():
         elif choice == 4:
             # gets choice from user from compatibility menu and repl within that menu
             compatibility_exec_repl(year, month, day, last_name, middle_name, clean_first_name)
+        elif choice == 5:
+            # creates file object to write output of results of various numerology numbers and meanings with only generic compatibility chart since details of partner is in "child" menu
+            numerology_rpt(nick_name, first_name, nick_first_name, year, month, day, last_name, middle_name, clean_first_name, nick_last_name, nick_middle_name, clean_nick_first_name, vowel)
         else:
             if nick_name == "y":
                 print """\nHave a wonderful day with your numerical vibrations, {}. Namaste!\n""".format(nick_first_name.title())
