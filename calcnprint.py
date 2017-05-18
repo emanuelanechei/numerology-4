@@ -478,6 +478,7 @@ def ask_partner():
 
 # definition of a function to obtain partner's birthday information and calculate life path number
 
+
 def partner_life_path(ind_life_path):
     # asks for partner's birthday
     year = ask_year("partner")
@@ -502,6 +503,7 @@ def partner_life_path(ind_life_path):
 
 
 # definition of a function to obtain partner's name information and calculate expression number
+
 
 def partner_exp_dest(ind_exp_dest):
     # asks for partner's birthday
@@ -639,7 +641,7 @@ def numerology_rpt(nick_name, first_name, nick_first_name, year, month, day, las
 
         if nick_name == "y":
             # writes to file introduction that following section relates to the nick name
-            file.write("\nThe following section represents the various numbers as it relates to your common (nick) name.\n\nWhile the related numbers as it relates to your birth name represents your overall destiny, the numbers as it relates to your common (nick) name represents how you present yourself or how others perceive you.\n")
+            file.write("\nThe following section represents the various numbers as it relates to your common (nick) name.\n\nA common (nick) name introduces energies not present in the birth name. New energies may be compatible or comflicting, and enhance the birth name or restrict its power.\n\nThe energies of the birth name never go away. Common names are a layer over the birth name, similar to the foundation of a house with common name representing the house and any changes to that as new coats of paint.\n")
 
             # concatenates full name (maybe use strip function if "0" used for blank names but it seems to not work)
             nick_full_name = nick_last_name + nick_middle_name + clean_nick_first_name

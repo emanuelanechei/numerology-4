@@ -15,6 +15,7 @@ It is similar to astrology, and often associated with the belief in the divine, 
 
 # definition of function for common (nick) name
 
+
 def ask_nick_name():
     # asks individual if he/she has common (nick) name
     while True:
@@ -29,6 +30,7 @@ def ask_nick_name():
 
 
 # set list of vowels
+
 
 vowel = ("a", "e", "i", "o", "u")
 
@@ -120,7 +122,7 @@ def challenge_exec_repl(single_day_uno, single_month_uno, single_year_uno):
         # gets choice from user from challenge menu
         choice = challenge_menu_choice()
 
-        if (choice < 0) or (choice > 4):
+        if not (choice >= 0) and (choice <= 4):
             # if choice was not on menu, notes error
             print """\nPlease choose from the menu options.\n"""
         else:
@@ -165,7 +167,7 @@ def birthday_exec_repl(year, month, day):
         # gets choice from user from birthday menu
         choice = birthday_menu_choice()
 
-        if (choice < 0) or (choice > 4):
+        if not (choice >= 0) and (choice <= 4):
             # if choice was not on menu, notes error
             print """\nPlease choose from the menu options.\n"""
         else:
@@ -225,7 +227,7 @@ def name_exec_repl(last, middle, first):
         # gets choice from user from name menu
         choice = name_menu_choice()
 
-        if (choice < 0) or (choice > 6):
+        if not (choice >= 0) and (choice <= 6):
             # if choice was not on menu, notes error
             print """\nPlease choose from the menu options.\n"""
         else:
@@ -294,7 +296,7 @@ def compatibility_exec_repl(year, month, day, last, middle, first):
             # gets choice from user from compatibility menu
             choice = compatibility_menu_choice()
 
-            if (choice < 0) or (choice > 2):
+            if not (choice >= 0) and (choice <= 2):
                 # if choice was not on menu, notes error
                 print """\nPlease choose from the menu options.\n"""
             else:
@@ -339,7 +341,7 @@ def execute_repl():
         # gets choice from user from main menu
         choice = main_menu_choice()
 
-        if (choice < 1) and (choice > 5):
+        if not (choice >= 1) and (choice <= 6):
             # if choice is not on menu, notes error
             print """\nPlease choose from the menu options.\n"""
 
