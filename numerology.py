@@ -305,10 +305,16 @@ def compatibility_exec_repl(year, month, day, last, middle, first):
                     break
                 elif choice == 1:
                     partner_life_uno = calcnprint.partner_life_path(life_path)
-                    meanings.comp_life_meaning(life_path_uno, partner_life_uno)
+                    life_paths = [life_path_uno, partner_life_uno]
+                    life_paths.sort()
+                    print meanings.lp_comp_dict[tuple(life_paths)]
+                    #meanings.comp_life_meaning(life_path_uno, partner_life_uno)
                 elif choice == 2:
                     partner_exp_uno = calcnprint.partner_exp_dest(exp_dest)
-                    meanings.comp_exp_meaning(exp_dest_uno, partner_exp_uno)
+                    exp_dests = [exp_dest_uno, partner_exp_uno]
+                    exp_dests.sort()
+                    print meanings.ed_comp_dict[tuple(exp_dests)]
+                    #meanings.comp_exp_meaning(exp_dest_uno, partner_exp_uno)
 
 
 # definition of a function to execute the numerology program
@@ -322,20 +328,26 @@ def execute_repl():
     day = calcnprint.ask_day(year, month, "individual")
 
     # asks user for birth name information
-    last_name = calcnprint.clean_name(calcnprint.ask_last_name("birth"))
-    middle_name = calcnprint.clean_name(calcnprint.ask_middle_name("birth"))
+    last_name = calcnprint.clean_name(calcnprint.ask_name("birth", "last"))
+    middle_name = calcnprint.clean_name(calcnprint.ask_name("birth", "middle"))
     # clean function strips name of all spaces so separating first_name variables so that it could be use for exit greeting
-    first_name = calcnprint.ask_first_name("birth")
+    first_name = calcnprint.ask_name("birth", "first")
     clean_first_name = calcnprint.clean_name(first_name)
 
     # asks user for common (nick) name information, if applicable
     nick_name = ask_nick_name()
     if nick_name == "y":
-        nick_last_name = calcnprint.clean_name(calcnprint.ask_last_name("nick"))
-        nick_middle_name = calcnprint.clean_name(calcnprint.ask_middle_name("nick"))
+        nick_last_name = calcnprint.clean_name(calcnprint.ask_name("nick", "last"))
+        nick_middle_name = calcnprint.clean_name(calcnprint.ask_name("nick", "middle"))
         # clean function strips name of all spaces so separating first_name variables so that it could be use for exit greeting
-        nick_first_name = calcnprint.ask_first_name("nick")
+        nick_first_name = calcnprint.ask_name("nick", "first")
         clean_nick_first_name = calcnprint.clean_name(nick_first_name)
+    else:
+        nick_last_name = ""
+        nick_middle_name = ""
+        nick_first_name = ""
+        nick_first_name = ""
+        clean_nick_first_name = ""
 
     while True:
         # gets choice from user from main menu

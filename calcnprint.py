@@ -2,6 +2,8 @@ import meanings
 
 from datetime import date
 
+import string
+
 
 # definition of function for birth year
 
@@ -9,21 +11,17 @@ from datetime import date
 def ask_year(who):
     # asks individual for birth year, with error message for any response that are not integers
     if who == "partner":
-        while True:
-            year = raw_input("\nInput your partner's year of birth: ")
-            if not year.isdigit():
-                print "Please input the year based on the Gregorian calendar."
-            else:
-                year = int(year)
-                return year
+        year = "\nInput your partner's year of birth: "
     else:
-        while True:
-            year = raw_input("\nInput your year of birth: ")
-            if not year.isdigit():
-                print "Please input the year based on the Gregorian calendar."
-            else:
-                year = int(year)
-                return year
+        year = "\nInput your year of birth: "
+    
+    while True:
+        raw_year = raw_input(year)
+        if not raw_year.isdigit():
+            print "Please input the year based on the Gregorian calendar."
+        else:
+            year = int(raw_year)
+            return year
 
 
 # definition of function for birth month
@@ -32,25 +30,19 @@ def ask_year(who):
 def ask_month(who):
     # asks individual for birth month, with error message for any response that is not within month numbers of 1 to 12
     if who == "partner":
-        while True:
-            month = raw_input("Input your partner's month (1-12) of birth: ")
-            if not month.isdigit():
-                print "Please input the numerical value of the month."
-            elif (int(month) < 1) or (int(month) > 12):
-                print "That may be a month on Mars, but not on Earth!"
-            else:
-                month = int(month)
-                return month
+        month = "Input your partner's month (1-12) of birth: "
     else:
-        while True:
-            month = raw_input("Input your month (1-12) of birth: ")
-            if not month.isdigit():
-                print "Please input the numerical value of the month."
-            elif (int(month) < 1) or (int(month) > 12):
-                print "That may be a month on Mars, but not on Earth!"
-            else:
-                month = int(month)
-                return month
+        month = "Input your month (1-12) of birth: "
+
+    while True:
+        raw_month = raw_input(month)
+        if not raw_month.isdigit():
+            print "Please input the numerical value of the month."
+        elif (int(raw_month) < 1) or (int(raw_month) > 12):
+            print "That may be a month on Mars, but not on Earth!"
+        else:
+            month = int(raw_month)
+            return month
 
 
 # definition of function for birth day
@@ -59,128 +51,150 @@ def ask_month(who):
 def ask_day(year, month, who):
     # asks individual for birth day, with various error messages for days that do not match the respective month, as well as adjusting February for leap years
     if who == "partner":
-        while True:
-            day = raw_input("Input your partner's day of birth: ")
-            if not day.isdigit():
-                print "Please input the numerical value of the day."
-            else:
-                day = int(day)
-                if (month in [1, 3, 5, 7, 8, 10, 12]) and ((day < 1) or (day > 31)):
-                    print "That may be a day on Jupiter, but not on Earth!"
-                elif (month in [4, 6, 9, 11]) and ((day < 1) or (day > 30)):
-                    print "That may be a day on Saturn, but not on Earth!"
-                elif (month == 2) and (((year % 100 == 0) and (year % 400 == 0)) or ((year % 4 == 0) and (year % 100 != 0))) and ((day < 1) or (day > 29)):
-                    # for leap year, if divisible by 100 but not 400, then not leap year. otherwise, divisible by 4.
-                    print "You took a flying leap off of Pluto!"
-                elif (month == 2) and ((year % 4 != 0) or ((year % 4 == 0) and (year % 100 == 0))) and ((day < 1) or (day > 28)):
-                    print "That may be a day on Venus, but not on Earth!"
-                else:
-                    return day
+        day = "Input your partner's day of birth: "
     else:
-        while True:
-            day = raw_input("Input your day of birth: ")
-            if not day.isdigit():
-                print "Please input the numerical value of the day."
+        day = "Input your day of birth: "
+
+    while True:
+        raw_day = raw_input(day)
+        if not raw_day.isdigit():
+            print "Please input the numerical value of the day."
+        else:
+            day = int(raw_day)
+            if (month in [1, 3, 5, 7, 8, 10, 12]) and ((day < 1) or (day > 31)):
+                print "That may be a day on Jupiter, but not on Earth!"
+            elif (month in [4, 6, 9, 11]) and ((day < 1) or (day > 30)):
+                print "That may be a day on Saturn, but not on Earth!"
+            elif (month == 2) and (((year % 100 == 0) and (year % 400 == 0)) or ((year % 4 == 0) and (year % 100 != 0))) and ((day < 1) or (day > 29)):
+                # for leap year, if divisible by 100 but not 400, then not leap year. otherwise, divisible by 4.
+                print "You took a flying leap off of Pluto!"
+            elif (month == 2) and ((year % 4 != 0) or ((year % 4 == 0) and (year % 100 == 0))) and ((day < 1) or (day > 28)):
+                print "That may be a day on Venus, but not on Earth!"
             else:
-                day = int(day)
-                if (month in [1, 3, 5, 7, 8, 10, 12]) and ((day < 1) or (day > 31)):
-                    print "That may be a day on Jupiter, but not on Earth!"
-                elif (month in [4, 6, 9, 11]) and ((day < 1) or (day > 30)):
-                    print "That may be a day on Saturn, but not on Earth!"
-                elif (month == 2) and (((year % 100 == 0) and (year % 400 == 0)) or ((year % 4 == 0) and (year % 100 != 0))) and ((day < 1) or (day > 29)):
-                    # for leap year, if divisible by 100 but not 400, then not leap year. otherwise, divisible by 4.
-                    print "You took a flying leap off of Pluto!"
-                elif (month == 2) and ((year % 4 != 0) or ((year % 4 == 0) and (year % 100 == 0))) and ((day < 1) or (day > 28)):
-                    print "That may be a day on Venus, but not on Earth!"
-                else:
-                    return day
+                return day
 
 
-# definition of function for last name
+# definition of function for name
 
 
-def ask_last_name(birth_or_nick):
+def ask_name(birth_or_nick, name_type):
     # asks individual for last name, with error for integers
     # gives option for individual to provide birth name vs. common (nick) name, includes option for partner input
-    if birth_or_nick == "birth":
-        while True:
-            last_name = raw_input("\nInput your family (last) name at birth: ")
-            if last_name.isdigit():
+    if name_type == "last":
+        if birth_or_nick == "birth":
+            name = "\nInput your family (last) name at birth: "
+        elif birth_or_nick == "partner":
+            name = "\nInput your partner's family (last) name: "
+        else:
+            name = "\nInput your family (last) name: "
+    elif name_type == "middle":
+        if birth_or_nick == "birth":
+            name = "Input your middle name at birth: "
+        elif birth_or_nick == "partner":
+            name = "Input your partner's middle name: "
+        else:
+            name = "Input your middle name: "
+    elif name_type == "first":
+        if birth_or_nick == "birth":
+            name = "Input your first (given) name at birth: "
+        elif birth_or_nick == "partner":
+            name = "Input your partner's first name: "
+        else:
+            name = "Input your first (nick) name: "
+
+    while True:
+        raw_name = raw_input(name)
+        if raw_name.isdigit():
                 print "Your parents are so hipster that they named you a number."
-            else:
-                return last_name
-    elif birth_or_nick == "partner":
-        while True:
-            last_name = raw_input("\nInput your partner's family (last) name: ")
-            if last_name.isdigit():
-                print "Your parents are so hipster that they named you a number."
-            else:
-                return last_name
-    else:
-        while True:
-            last_name = raw_input("\nInput your family (last) name: ")
-            if last_name.isdigit():
-                print "Your parents are so hipster that they named you a number."
-            else:
-                return last_name
+        else:
+            return raw_name
 
 
-# definition of function for middle name
+# # definition of function for last name
 
 
-def ask_middle_name(birth_or_nick):
-    # asks individual for middle name, with error for integers
-    # gives option for individual to provide birth name vs. common (nick) name, includes option for partner input
-    if birth_or_nick == "birth":
-        while True:
-            middle_name = raw_input("Input your middle name at birth: ")
-            if middle_name.isdigit():
-                print "Your parents are so hipster that they named you a number."
-            else:
-                return middle_name
-    elif birth_or_nick == "partner":
-        while True:
-            middle_name = raw_input("Input your partner's middle name: ")
-            if middle_name.isdigit():
-                print "Your parents are so hipster that they named you a number."
-            else:
-                return middle_name
-    else:
-        while True:
-            middle_name = raw_input("Input your middle name: ")
-            if middle_name.isdigit():
-                print "Your parents are so hipster that they named you a number."
-            else:
-                return middle_name
+# def ask_last_name(birth_or_nick):
+#     # asks individual for last name, with error for integers
+#     # gives option for individual to provide birth name vs. common (nick) name, includes option for partner input
+#     if birth_or_nick == "birth":
+#         while True:
+#             last_name = raw_input("\nInput your family (last) name at birth: ")
+#             if last_name.isdigit():
+#                 print "Your parents are so hipster that they named you a number."
+#             else:
+#                 return last_name
+#     elif birth_or_nick == "partner":
+#         while True:
+#             last_name = raw_input("\nInput your partner's family (last) name: ")
+#             if last_name.isdigit():
+#                 print "Your parents are so hipster that they named you a number."
+#             else:
+#                 return last_name
+#     else:
+#         while True:
+#             last_name = raw_input("\nInput your family (last) name: ")
+#             if last_name.isdigit():
+#                 print "Your parents are so hipster that they named you a number."
+#             else:
+#                 return last_name
 
 
-# definition of function for first name
+# # definition of function for middle name
 
 
-def ask_first_name(birth_or_nick):
-    # asks individual for first name, with error for integers
-    # gives option for individual to provide birth name vs. common (nick) name, includes option for partner input
-    if birth_or_nick == "birth":
-        while True:
-            first_name = raw_input("Input your first (given) name at birth: ")
-            if first_name.isdigit():
-                print "Your parents are so hipster that they named you a number."
-            else:
-                return first_name
-    elif birth_or_nick == "partner":
-        while True:
-            first_name = raw_input("Input your partner's first name: ")
-            if first_name.isdigit():
-                print "Your parents are so hipster that they named you a number."
-            else:
-                return first_name
-    else:
-        while True:
-            first_name = raw_input("Input your first (nick) name: ")
-            if first_name.isdigit():
-                print "Your parents are so hipster that they named you a number."
-            else:
-                return first_name
+# def ask_middle_name(birth_or_nick):
+#     # asks individual for middle name, with error for integers
+#     # gives option for individual to provide birth name vs. common (nick) name, includes option for partner input
+#     if birth_or_nick == "birth":
+#         while True:
+#             middle_name = raw_input("Input your middle name at birth: ")
+#             if middle_name.isdigit():
+#                 print "Your parents are so hipster that they named you a number."
+#             else:
+#                 return middle_name
+#     elif birth_or_nick == "partner":
+#         while True:
+#             middle_name = raw_input("Input your partner's middle name: ")
+#             if middle_name.isdigit():
+#                 print "Your parents are so hipster that they named you a number."
+#             else:
+#                 return middle_name
+#     else:
+#         while True:
+#             middle_name = raw_input("Input your middle name: ")
+#             if middle_name.isdigit():
+#                 print "Your parents are so hipster that they named you a number."
+#             else:
+#                 return middle_name
+
+
+# # definition of function for first name
+
+
+# def ask_first_name(birth_or_nick):
+#     # asks individual for first name, with error for integers
+#     # gives option for individual to provide birth name vs. common (nick) name, includes option for partner input
+#     if birth_or_nick == "birth":
+#         while True:
+#             first_name = raw_input("Input your first (given) name at birth: ")
+#             if first_name.isdigit():
+#                 print "Your parents are so hipster that they named you a number."
+#             else:
+#                 return first_name
+#     elif birth_or_nick == "partner":
+#         while True:
+#             first_name = raw_input("Input your partner's first name: ")
+#             if first_name.isdigit():
+#                 print "Your parents are so hipster that they named you a number."
+#             else:
+#                 return first_name
+#     else:
+#         while True:
+#             first_name = raw_input("Input your first (nick) name: ")
+#             if first_name.isdigit():
+#                 print "Your parents are so hipster that they named you a number."
+#             else:
+#                 return first_name
 
 
 # definition of function to clean name for miscellaneous characters that are not part of alphabet and case sensitivities
@@ -189,10 +203,17 @@ def ask_first_name(birth_or_nick):
 def clean_name(name):
     # cleans input for case sensitivities as well as for spaces, hyphenated names or abbreviations (e.g., Jr.)
     name = name.lower()
-    name = name.replace("-", "")
-    name = name.replace(".", "")
-    name = name.replace(" ", "")
-    return name
+    partial_name = ""
+
+    for letter in name:
+        if letter in string.ascii_lowercase:
+            partial_name += letter
+
+    # name = name.replace("-", "")
+    # name = name.replace(".", "")
+    # name = name.replace(" ", "")
+
+    return partial_name
 
 
 # definition of function to calculate various items to single digit or master numbers of 11 or 22
@@ -335,8 +356,6 @@ def pers_year_calc(single_day_uno, single_month_uno, single_year_uno, month, day
     # if birthday has not occurred yet, then personal year is adjusted to prior personal year number since personal year number is effective from birthday to birthday
     if date.today() < birth_raw:
         personal_year = personal_year - 1
-    else:
-        personal_year
 
     return personal_year
 
@@ -496,6 +515,8 @@ def partner_life_path(ind_life_path):
     # displays partner's life path number
     print """\nYour and your partner's life path numbers are {} and {}, respectively.\n""".format(ind_life_path, life_path)
 
+    print """\nFor relationship purposes, life path numbers are reduced to single digits (e.g., master numbers 11 and 22 are reduced to 2 and 4, respectively).\n"""
+
     # calculates life path number to single digit
     partner_life_path = single_digit_uno(life_path)
 
@@ -507,9 +528,9 @@ def partner_life_path(ind_life_path):
 
 def partner_exp_dest(ind_exp_dest):
     # asks for partner's birthday
-    last_name = clean_name(ask_last_name("partner"))
-    middle_name = clean_name(ask_middle_name("partner"))
-    first_name = clean_name(ask_first_name("partner"))
+    last_name = clean_name(ask_name("partner", "last"))
+    middle_name = clean_name(ask_name("partner", "middle"))
+    first_name = clean_name(ask_name("partner", "first"))
 
     # calculate single digits master for first, middle and last names
     single_last_master = single_digit_master(name_calc(last_name))
@@ -521,6 +542,8 @@ def partner_exp_dest(ind_exp_dest):
 
     # displays partner's expression (destiny) number
     print """\nYour and your partner's expression (destiny) numbers are {} and {}, respectively.\n""".format(ind_exp_dest, exp_dest)
+
+    print """\nFor relationship purposes, expression (destiny) numbers are reduced to single digits (e.g., master numbers 11 and 22 are reduced to 2 and 4, respectively).\n"""
 
     # calculates expression (destiny) number to single digit
     partner_exp_dest = single_digit_uno(exp_dest)
@@ -695,8 +718,8 @@ def numerology_rpt(nick_name, first_name, nick_first_name, year, month, day, las
             # displays meanings for cornerstone and capstone
             corn_cap(clean_nick_first_name)
 
-            # calculates life path number to single digit for compatibility purposes
-            life_path_uno = single_digit_uno(life_path)
-            meanings.comp_gen(life_path_uno)
+        # calculates life path number to single digit for compatibility purposes
+        life_path_uno = single_digit_uno(life_path)
+        meanings.comp_gen(life_path_uno)
 
         sys.stdout = stdout_backup

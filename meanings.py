@@ -491,302 +491,494 @@ def comp_gen(life_path):
         print """\nBetter luck next time!\n"""
 
 
+# dictionary of life path compatibility based on combinations
+
+
+lp_comp_dict = {
+    (1, 1): """\nBoth of you are head strong, with a strong desire to lead, which can make this a challenging combination. Even though as 1s you might understand each other's needs, and share things in common, in this case this is not necessarily an advantage.\n
+This is a relationship of extremes with either partner refusing to surrender their leadership qualities, and the match can get dicey, especially when they start to compete, particularly at the onset of the relationship.\n
+Despite this 'butting of heads', when two people with such driving forces do get along, and their mutual competitive streaks are overcome, this can be a very ping combination.\n""",
+    (1, 2): """\nThis meeting of two very different people is a very promising combination, with the key being mutual respect and sincerity. One, being strong, driven, competitive, and sometimes overbearing, is best equipped to be the leader, to be the motivating force. The 2, being sensitive, insightful and supportive, is by nature the 'power behind the throne', allowing the 1 to throw some weight around without losing sight of what has to be done and how to do it.\n
+There is no power struggle, both of you know what you want, and you complement each other very well.\n""",
+    (1, 3): """\nThis is a very lively couple, and there is little negative to say about this combination. The 3 is good at acknowledging the 1's accomplishments and stroking the ego.\n
+The creative 3 provides the ideas and the light hearted, anything goes attitude, while the 1 provides the originality and the push, making this combination one of happiness and mutual pleasure for a long time.\n
+Despite the positive aspects, there are some pitfalls they have to be careful about, but overall this is a well balanced combination.\n""",
+    (1, 4): """\nOne's and 4's strengths can make for a solid relationship for a long time only to crash and burn in the blink of an eye.\n
+This can be a thriving relationship as long as 1 doesn't start on a path of unknowns and risky, questionable results. However, that will unavoidably happen, and 4 will at times be seen as a 'stick in the mud', a source of frustration for 1. When this kind of situation becomes overwhelming, it will almost certainly bring this relationship to an end.\n
+On the other hand, as long as 1 is able to respect 4's need for a secure, perhaps even predictable, lifestyle, and 4 can understand 1's need to try new avenues, take risks, occasionally venture out into unknown territories, the relationship can endure.\n""",
+    (1, 5): """\nThe compatibility of these two numbers is about as good as it gets. There will never be any danger of boredom, complacency, or emptiness in a relationship that has heads turning and people whispering.\n
+Both of these numbers like to have a lot of freedom in a relationship, and the one real threat is they try to impose their will on one another. The personality traits in this combination can both create and destroy, but like wind and fire, the 1 and 5 feed on each other and respect each other's powers, and when they set out side by side to fulfill their goals and dreams, nothing can withstand their combined forces.\n
+This is a relationship of intensity and moments of rarely achieved highs, where the promise of ecstatic experiences of love, spiritual bonding and shared dreams is very real.\n""",
+    (1, 6): """\nThis is a combination that has the potential for a long lasting relationship, without ever going through the kind of turbulence so many other relationships experience. The important thing for both 1 and 6 is to understand that they are very different in the way they view human qualities.\n
+Their priorities differ and if they are able to keep an eye open for their differences, and are able to work past this roadblock, this can be a successful pairing ...the key is to value their respective good qualities, and give each other the support they both need.\n""",
+    (1, 7): """\nOne and 7, your compatibility is unpredictable ... some relationships between 1s and 7s thrive while others don't stand a chance.\n
+The initial connection in this combination is usually intellectual - a level where you can relate and have plenty to share. One's willingness to get off the beaten path, and open and unconventional mind make for a great intellectual partnership with 7.\n
+You are two people who happily venture into new, strange or unknown intellectual and spiritual territories, and if you happen to click, this can lead to a very promising combination. Free thinkers, for very different reasons, driven by very different perspectives, and with very different energies, somehow blend nicely to make a nice, spicy recipe.\n""",
+    (1, 8): """\nFrom the love angle, this combination is questionable at best. Both of you are strong-willed, assertive and demanding, while at the same time stubborn people ... it's like having two captains on deck ... which leads to uneasiness, discomfort and distress.\n
+Neither one of you accepts anything less than full respect and an equal playing field, and neither one of you can be dominated or would accept being someone's sidekick. Even though both of you may share many common interests, any negative feedback from either of you can be deadly in this pairing.\n
+Success depends on a mutual willingness to compromise and limit demands, otherwise small arguments can be blown out of proportion.\n""",
+    (1, 9): """\nDue to the fact that both of you have a tendency towards arrogance, as well as to being somewhat egocentric, this is a very difficult relationship, as far as romance is concerned. It will only work if a certain amount of distance is maintained.\n
+Each of you has to live your own life. Ironically, although difficult, this is not a bad combination for most other kinds of relationships. Friendships, parent-child, as well as business relationships, often work very well with this combination.\n
+One and 9 stand on opposite ends of the spectrum ... they complement and balance each other. Together, they represent a lot of talents and useful qualities that ensure a powerful combination in most relationships, except in romance.\n""",
+    (2, 2): """\nThis is a great match of two souls who have a healthy respect for the power of feelings and emotions. You should have little difficulty finding common ground on just about any issue that might arise.\n
+The only word of caution for this pairing is that as two people who feel and experience emotions strongly, they must each remember how thin their own skin and realize how vulnerable you both are to criticism. You may need to consciously work on this in order to prevent verbal injury to one other.\n
+Generally this is not a problem because of your mutual respect and the ability to relate to each other's emotional experiences.\n""",
+    (2, 3): """\nMore often than not, the combination of 2 and 3 enhances each other's creative juices, potentially making this is a very good partnership. While the 3 is full of life and social energy, the 2 is happy standing back and enjoying the show, and as long as the 3 can keep its verbal impulses under control, and the 2 has enough confidence to handle occasional criticism, the relationship has every chance of bringing love and joy to both of you.\n""",
+    (2, 4): """\nAlthough perfection is not easy, if not impossible to find, and your relationship, just like any other is not without difficulty, this is one of the best combinations possible. This is a good pairing resulting in comfort personified.\n
+When it comes to home and family, the 4 is the ultimate builder and provider. Four's grounded and practical perspective complements the 2's sensitive and intuitive side, bringing a healthy balance to the relationship.\n""",
+    (2, 5): """\nThis is a combination where the chemistry has to be very strong in order for the two very different souls to forge some significant compromises. Like fire and water, when 2 and 5 occupy the same space, either the fire makes the water evaporate, or the water drowns out the fire.\n
+Although the two numbers can provide a lot for one another that may otherwise be missing, it is not an easy road, and in general, when the 2 and 5 are in the same part of the numerological chart, it makes for a short lived relationship.\n""",
+    (2, 6): """\nThis is in general a good compatibility match. The 6's priorities lie with family, to care for and comfort your loved ones, while the 2 is a sensitive, emotionally aware number, enabling you both to love easily and without holding back, forming a strong foundation for a long lasting relationship.\n
+Despite these common traits that bring a positive energy to your relationship, you both need to watch your own negative traits, such as 6's need for approval and praise, or 2's insecurity and occasional bouts of jealousy and envy. With these under control, and with considerations of feelings for each other on both sides, the likelihood of a clash in less likely than in most other number combinations.\n""",
+    (2, 7): """\nThis is a unique combination that has both strong and dissimilar needs, a combination where intuition meets intelligence, sensitivity meets analysis, and the heart meets the mind. Although these two numbers rarely express interest in one another, when they do, the result can often lead to a relationship that's welded for life.\n""",
+    (2, 8): """\nThis number combination usually works out well. Because it is likely that each of you has a clear vision of your role, this relationship is often seen as the classic traditional family model, where the female 2 takes care of the family, and the male 8 takes care of the financial needs ... or in the case of the male being a 2 and female an 8, the classic male/female role reversal.\n
+Regardless of the roles, this combination's qualities can produce a balanced relationship, and when these two unite their individual strengths, you have the potential of a rewarding relationship that lasts for years and years.\n""",
+    (2, 9): """\nThis combination of numbers doesn't get along too well in terms of romantic compatibility. Despite both being loving and caring numbers, the 9's focus is on the world, and the care they naturally possess is shared with all of humanity, while the 2's emotions like to be focused on the one single person they love.\n
+Generally speaking, the 2 and a 9 can form successful alliances in other circumstances, such as a business partnership, but when it comes to the needs and desires of their heart, you will need much effort to make it work.\n""",
+    (3, 3): """\nHappy go lucky, interesting, and creative ... describes this pairing of two numbers who joke easily, and know how to please each other, while at the same time being able to enjoy each other's company within your dynamic social environment. This is a fun pair that understands and supports one another.\n
+Troubles might arise, however, when the question becomes as to who is going to take care of the mundane tasks. You both have a tendency to skim over the rough spots, and when fun and joy become too high a priority and neither partner is willing, or able, to take care of the practical everyday details, this can destabilize the foundations and bring friction to your relationship.\n""",
+    (3, 4): """\nThe pairing of 3 and 4 can lead to either a promising, or a very difficult and challenging combination. When the spontaneous 3 pairs with the grounded 4, something has to give, and often it won't. The 3 is an optimistic, fun loving number, one of 'go with the flow' attitude that takes each day as it comes. The 4 on the other hand is more disciplined, practical, and has a definite plan for the future.\n
+If the two of you can ever figure out how to meet in the middle, and balance each other's shortcomings, this can be a good combinations. However, when life becomes a challenge and wordly problems arise, the 3 and 4 are a pair least prepared to deal with them.\n""",
+    (3, 5): """\nThe 3 and the 5 get along very well, making this is an excellent combination. You both communicate well, and the two of you will generally find each other's company interesting and enjoyable.\n
+Numerous activities, such as social events and travel, will keep this relationship from getting boring. The downfall, or rather dangers, of this pairing is because you are so compatible, you may end up enhancing each other's less desirable traits.\n""",
+    (3, 6): """\nThis combination is a creative couple, with an active social life. The 3, full of enthusiasm and sense of humor, and the 6 providing the warmth, support, and self sacrificing love, makes this combination an ideal team that will work well in most cases.\n
+The chemistry here is very strong, but while there is no lack of emotion, the pitfall here is the possibly excessive emotional bond experienced by the 6. Usually it will be the 6 who will have to learn to deal with this inborn trait, and allow the 3 enough space and freedom to move and breathe.\n""",
+    (3, 7): """\nThese two make up an interesting combination, one of two very different types of people. The 3 is restless, energetic, and constantly on the go, with a swirl of activity, travel, and social contact which the 7 usually finds intolerable. The 7 needs quiet and solitude to recharge, and can only take so much human contact before retreating to their place of peace and quiet.\n
+Confrontation in this pairing never works well, and because of the different natures of the 3 and the 7, this is a relationship that can either last for a couple of weeks, or remain exciting and strong for a lifetime.\n""",
+    (3, 8): """\nThis is a combination where the number set is compatible in some areas and incompatible in others; therefore, this relationship requires a bit of extra effort. Because of the 3 and the 8 having very different views as to what is important in life, unless they learn to respect each other's needs and expectations, the relationship will not last long.\n
+Despite this, because you complement each other well, more often than not, you can get along very well and can be quite compatible.\n""",
+    (3, 9): """\nThe pairing of a 3 and a 9 is a combination of two people who, through their powerful imaginations, are able to keep each other endlessly engaged in a variety of creative ways. Despite the occasional self-centered and egocentric tendency of both numbers, this combination reflects excellent compatibility.\n
+The problem the couple faces is when they are both vying for the same limelight, and despite the fact that privately they respect and like each other, they can become very competitive, in which case they will do almost anything to win.\n""",
+    (4, 4): """\nThis is a stable pairing; however, because of the nature of the 4, you both tend to get somewhat irritated when established routine is disturbed. This can lead to a relationship that is either very good, or extremely stressful, with little room in the middle, and so the compatibility can depend largely on how compatible your daily routines are.\n
+Upside of this pairing is stability and security ... the downside is that it is hard to relax, be spontaneous, and enjoy the moment.\n""",
+    (4, 5): """\nIn short, this is a challenging combination. The 4 and the 5 are each other's polar opposites. Four likes routine and predictability; 5 prefers change and unexpected. The only way this pairing can survive is if you accept each other as you are, respect your differences, and don't try to change your partner.\n""",
+    (4, 6): """\nDespite the common traits shared by this pairing, it is usually not very common for these two numbers to fall in love. However, because you are both responsible and family oriented, and you both value stability and security. If you do get involved in a romantic relationship, it is usually a strong, comfortable match straight from the beginning, with potential to last for a life time.\n""",
+    (4, 7): """\nThis combination is one in which the earth meets the heaven, and just like earth and heaven, the two of you can't exist without one another. There are some sharp angles that will need to be rounded off, but this pairing, which makes life both secure and at the same time more interesting for both of you, can much more easily overcome the challenges inherit in every relationship.\n""",
+    (4, 8): """\nBecause both parties know how to work hard, and have a good head for getting ahead in the world, this is a very good combination, not only in romance, but also in business.\n
+This is a couple that knows how to build for the future and develop a very secure relationship. Like in any other number combination, dangers do exist, and feelings of frustration can overshadow the love and respect that is the foundation of this relationship, but overall this is an excellent number pairing.\n""",
+    (4, 9): """\nThe successful pairing of these two numbers is very rare, and important differences will have to be addressed and accepted by both of you if you want this relationship to last.\n
+The two numbers usually don't connect, and rarely see eye to eye. If you have a successful relationship, this usually indicates that other numbers in your numerological chart play a significant enough of a role to overcome this particular incompatible combination.\n""",
+    (5, 5): """\nThe two 5s form a very comfortable match. This is a relationship that is tolerant, easy going and flexible, and in which both of you take your commitment to each other seriously, allowing you to weather many storms.\n
+The dangers of this pairing come from within, and it is the adventurous, freewheeling lifestyle, which is normally a plus, that can cause difficulty in focusing on the mundane day-to-day affairs, and can lead to somewhat of a wild streak that can include drugs, alcohol, and other such vices.\n""",
+    (5, 6): """\nThis combination of numbers is a match that is usually very physical and sensual. The 5's freedom loving nature and 6's grounding force can complement each other well, but only if both of you are willing to compromise.\n
+If you can find a way to meet in the middle, avoid the tendency to become stuck in your individual positions, and live a lifestyle that is in harmony with that of your partner, this can be a promising relationship.\n""",
+    (5, 7): """\nThis is a combination of two numbers that can fulfill each other's needs and desires in many ways. The 7 enjoys its alone time, and the 5 is a busy body that appreciates the lack of demands for attention from its partner.\n
+When together, the pairing is able to find a stream of mutual interests to discuss and explore, particularly on the intellectual and spiritual planes, making this one of the best combinations for a long lasting relationship.\n""",
+    (5, 8): """\nRomantically, this is not a very good match. Your individual qualities and interests rarely overlap, and while the 5 is dynamic and likes freedom from rules and restraints, the 8 is a strong authoritative figure used to being the boss. It will take careful planning and compromise, and roles that are very different and far apart, for this relationship to work.\n""",
+    (5, 9): """\nThere is very little that these two numbers have in common. Nine perceives the 5's love of freedom as irresponsible, while the idealism of the 9 appears superficial to the 5.\n
+If you are in a relationship, it would suggest that other numbers in your numerological chart are responsible for the attraction between the two of you. You will need to compromise and be much more diplomatic than other number sets in order for this match to be successful.\n""",
+    (6, 6): """\nThis is a very good, highly committed number pairing. Just like in any other relationship, there will come a time when obstacles will need to be overcome; however, because of the harmonious and loving nature of the 6, this is a combination charged with romance, and one that has a very good chance to form a strong, long lasting romantic relationship.\n""",
+    (6, 7): """\nBecause the 6 and the 7 represent very two different people, with very different ideas, each number expresses love in a different way. This can lead this number pairing to form a somewhat of a love-hate relationship.\n
+Seven's secretive and 'aloof' nature, with the need for certain amount of distance, doesn't bode well with the 6's need for open expressions of love and emotions. This can cause a rift where the 6 feels insecure about the relationship, while the 7 experiences the 6's loving attention as an annoying disruption.\n
+Not all is lost, however, and as long as the two of you are able to recognize these differences, there is potential here.\n""",
+    (6, 8): """\nThe practical, goal oriented, and responsible nature of these two numbers makes this a very positive and compatible pairing. The dangers lay in the different ways the 6 and the 8 view responsibility, and how they go about accomplishing their goals.\n
+The 6 is more oriented on family and friends, while the 8 is more focused on the executive lifestyle and the obligations that come with it. Despite these differences, the combination is all together a very good match.\n""",
+    (6, 9): """\nWhen 6 and 9 are found between two partners, the compatibility is usually very good. It is important that your respective negative traits aren't allow to grow and fester, creating an environment where you are more likely to clash.\n
+The give and take compromise is something you will need to do, in order to prevent unnecessary arguments from escalating, but because both of you are self-sacrificing, caring people, this is something that is not hard for either of you to do. Overall this is a highly compatible match.\n""",
+    (7, 7): """\nNo one understands the psyche of a 7 nearly as well as another 7. This is an excellent combination of two people who take life's mysteries seriously. With the right attitude, you will happily explore the world, or spend quiet days in solitude together.\n
+This is a beautiful pairing with potential for spiritual growth for both partners, and one where the term 'soul mates' often applies.\n""",
+    (7, 8): """\nThese two numbers neither attract nor repel one another, and it is most common that this pairing is based more on the physical rather than the emotional. The 7's aversion against the 8's tendency to control, and the 8's preference of practical matters as opposed to the 7's philosophical and spiritual nature can lead to frequent verbal battles.\n
+This is a combination where your attraction is most likely based on other numbers in you numerological chart.\n""",
+    (7, 9): """\nThis combination is somewhat neutral as far as compatibility is concerned. There is neither like nor dislike between you two.\n
+Discourse can arise when your positions on religion and spirituality are not in harmony with one another, or when your different tastes in general are questioned by one another.\n
+On the plus side, because of your unique energies, there is otherwise rarely any kind of friction, and conflicts are dealt with reasonably.\n""",
+    (8, 8): """\nThis is a good pairing, not only in romance, but also in business. Having two 8s in a relationship puts each of you in a position where you are well suited to support each other.\n
+The pitfalls arise when you find yourselves competing with one another, or when you are both financially strapped. If you are able to unite your competitive natures against other forces, and follow your heart and intuition in the pursuit of success, this pairing has a strong chance of a long and happy relationship.\n""",
+    (8, 9): """\nThis number pairing is not considered very compatible at all. Your goals are very different and you'll frequently find yourselves on the opposite spectrum of a discussion. Although there is often a strong attraction that can form the foundation for an interesting relationship, the only way this pairing will last is if both of you recognize and respect the big differences between one another.\n""",
+    (9, 9): """\nThe compatibility between two 9s is excellent, and offers much promise for a very happy, inspiring, and engaging relationship.\n
+The many similarities, coupled with the selfless nature of the 9, make for a combination that faces very few challenges. Despite some pitfalls that may exist, this number set has great potential to form an unbreakable bond ... one that will not weaken over time.\n"""
+}
+
 # definition of a function to display life path compatibility based on combinations
 
 
-def comp_life_meaning(life_path_1, life_path_2):
-    # displays compatibility based on various combinations of life path numbers of individual and partner
-    # displays note that life path numbers are reduced to single digit for relationship purposes
-    print """\nFor relationship purposes, life path numbers are reduced to single digits (e.g., master numbers 11 and 22 are reduced to 2 and 4, respectively).\n"""
+# def comp_life_meaning(life_path_1, life_path_2):
+#     # displays compatibility based on various combinations of life path numbers of individual and partner
+#     # displays note that life path numbers are reduced to single digit for relationship purposes
+#     print """\nFor relationship purposes, life path numbers are reduced to single digits (e.g., master numbers 11 and 22 are reduced to 2 and 4, respectively).\n"""
 
-    # the following are "very good" pairings
-    if ((life_path_1 == 1) and (life_path_2 == 3)) or ((life_path_1 == 3) and (life_path_2 == 1)):
-        print """\nThis is a very lively couple, and there is little negative to say about this combination. The 3 is good at acknowledging the 1's accomplishments and stroking the ego.\n
-The creative 3 provides the ideas and the light hearted, anything goes attitude, while the 1 provides the originality and the push, making this combination one of happiness and mutual pleasure for a long time.\n
-Despite the positive aspects, there are some pitfalls they have to be careful about, but overall this is a well balanced combination.\n"""
-    elif ((life_path_1 == 1) and (life_path_2 == 5)) or ((life_path_1 == 5) and (life_path_2 == 1)):
-        print """\nThe compatibility of these two numbers is about as good as it gets. There will never be any danger of boredom, complacency, or emptiness in a relationship that has heads turning and people whispering.\n
-Both of these numbers like to have a lot of freedom in a relationship, and the one real threat is they try to impose their will on one another. The personality traits in this combination can both create and destroy, but like wind and fire, the 1 and 5 feed on each other and respect each other's powers, and when they set out side by side to fulfill their goals and dreams, nothing can withstand their combined forces.\n
-This is a relationship of intensity and moments of rarely achieved highs, where the promise of ecstatic experiences of love, spiritual bonding and shared dreams is very real.\n"""
-    elif life_path_1 == life_path_2 == 2:
-        print """\nThis is a great match of two souls who have a healthy respect for the power of feelings and emotions. You should have little difficulty finding common ground on just about any issue that might arise.\n
-The only word of caution for this pairing is that as two people who feel and experience emotions strongly, they must each remember how thin their own skin and realize how vulnerable you both are to criticism. You may need to consciously work on this in order to prevent verbal injury to one other.\n
-Generally this is not a problem because of your mutual respect and the ability to relate to each other's emotional experiences.\n"""
-    elif ((life_path_1 == 2) and (life_path_2 == 4)) or ((life_path_1 == 4) and (life_path_2 == 2)):
-        print """\nAlthough perfection is not easy, if not impossible to find, and your relationship, just like any other is not without difficulty, this is one of the best combinations possible. This is a good pairing resulting in comfort personified.\n
-When it comes to home and family, the 4 is the ultimate builder and provider. Four's grounded and practical perspective complements the 2's sensitive and intuitive side, bringing a healthy balance to the relationship.\n"""
-    elif ((life_path_1 == 2) and (life_path_2 == 8)) or ((life_path_1 == 8) and (life_path_2 == 2)):
-        print """\nThis number combination usually works out well. Because it is likely that each of you has a clear vision of your role, this relationship is often seen as the classic traditional family model, where the female 2 takes care of the family, and the male 8 takes care of the financial needs ... or in the case of the male being a 2 and female an 8, the classic male/female role reversal.\n
-Regardless of the roles, this combination's qualities can produce a balanced relationship, and when these two unite their individual strengths, you have the potential of a rewarding relationship that lasts for years and years.\n"""
-    elif ((life_path_1 == 3) and (life_path_2 == 5)) or ((life_path_1 == 5) and (life_path_2 == 3)):
-        print """\nThe 3 and the 5 get along very well, making this is an excellent combination. You both communicate well, and the two of you will generally find each other's company interesting and enjoyable.\n
-Numerous activities, such as social events and travel, will keep this relationship from getting boring. The downfall, or rather dangers, of this pairing is because you are so compatible, you may end up enhancing each other's less desirable traits.\n"""
-    elif ((life_path_1 == 4) and (life_path_2 == 8)) or ((life_path_1 == 8) and (life_path_2 == 4)):
-        print """\nBecause both parties know how to work hard, and have a good head for getting ahead in the world, this is a very good combination, not only in romance, but also in business.\n
-This is a couple that knows how to build for the future and develop a very secure relationship. Like in any other number combination, dangers do exist, and feelings of frustration can overshadow the love and respect that is the foundation of this relationship, but overall this is an excellent number pairing.\n"""
-    elif ((life_path_1 == 5) and (life_path_2 == 7)) or ((life_path_1 == 7) and (life_path_2 == 5)):
-        print """\nThis is a combination of two numbers that can fulfill each other's needs and desires in many ways. The 7 enjoys its alone time, and the 5 is a busy body that appreciates the lack of demands for attention from its partner.\n
-When together, the pairing is able to find a stream of mutual interests to discuss and explore, particularly on the intellectual and spiritual planes, making this one of the best combinations for a long lasting relationship.\n"""
-    elif life_path_1 == life_path_2 == 6:
-        print """\nThis is a very good, highly committed number pairing. Just like in any other relationship, there will come a time when obstacles will need to be overcome; however, because of the harmonious and loving nature of the 6, this is a combination charged with romance, and one that has a very good chance to form a strong, long lasting romantic relationship.\n"""
-    elif ((life_path_1 == 6) and (life_path_2 == 9)) or ((life_path_1 == 9) and (life_path_2 == 6)):
-        print """\nWhen 6 and 9 are found between two partners, the compatibility is usually very good. It is important that your respective negative traits aren't allow to grow and fester, creating an environment where you are more likely to clash.\n
-The give and take compromise is something you will need to do, in order to prevent unnecessary arguments from escalating, but because both of you are self-sacrificing, caring people, this is something that is not hard for either of you to do. Overall this is a highly compatible match.\n"""
-    elif life_path_1 == life_path_2 == 7:
-        print """\nNo one understands the psyche of a 7 nearly as well as another 7. This is an excellent combination of two people who take life's mysteries seriously. With the right attitude, you will happily explore the world, or spend quiet days in solitude together.\n
-This is a beautiful pairing with potential for spiritual growth for both partners, and one where the term 'soul mates' often applies.\n"""
-    elif life_path_1 == life_path_2 == 8:
-        print """\nThis is a good pairing, not only in romance, but also in business. Having two 8s in a relationship puts each of you in a position where you are well suited to support each other.\n
-The pitfalls arise when you find yourselves competing with one another, or when you are both financially strapped. If you are able to unite your competitive natures against other forces, and follow your heart and intuition in the pursuit of success, this pairing has a strong chance of a long and happy relationship.\n"""
-    elif life_path_1 == life_path_2 == 9:
-        print """\nThe compatibility between two 9s is excellent, and offers much promise for a very happy, inspiring, and engaging relationship.\n
-The many similarities, coupled with the selfless nature of the 9, make for a combination that faces very few challenges. Despite some pitfalls that may exist, this number set has great potential to form an unbreakable bond ... one that will not weaken over time.\n"""
-    # the following are "ok" pairings
-    elif ((life_path_1 == 1) and (life_path_2 == 2)) or ((life_path_1 == 2) and (life_path_2 == 1)):
-        print """\nThis meeting of two very different people is a very promising combination, with the key being mutual respect and sincerity. One, being strong, driven, competitive, and sometimes overbearing, is best equipped to be the leader, to be the motivating force. The 2, being sensitive, insightful and supportive, is by nature the 'power behind the throne', allowing the 1 to throw some weight around without losing sight of what has to be done and how to do it.\n
-There is no power struggle, both of you know what you want, and you complement each other very well.\n"""
-    elif ((life_path_1 == 1) and (life_path_2 == 6)) or ((life_path_1 == 6) and (life_path_2 == 1)):
-        print """\nThis is a combination that has the potential for a long lasting relationship, without ever going through the kind of turbulence so many other relationships experience. The important thing for both 1 and 6 is to understand that they are very different in the way they view human qualities.\n
-Their priorities differ and if they are able to keep an eye open for their differences, and are able to work past this roadblock, this can be a successful pairing ...the key is to value their respective good qualities, and give each other the support they both need.\n"""
-    elif ((life_path_1 == 2) and (life_path_2 == 3)) or ((life_path_1 == 3) and (life_path_2 == 2)):
-        print """\nMore often than not, the combination of 2 and 3 enhances each other's creative juices, potentially making this is a very good partnership. While the 3 is full of life and social energy, the 2 is happy standing back and enjoying the show, and as long as the 3 can keep its verbal impulses under control, and the 2 has enough confidence to handle occasional criticism, the relationship has every chance of bringing love and joy to both of you.\n"""
-    elif ((life_path_1 == 2) and (life_path_2 == 6)) or ((life_path_1 == 6) and (life_path_2 == 2)):
-        print """\nThis is in general a good compatibility match. The 6's priorities lie with family, to care for and comfort your loved ones, while the 2 is a sensitive, emotionally aware number, enabling you both to love easily and without holding back, forming a strong foundation for a long lasting relationship.\n
-Despite these common traits that bring a positive energy to your relationship, you both need to watch your own negative traits, such as 6's need for approval and praise, or 2's insecurity and occasional bouts of jealousy and envy. With these under control, and with considerations of feelings for each other on both sides, the likelihood of a clash in less likely than in most other number combinations.\n"""
-    elif life_path_1 == life_path_2 == 3:
-        print """\nHappy go lucky, interesting, and creative ... describes this pairing of two numbers who joke easily, and know how to please each other, while at the same time being able to enjoy each other's company within your dynamic social environment. This is a fun pair that understands and supports one another.\n
-Troubles might arise, however, when the question becomes as to who is going to take care of the mundane tasks. You both have a tendency to skim over the rough spots, and when fun and joy become too high a priority and neither partner is willing, or able, to take care of the practical everyday details, this can destabilize the foundations and bring friction to your relationship.\n"""
-    elif ((life_path_1 == 3) and (life_path_2 == 6)) or ((life_path_1 == 6) and (life_path_2 == 3)):
-        print """\nThis combination is a creative couple, with an active social life. The 3, full of enthusiasm and sense of humor, and the 6 providing the warmth, support, and self sacrificing love, makes this combination an ideal team that will work well in most cases.\n
-The chemistry here is very strong, but while there is no lack of emotion, the pitfall here is the possibly excessive emotional bond experienced by the 6. Usually it will be the 6 who will have to learn to deal with this inborn trait, and allow the 3 enough space and freedom to move and breathe.\n"""
-    elif ((life_path_1 == 3) and (life_path_2 == 9)) or ((life_path_1 == 9) and (life_path_2 == 3)):
-        print """\nThe pairing of a 3 and a 9 is a combination of two people who, through their powerful imaginations, are able to keep each other endlessly engaged in a variety of creative ways. Despite the occasional self-centered and egocentric tendency of both numbers, this combination reflects excellent compatibility.\n
-The problem the couple faces is when they are both vying for the same limelight, and despite the fact that privately they respect and like each other, they can become very competitive, in which case they will do almost anything to win.\n"""
-    elif ((life_path_1 == 4) and (life_path_2 == 6)) or ((life_path_1 == 6) and (life_path_2 == 4)):
-        print """\nDespite the common traits shared by this pairing, it is usually not very common for these two numbers to fall in love. However, because you are both responsible and family oriented, and you both value stability and security. If you do get involved in a romantic relationship, it is usually a strong, comfortable match straight from the beginning, with potential to last for a life time.\n"""
-    elif ((life_path_1 == 4) and (life_path_2 == 7)) or ((life_path_1 == 7) and (life_path_2 == 4)):
-        print """\nThis combination is one in which the earth meets the heaven, and just like earth and heaven, the two of you can't exist without one another. There are some sharp angles that will need to be rounded off, but this pairing, which makes life both secure and at the same time more interesting for both of you, can much more easily overcome the challenges inherit in every relationship.\n"""
-    elif life_path_1 == life_path_2 == 5:
-        print """\nThe two 5s form a very comfortable match. This is a relationship that is tolerant, easy going and flexible, and in which both of you take your commitment to each other seriously, allowing you to weather many storms.\n
-The dangers of this pairing come from within, and it is the adventurous, freewheeling lifestyle, which is normally a plus, that can cause difficulty in focusing on the mundane day-to-day affairs, and can lead to somewhat of a wild streak that can include drugs, alcohol, and other such vices.\n"""
-    elif ((life_path_1 == 6) and (life_path_2 == 8)) or ((life_path_1 == 8) and (life_path_2 == 6)):
-        print """\nThe practical, goal oriented, and responsible nature of these two numbers makes this a very positive and compatible pairing. The dangers lay in the different ways the 6 and the 8 view responsibility, and how they go about accomplishing their goals.\n
-The 6 is more oriented on family and friends, while the 8 is more focused on the executive lifestyle and the obligations that come with it. Despite these differences, the combination is all together a very good match.\n"""
-    # the following could go either way
-    elif life_path_1 == life_path_2 == 1:
-        print """\nBoth of you are head strong, with a strong desire to lead, which can make this a challenging combination. Even though as 1s you might understand each other's needs, and share things in common, in this case this is not necessarily an advantage.\n
-This is a relationship of extremes with either partner refusing to surrender their leadership qualities, and the match can get dicey, especially when they start to compete, particularly at the onset of the relationship.\n
-Despite this 'butting of heads', when two people with such driving forces do get along, and their mutual competitive streaks are overcome, this can be a very ping combination.\n"""
-    elif ((life_path_1 == 1) and (life_path_2 == 7)) or ((life_path_1 == 7) and (life_path_2 == 1)):
-        print """\nOne and 7, your compatibility is unpredictable ... some relationships between 1s and 7s thrive while others don't stand a chance.\n
-The initial connection in this combination is usually intellectual - a level where you can relate and have plenty to share. One's willingness to get off the beaten path, and open and unconventional mind make for a great intellectual partnership with 7.\n
-You are two people who happily venture into new, strange or unknown intellectual and spiritual territories, and if you happen to click, this can lead to a very promising combination. Free thinkers, for very different reasons, driven by very different perspectives, and with very different energies, somehow blend nicely to make a nice, spicy recipe.\n"""
-    elif ((life_path_1 == 1) and (life_path_2 == 9)) or ((life_path_1 == 9) and (life_path_2 == 1)):
-        print """\nDue to the fact that both of you have a tendency towards arrogance, as well as to being somewhat egocentric, this is a very difficult relationship, as far as romance is concerned. It will only work if a certain amount of distance is maintained.\n
-Each of you has to live your own life. Ironically, although difficult, this is not a bad combination for most other kinds of relationships. Friendships, parent-child, as well as business relationships, often work very well with this combination.\n
-One and 9 stand on opposite ends of the spectrum ... they complement and balance each other. Together, they represent a lot of talents and useful qualities that ensure a powerful combination in most relationships, except in romance.\n"""
-    elif ((life_path_1 == 2) and (life_path_2 == 7)) or ((life_path_1 == 7) and (life_path_2 == 2)):
-        print """\nThis is a unique combination that has both strong and dissimilar needs, a combination where intuition meets intelligence, sensitivity meets analysis, and the heart meets the mind. Although these two numbers rarely express interest in one another, when they do, the result can often lead to a relationship that's welded for life.\n"""
-    elif ((life_path_1 == 3) and (life_path_2 == 4)) or ((life_path_1 == 4) and (life_path_2 == 3)):
-        print """\nThe pairing of 3 and 4 can lead to either a promising, or a very difficult and challenging combination. When the spontaneous 3 pairs with the grounded 4, something has to give, and often it won't. The 3 is an optimistic, fun loving number, one of 'go with the flow' attitude that takes each day as it comes. The 4 on the other hand is more disciplined, practical, and has a definite plan for the future.\n
-If the two of you can ever figure out how to meet in the middle, and balance each other's shortcomings, this can be a good combinations. However, when life becomes a challenge and wordly problems arise, the 3 and 4 are a pair least prepared to deal with them.\n"""
-    elif ((life_path_1 == 3) and (life_path_2 == 8)) or ((life_path_1 == 8) and (life_path_2 == 3)):
-        print """\nThis is a combination where the number set is compatible in some areas and incompatible in others; therefore, this relationship requires a bit of extra effort. Because of the 3 and the 8 having very different views as to what is important in life, unless they learn to respect each other's needs and expectations, the relationship will not last long.\n
-Despite this, because you complement each other well, more often than not, you can get along very well and can be quite compatible.\n"""
-    elif life_path_1 == life_path_2 == 4:
-        print """\nThis is a stable pairing; however, because of the nature of the 4, you both tend to get somewhat irritated when established routine is disturbed. This can lead to a relationship that is either very good, or extremely stressful, with little room in the middle, and so the compatibility can depend largely on how compatible your daily routines are.\n
-Upside of this pairing is stability and security ... the downside is that it is hard to relax, be spontaneous, and enjoy the moment.\n"""
-    elif ((life_path_1 == 5) and (life_path_2 == 6)) or ((life_path_1 == 6) and (life_path_2 == 5)):
-        print """\nThis combination of numbers is a match that is usually very physical and sensual. The 5's freedom loving nature and 6's grounding force can complement each other well, but only if both of you are willing to compromise.\n
-If you can find a way to meet in the middle, avoid the tendency to become stuck in your individual positions, and live a lifestyle that is in harmony with that of your partner, this can be a promising relationship.\n"""
-    elif ((life_path_1 == 7) and (life_path_2 == 9)) or ((life_path_1 == 9) and (life_path_2 == 7)):
-        print """\nThis combination is somewhat neutral as far as compatibility is concerned. There is neither like nor dislike between you two.\n
-Discourse can arise when your positions on religion and spirituality are not in harmony with one another, or when your different tastes in general are questioned by one another.\n
-On the plus side, because of your unique energies, there is otherwise rarely any kind of friction, and conflicts are dealt with reasonably.\n"""
-    # the following are "challenging" pairings
-    elif ((life_path_1 == 1) and (life_path_2 == 4)) or ((life_path_1 == 4) and (life_path_2 == 1)):
-        print """\nOne's and 4's strengths can make for a solid relationship for a long time only to crash and burn in the blink of an eye.\n
-This can be a thriving relationship as long as 1 doesn't start on a path of unknowns and risky, questionable results. However, that will unavoidably happen, and 4 will at times be seen as a 'stick in the mud', a source of frustration for 1. When this kind of situation becomes overwhelming, it will almost certainly bring this relationship to an end.\n
-On the other hand, as long as 1 is able to respect 4's need for a secure, perhaps even predictable, lifestyle, and 4 can understand 1's need to try new avenues, take risks, occasionally venture out into unknown territories, the relationship can endure.\n"""
-    elif ((life_path_1 == 1) and (life_path_2 == 8)) or ((life_path_1 == 8) and (life_path_2 == 1)):
-        print """\nFrom the love angle, this combination is questionable at best. Both of you are strong-willed, assertive and demanding, while at the same time stubborn people ... it's like having two captains on deck ... which leads to uneasiness, discomfort and distress.\n
-Neither one of you accepts anything less than full respect and an equal playing field, and neither one of you can be dominated or would accept being someone's sidekick. Even though both of you may share many common interests, any negative feedback from either of you can be deadly in this pairing.\n
-Success depends on a mutual willingness to compromise and limit demands, otherwise small arguments can be blown out of proportion.\n"""
-    elif ((life_path_1 == 2) and (life_path_2 == 5)) or ((life_path_1 == 5) and (life_path_2 == 2)):
-        print """\nThis is a combination where the chemistry has to be very strong in order for the two very different souls to forge some significant compromises. Like fire and water, when 2 and 5 occupy the same space, either the fire makes the water evaporate, or the water drowns out the fire.\n
-Although the two numbers can provide a lot for one another that may otherwise be missing, it is not an easy road, and in general, when the 2 and 5 are in the same part of the numerological chart, it makes for a short lived relationship.\n"""
-    elif ((life_path_1 == 2) and (life_path_2 == 9)) or ((life_path_1 == 9) and (life_path_2 == 2)):
-        print """\nThis combination of numbers doesn't get along too well in terms of romantic compatibility. Despite both being loving and caring numbers, the 9's focus is on the world, and the care they naturally possess is shared with all of humanity, while the 2's emotions like to be focused on the one single person they love.\n
-Generally speaking, the 2 and a 9 can form successful alliances in other circumstances, such as a business partnership, but when it comes to the needs and desires of their heart, you will need much effort to make it work.\n"""
-    elif ((life_path_1 == 3) and (life_path_2 == 7)) or ((life_path_1 == 7) and (life_path_2 == 3)):
-        print """\nThese two make up an interesting combination, one of two very different types of people. The 3 is restless, energetic, and constantly on the go, with a swirl of activity, travel, and social contact which the 7 usually finds intolerable. The 7 needs quiet and solitude to recharge, and can only take so much human contact before retreating to their place of peace and quiet.\n
-Confrontation in this pairing never works well, and because of the different natures of the 3 and the 7, this is a relationship that can either last for a couple of weeks, or remain exciting and strong for a lifetime.\n"""
-    elif ((life_path_1 == 4) and (life_path_2 == 5)) or ((life_path_1 == 5) and (life_path_2 == 4)):
-        print """\nIn short, this is a challenging combination. The 4 and the 5 are each other's polar opposites. Four likes routine and predictability; 5 prefers change and unexpected. The only way this pairing can survive is if you accept each other as you are, respect your differences, and don't try to change your partner.\n"""
-    elif ((life_path_1 == 4) and (life_path_2 == 9)) or ((life_path_1 == 9) and (life_path_2 == 4)):
-        print """\nThe successful pairing of these two numbers is very rare, and important differences will have to be addressed and accepted by both of you if you want this relationship to last.\n
-The two numbers usually don't connect, and rarely see eye to eye. If you have a successful relationship, this usually indicates that other numbers in your numerological chart play a significant enough of a role to overcome this particular incompatible combination.\n"""
-    elif ((life_path_1 == 5) and (life_path_2 == 8)) or ((life_path_1 == 8) and (life_path_2 == 5)):
-        print """\nRomantically, this is not a very good match. Your individual qualities and interests rarely overlap, and while the 5 is dynamic and likes freedom from rules and restraints, the 8 is a strong authoritative figure used to being the boss. It will take careful planning and compromise, and roles that are very different and far apart, for this relationship to work.\n"""
-    elif ((life_path_1 == 5) and (life_path_2 == 9)) or ((life_path_1 == 9) and (life_path_2 == 5)):
-        print """\nThere is very little that these two numbers have in common. Nine perceives the 5's love of freedom as irresponsible, while the idealism of the 9 appears superficial to the 5.\n
-If you are in a relationship, it would suggest that other numbers in your numerological chart are responsible for the attraction between the two of you. You will need to compromise and be much more diplomatic than other number sets in order for this match to be successful.\n"""
-    elif ((life_path_1 == 6) and (life_path_2 == 7)) or ((life_path_1 == 7) and (life_path_2 == 6)):
-        print """\nBecause the 6 and the 7 represent very two different people, with very different ideas, each number expresses love in a different way. This can lead this number pairing to form a somewhat of a love-hate relationship.\n
-Seven's secretive and 'aloof' nature, with the need for certain amount of distance, doesn't bode well with the 6's need for open expressions of love and emotions. This can cause a rift where the 6 feels insecure about the relationship, while the 7 experiences the 6's loving attention as an annoying disruption.\n
-Not all is lost, however, and as long as the two of you are able to recognize these differences, there is potential here.\n"""
-    elif ((life_path_1 == 7) and (life_path_2 == 8)) or ((life_path_1 == 8) and (life_path_2 == 7)):
-        print """\nThese two numbers neither attract nor repel one another, and it is most common that this pairing is based more on the physical rather than the emotional. The 7's aversion against the 8's tendency to control, and the 8's preference of practical matters as opposed to the 7's philosophical and spiritual nature can lead to frequent verbal battles.\n
-This is a combination where your attraction is most likely based on other numbers in you numerological chart.\n"""
-    elif ((life_path_1 == 8) and (life_path_2 == 9)) or ((life_path_1 == 9) and (life_path_2 == 8)):
-        print """\nThis number pairing is not considered very compatible at all. Your goals are very different and you'll frequently find yourselves on the opposite spectrum of a discussion. Although there is often a strong attraction that can form the foundation for an interesting relationship, the only way this pairing will last is if both of you recognize and respect the big differences between one another.\n"""
-    else:
-        print """\nBetter luck next time!\n"""
+#     # the following are "very good" pairings
+#     if ((life_path_1 == 1) and (life_path_2 == 3)) or ((life_path_1 == 3) and (life_path_2 == 1)):
+#         print """\nThis is a very lively couple, and there is little negative to say about this combination. The 3 is good at acknowledging the 1's accomplishments and stroking the ego.\n
+# The creative 3 provides the ideas and the light hearted, anything goes attitude, while the 1 provides the originality and the push, making this combination one of happiness and mutual pleasure for a long time.\n
+# Despite the positive aspects, there are some pitfalls they have to be careful about, but overall this is a well balanced combination.\n"""
+#     elif ((life_path_1 == 1) and (life_path_2 == 5)) or ((life_path_1 == 5) and (life_path_2 == 1)):
+#         print """\nThe compatibility of these two numbers is about as good as it gets. There will never be any danger of boredom, complacency, or emptiness in a relationship that has heads turning and people whispering.\n
+# Both of these numbers like to have a lot of freedom in a relationship, and the one real threat is they try to impose their will on one another. The personality traits in this combination can both create and destroy, but like wind and fire, the 1 and 5 feed on each other and respect each other's powers, and when they set out side by side to fulfill their goals and dreams, nothing can withstand their combined forces.\n
+# This is a relationship of intensity and moments of rarely achieved highs, where the promise of ecstatic experiences of love, spiritual bonding and shared dreams is very real.\n"""
+#     elif life_path_1 == life_path_2 == 2:
+#         print """\nThis is a great match of two souls who have a healthy respect for the power of feelings and emotions. You should have little difficulty finding common ground on just about any issue that might arise.\n
+# The only word of caution for this pairing is that as two people who feel and experience emotions strongly, they must each remember how thin their own skin and realize how vulnerable you both are to criticism. You may need to consciously work on this in order to prevent verbal injury to one other.\n
+# Generally this is not a problem because of your mutual respect and the ability to relate to each other's emotional experiences.\n"""
+#     elif ((life_path_1 == 2) and (life_path_2 == 4)) or ((life_path_1 == 4) and (life_path_2 == 2)):
+#         print """\nAlthough perfection is not easy, if not impossible to find, and your relationship, just like any other is not without difficulty, this is one of the best combinations possible. This is a good pairing resulting in comfort personified.\n
+# When it comes to home and family, the 4 is the ultimate builder and provider. Four's grounded and practical perspective complements the 2's sensitive and intuitive side, bringing a healthy balance to the relationship.\n"""
+#     elif ((life_path_1 == 2) and (life_path_2 == 8)) or ((life_path_1 == 8) and (life_path_2 == 2)):
+#         print """\nThis number combination usually works out well. Because it is likely that each of you has a clear vision of your role, this relationship is often seen as the classic traditional family model, where the female 2 takes care of the family, and the male 8 takes care of the financial needs ... or in the case of the male being a 2 and female an 8, the classic male/female role reversal.\n
+# Regardless of the roles, this combination's qualities can produce a balanced relationship, and when these two unite their individual strengths, you have the potential of a rewarding relationship that lasts for years and years.\n"""
+#     elif ((life_path_1 == 3) and (life_path_2 == 5)) or ((life_path_1 == 5) and (life_path_2 == 3)):
+#         print """\nThe 3 and the 5 get along very well, making this is an excellent combination. You both communicate well, and the two of you will generally find each other's company interesting and enjoyable.\n
+# Numerous activities, such as social events and travel, will keep this relationship from getting boring. The downfall, or rather dangers, of this pairing is because you are so compatible, you may end up enhancing each other's less desirable traits.\n"""
+#     elif ((life_path_1 == 4) and (life_path_2 == 8)) or ((life_path_1 == 8) and (life_path_2 == 4)):
+#         print """\nBecause both parties know how to work hard, and have a good head for getting ahead in the world, this is a very good combination, not only in romance, but also in business.\n
+# This is a couple that knows how to build for the future and develop a very secure relationship. Like in any other number combination, dangers do exist, and feelings of frustration can overshadow the love and respect that is the foundation of this relationship, but overall this is an excellent number pairing.\n"""
+#     elif ((life_path_1 == 5) and (life_path_2 == 7)) or ((life_path_1 == 7) and (life_path_2 == 5)):
+#         print """\nThis is a combination of two numbers that can fulfill each other's needs and desires in many ways. The 7 enjoys its alone time, and the 5 is a busy body that appreciates the lack of demands for attention from its partner.\n
+# When together, the pairing is able to find a stream of mutual interests to discuss and explore, particularly on the intellectual and spiritual planes, making this one of the best combinations for a long lasting relationship.\n"""
+#     elif life_path_1 == life_path_2 == 6:
+#         print """\nThis is a very good, highly committed number pairing. Just like in any other relationship, there will come a time when obstacles will need to be overcome; however, because of the harmonious and loving nature of the 6, this is a combination charged with romance, and one that has a very good chance to form a strong, long lasting romantic relationship.\n"""
+#     elif ((life_path_1 == 6) and (life_path_2 == 9)) or ((life_path_1 == 9) and (life_path_2 == 6)):
+#         print """\nWhen 6 and 9 are found between two partners, the compatibility is usually very good. It is important that your respective negative traits aren't allow to grow and fester, creating an environment where you are more likely to clash.\n
+# The give and take compromise is something you will need to do, in order to prevent unnecessary arguments from escalating, but because both of you are self-sacrificing, caring people, this is something that is not hard for either of you to do. Overall this is a highly compatible match.\n"""
+#     elif life_path_1 == life_path_2 == 7:
+#         print """\nNo one understands the psyche of a 7 nearly as well as another 7. This is an excellent combination of two people who take life's mysteries seriously. With the right attitude, you will happily explore the world, or spend quiet days in solitude together.\n
+# This is a beautiful pairing with potential for spiritual growth for both partners, and one where the term 'soul mates' often applies.\n"""
+#     elif life_path_1 == life_path_2 == 8:
+#         print """\nThis is a good pairing, not only in romance, but also in business. Having two 8s in a relationship puts each of you in a position where you are well suited to support each other.\n
+# The pitfalls arise when you find yourselves competing with one another, or when you are both financially strapped. If you are able to unite your competitive natures against other forces, and follow your heart and intuition in the pursuit of success, this pairing has a strong chance of a long and happy relationship.\n"""
+#     elif life_path_1 == life_path_2 == 9:
+#         print """\nThe compatibility between two 9s is excellent, and offers much promise for a very happy, inspiring, and engaging relationship.\n
+# The many similarities, coupled with the selfless nature of the 9, make for a combination that faces very few challenges. Despite some pitfalls that may exist, this number set has great potential to form an unbreakable bond ... one that will not weaken over time.\n"""
+#     # the following are "ok" pairings
+#     elif ((life_path_1 == 1) and (life_path_2 == 2)) or ((life_path_1 == 2) and (life_path_2 == 1)):
+#         print """\nThis meeting of two very different people is a very promising combination, with the key being mutual respect and sincerity. One, being strong, driven, competitive, and sometimes overbearing, is best equipped to be the leader, to be the motivating force. The 2, being sensitive, insightful and supportive, is by nature the 'power behind the throne', allowing the 1 to throw some weight around without losing sight of what has to be done and how to do it.\n
+# There is no power struggle, both of you know what you want, and you complement each other very well.\n"""
+#     elif ((life_path_1 == 1) and (life_path_2 == 6)) or ((life_path_1 == 6) and (life_path_2 == 1)):
+#         print """\nThis is a combination that has the potential for a long lasting relationship, without ever going through the kind of turbulence so many other relationships experience. The important thing for both 1 and 6 is to understand that they are very different in the way they view human qualities.\n
+# Their priorities differ and if they are able to keep an eye open for their differences, and are able to work past this roadblock, this can be a successful pairing ...the key is to value their respective good qualities, and give each other the support they both need.\n"""
+#     elif ((life_path_1 == 2) and (life_path_2 == 3)) or ((life_path_1 == 3) and (life_path_2 == 2)):
+#         print """\nMore often than not, the combination of 2 and 3 enhances each other's creative juices, potentially making this is a very good partnership. While the 3 is full of life and social energy, the 2 is happy standing back and enjoying the show, and as long as the 3 can keep its verbal impulses under control, and the 2 has enough confidence to handle occasional criticism, the relationship has every chance of bringing love and joy to both of you.\n"""
+#     elif ((life_path_1 == 2) and (life_path_2 == 6)) or ((life_path_1 == 6) and (life_path_2 == 2)):
+#         print """\nThis is in general a good compatibility match. The 6's priorities lie with family, to care for and comfort your loved ones, while the 2 is a sensitive, emotionally aware number, enabling you both to love easily and without holding back, forming a strong foundation for a long lasting relationship.\n
+# Despite these common traits that bring a positive energy to your relationship, you both need to watch your own negative traits, such as 6's need for approval and praise, or 2's insecurity and occasional bouts of jealousy and envy. With these under control, and with considerations of feelings for each other on both sides, the likelihood of a clash in less likely than in most other number combinations.\n"""
+#     elif life_path_1 == life_path_2 == 3:
+#         print """\nHappy go lucky, interesting, and creative ... describes this pairing of two numbers who joke easily, and know how to please each other, while at the same time being able to enjoy each other's company within your dynamic social environment. This is a fun pair that understands and supports one another.\n
+# Troubles might arise, however, when the question becomes as to who is going to take care of the mundane tasks. You both have a tendency to skim over the rough spots, and when fun and joy become too high a priority and neither partner is willing, or able, to take care of the practical everyday details, this can destabilize the foundations and bring friction to your relationship.\n"""
+#     elif ((life_path_1 == 3) and (life_path_2 == 6)) or ((life_path_1 == 6) and (life_path_2 == 3)):
+#         print """\nThis combination is a creative couple, with an active social life. The 3, full of enthusiasm and sense of humor, and the 6 providing the warmth, support, and self sacrificing love, makes this combination an ideal team that will work well in most cases.\n
+# The chemistry here is very strong, but while there is no lack of emotion, the pitfall here is the possibly excessive emotional bond experienced by the 6. Usually it will be the 6 who will have to learn to deal with this inborn trait, and allow the 3 enough space and freedom to move and breathe.\n"""
+#     elif ((life_path_1 == 3) and (life_path_2 == 9)) or ((life_path_1 == 9) and (life_path_2 == 3)):
+#         print """\nThe pairing of a 3 and a 9 is a combination of two people who, through their powerful imaginations, are able to keep each other endlessly engaged in a variety of creative ways. Despite the occasional self-centered and egocentric tendency of both numbers, this combination reflects excellent compatibility.\n
+# The problem the couple faces is when they are both vying for the same limelight, and despite the fact that privately they respect and like each other, they can become very competitive, in which case they will do almost anything to win.\n"""
+#     elif ((life_path_1 == 4) and (life_path_2 == 6)) or ((life_path_1 == 6) and (life_path_2 == 4)):
+#         print """\nDespite the common traits shared by this pairing, it is usually not very common for these two numbers to fall in love. However, because you are both responsible and family oriented, and you both value stability and security. If you do get involved in a romantic relationship, it is usually a strong, comfortable match straight from the beginning, with potential to last for a life time.\n"""
+#     elif ((life_path_1 == 4) and (life_path_2 == 7)) or ((life_path_1 == 7) and (life_path_2 == 4)):
+#         print """\nThis combination is one in which the earth meets the heaven, and just like earth and heaven, the two of you can't exist without one another. There are some sharp angles that will need to be rounded off, but this pairing, which makes life both secure and at the same time more interesting for both of you, can much more easily overcome the challenges inherit in every relationship.\n"""
+#     elif life_path_1 == life_path_2 == 5:
+#         print """\nThe two 5s form a very comfortable match. This is a relationship that is tolerant, easy going and flexible, and in which both of you take your commitment to each other seriously, allowing you to weather many storms.\n
+# The dangers of this pairing come from within, and it is the adventurous, freewheeling lifestyle, which is normally a plus, that can cause difficulty in focusing on the mundane day-to-day affairs, and can lead to somewhat of a wild streak that can include drugs, alcohol, and other such vices.\n"""
+#     elif ((life_path_1 == 6) and (life_path_2 == 8)) or ((life_path_1 == 8) and (life_path_2 == 6)):
+#         print """\nThe practical, goal oriented, and responsible nature of these two numbers makes this a very positive and compatible pairing. The dangers lay in the different ways the 6 and the 8 view responsibility, and how they go about accomplishing their goals.\n
+# The 6 is more oriented on family and friends, while the 8 is more focused on the executive lifestyle and the obligations that come with it. Despite these differences, the combination is all together a very good match.\n"""
+#     # the following could go either way
+#     elif life_path_1 == life_path_2 == 1:
+#         print """\nBoth of you are head strong, with a strong desire to lead, which can make this a challenging combination. Even though as 1s you might understand each other's needs, and share things in common, in this case this is not necessarily an advantage.\n
+# This is a relationship of extremes with either partner refusing to surrender their leadership qualities, and the match can get dicey, especially when they start to compete, particularly at the onset of the relationship.\n
+# Despite this 'butting of heads', when two people with such driving forces do get along, and their mutual competitive streaks are overcome, this can be a very ping combination.\n"""
+#     elif ((life_path_1 == 1) and (life_path_2 == 7)) or ((life_path_1 == 7) and (life_path_2 == 1)):
+#         print """\nOne and 7, your compatibility is unpredictable ... some relationships between 1s and 7s thrive while others don't stand a chance.\n
+# The initial connection in this combination is usually intellectual - a level where you can relate and have plenty to share. One's willingness to get off the beaten path, and open and unconventional mind make for a great intellectual partnership with 7.\n
+# You are two people who happily venture into new, strange or unknown intellectual and spiritual territories, and if you happen to click, this can lead to a very promising combination. Free thinkers, for very different reasons, driven by very different perspectives, and with very different energies, somehow blend nicely to make a nice, spicy recipe.\n"""
+#     elif ((life_path_1 == 1) and (life_path_2 == 9)) or ((life_path_1 == 9) and (life_path_2 == 1)):
+#         print """\nDue to the fact that both of you have a tendency towards arrogance, as well as to being somewhat egocentric, this is a very difficult relationship, as far as romance is concerned. It will only work if a certain amount of distance is maintained.\n
+# Each of you has to live your own life. Ironically, although difficult, this is not a bad combination for most other kinds of relationships. Friendships, parent-child, as well as business relationships, often work very well with this combination.\n
+# One and 9 stand on opposite ends of the spectrum ... they complement and balance each other. Together, they represent a lot of talents and useful qualities that ensure a powerful combination in most relationships, except in romance.\n"""
+#     elif ((life_path_1 == 2) and (life_path_2 == 7)) or ((life_path_1 == 7) and (life_path_2 == 2)):
+#         print """\nThis is a unique combination that has both strong and dissimilar needs, a combination where intuition meets intelligence, sensitivity meets analysis, and the heart meets the mind. Although these two numbers rarely express interest in one another, when they do, the result can often lead to a relationship that's welded for life.\n"""
+#     elif ((life_path_1 == 3) and (life_path_2 == 4)) or ((life_path_1 == 4) and (life_path_2 == 3)):
+#         print """\nThe pairing of 3 and 4 can lead to either a promising, or a very difficult and challenging combination. When the spontaneous 3 pairs with the grounded 4, something has to give, and often it won't. The 3 is an optimistic, fun loving number, one of 'go with the flow' attitude that takes each day as it comes. The 4 on the other hand is more disciplined, practical, and has a definite plan for the future.\n
+# If the two of you can ever figure out how to meet in the middle, and balance each other's shortcomings, this can be a good combinations. However, when life becomes a challenge and wordly problems arise, the 3 and 4 are a pair least prepared to deal with them.\n"""
+#     elif ((life_path_1 == 3) and (life_path_2 == 8)) or ((life_path_1 == 8) and (life_path_2 == 3)):
+#         print """\nThis is a combination where the number set is compatible in some areas and incompatible in others; therefore, this relationship requires a bit of extra effort. Because of the 3 and the 8 having very different views as to what is important in life, unless they learn to respect each other's needs and expectations, the relationship will not last long.\n
+# Despite this, because you complement each other well, more often than not, you can get along very well and can be quite compatible.\n"""
+#     elif life_path_1 == life_path_2 == 4:
+#         print """\nThis is a stable pairing; however, because of the nature of the 4, you both tend to get somewhat irritated when established routine is disturbed. This can lead to a relationship that is either very good, or extremely stressful, with little room in the middle, and so the compatibility can depend largely on how compatible your daily routines are.\n
+# Upside of this pairing is stability and security ... the downside is that it is hard to relax, be spontaneous, and enjoy the moment.\n"""
+#     elif ((life_path_1 == 5) and (life_path_2 == 6)) or ((life_path_1 == 6) and (life_path_2 == 5)):
+#         print """\nThis combination of numbers is a match that is usually very physical and sensual. The 5's freedom loving nature and 6's grounding force can complement each other well, but only if both of you are willing to compromise.\n
+# If you can find a way to meet in the middle, avoid the tendency to become stuck in your individual positions, and live a lifestyle that is in harmony with that of your partner, this can be a promising relationship.\n"""
+#     elif ((life_path_1 == 7) and (life_path_2 == 9)) or ((life_path_1 == 9) and (life_path_2 == 7)):
+#         print """\nThis combination is somewhat neutral as far as compatibility is concerned. There is neither like nor dislike between you two.\n
+# Discourse can arise when your positions on religion and spirituality are not in harmony with one another, or when your different tastes in general are questioned by one another.\n
+# On the plus side, because of your unique energies, there is otherwise rarely any kind of friction, and conflicts are dealt with reasonably.\n"""
+#     # the following are "challenging" pairings
+#     elif ((life_path_1 == 1) and (life_path_2 == 4)) or ((life_path_1 == 4) and (life_path_2 == 1)):
+#         print """\nOne's and 4's strengths can make for a solid relationship for a long time only to crash and burn in the blink of an eye.\n
+# This can be a thriving relationship as long as 1 doesn't start on a path of unknowns and risky, questionable results. However, that will unavoidably happen, and 4 will at times be seen as a 'stick in the mud', a source of frustration for 1. When this kind of situation becomes overwhelming, it will almost certainly bring this relationship to an end.\n
+# On the other hand, as long as 1 is able to respect 4's need for a secure, perhaps even predictable, lifestyle, and 4 can understand 1's need to try new avenues, take risks, occasionally venture out into unknown territories, the relationship can endure.\n"""
+#     elif ((life_path_1 == 1) and (life_path_2 == 8)) or ((life_path_1 == 8) and (life_path_2 == 1)):
+#         print """\nFrom the love angle, this combination is questionable at best. Both of you are strong-willed, assertive and demanding, while at the same time stubborn people ... it's like having two captains on deck ... which leads to uneasiness, discomfort and distress.\n
+# Neither one of you accepts anything less than full respect and an equal playing field, and neither one of you can be dominated or would accept being someone's sidekick. Even though both of you may share many common interests, any negative feedback from either of you can be deadly in this pairing.\n
+# Success depends on a mutual willingness to compromise and limit demands, otherwise small arguments can be blown out of proportion.\n"""
+#     elif ((life_path_1 == 2) and (life_path_2 == 5)) or ((life_path_1 == 5) and (life_path_2 == 2)):
+#         print """\nThis is a combination where the chemistry has to be very strong in order for the two very different souls to forge some significant compromises. Like fire and water, when 2 and 5 occupy the same space, either the fire makes the water evaporate, or the water drowns out the fire.\n
+# Although the two numbers can provide a lot for one another that may otherwise be missing, it is not an easy road, and in general, when the 2 and 5 are in the same part of the numerological chart, it makes for a short lived relationship.\n"""
+#     elif ((life_path_1 == 2) and (life_path_2 == 9)) or ((life_path_1 == 9) and (life_path_2 == 2)):
+#         print """\nThis combination of numbers doesn't get along too well in terms of romantic compatibility. Despite both being loving and caring numbers, the 9's focus is on the world, and the care they naturally possess is shared with all of humanity, while the 2's emotions like to be focused on the one single person they love.\n
+# Generally speaking, the 2 and a 9 can form successful alliances in other circumstances, such as a business partnership, but when it comes to the needs and desires of their heart, you will need much effort to make it work.\n"""
+#     elif ((life_path_1 == 3) and (life_path_2 == 7)) or ((life_path_1 == 7) and (life_path_2 == 3)):
+#         print """\nThese two make up an interesting combination, one of two very different types of people. The 3 is restless, energetic, and constantly on the go, with a swirl of activity, travel, and social contact which the 7 usually finds intolerable. The 7 needs quiet and solitude to recharge, and can only take so much human contact before retreating to their place of peace and quiet.\n
+# Confrontation in this pairing never works well, and because of the different natures of the 3 and the 7, this is a relationship that can either last for a couple of weeks, or remain exciting and strong for a lifetime.\n"""
+#     elif ((life_path_1 == 4) and (life_path_2 == 5)) or ((life_path_1 == 5) and (life_path_2 == 4)):
+#         print """\nIn short, this is a challenging combination. The 4 and the 5 are each other's polar opposites. Four likes routine and predictability; 5 prefers change and unexpected. The only way this pairing can survive is if you accept each other as you are, respect your differences, and don't try to change your partner.\n"""
+#     elif ((life_path_1 == 4) and (life_path_2 == 9)) or ((life_path_1 == 9) and (life_path_2 == 4)):
+#         print """\nThe successful pairing of these two numbers is very rare, and important differences will have to be addressed and accepted by both of you if you want this relationship to last.\n
+# The two numbers usually don't connect, and rarely see eye to eye. If you have a successful relationship, this usually indicates that other numbers in your numerological chart play a significant enough of a role to overcome this particular incompatible combination.\n"""
+#     elif ((life_path_1 == 5) and (life_path_2 == 8)) or ((life_path_1 == 8) and (life_path_2 == 5)):
+#         print """\nRomantically, this is not a very good match. Your individual qualities and interests rarely overlap, and while the 5 is dynamic and likes freedom from rules and restraints, the 8 is a strong authoritative figure used to being the boss. It will take careful planning and compromise, and roles that are very different and far apart, for this relationship to work.\n"""
+#     elif ((life_path_1 == 5) and (life_path_2 == 9)) or ((life_path_1 == 9) and (life_path_2 == 5)):
+#         print """\nThere is very little that these two numbers have in common. Nine perceives the 5's love of freedom as irresponsible, while the idealism of the 9 appears superficial to the 5.\n
+# If you are in a relationship, it would suggest that other numbers in your numerological chart are responsible for the attraction between the two of you. You will need to compromise and be much more diplomatic than other number sets in order for this match to be successful.\n"""
+#     elif ((life_path_1 == 6) and (life_path_2 == 7)) or ((life_path_1 == 7) and (life_path_2 == 6)):
+#         print """\nBecause the 6 and the 7 represent very two different people, with very different ideas, each number expresses love in a different way. This can lead this number pairing to form a somewhat of a love-hate relationship.\n
+# Seven's secretive and 'aloof' nature, with the need for certain amount of distance, doesn't bode well with the 6's need for open expressions of love and emotions. This can cause a rift where the 6 feels insecure about the relationship, while the 7 experiences the 6's loving attention as an annoying disruption.\n
+# Not all is lost, however, and as long as the two of you are able to recognize these differences, there is potential here.\n"""
+#     elif ((life_path_1 == 7) and (life_path_2 == 8)) or ((life_path_1 == 8) and (life_path_2 == 7)):
+#         print """\nThese two numbers neither attract nor repel one another, and it is most common that this pairing is based more on the physical rather than the emotional. The 7's aversion against the 8's tendency to control, and the 8's preference of practical matters as opposed to the 7's philosophical and spiritual nature can lead to frequent verbal battles.\n
+# This is a combination where your attraction is most likely based on other numbers in you numerological chart.\n"""
+#     elif ((life_path_1 == 8) and (life_path_2 == 9)) or ((life_path_1 == 9) and (life_path_2 == 8)):
+#         print """\nThis number pairing is not considered very compatible at all. Your goals are very different and you'll frequently find yourselves on the opposite spectrum of a discussion. Although there is often a strong attraction that can form the foundation for an interesting relationship, the only way this pairing will last is if both of you recognize and respect the big differences between one another.\n"""
+#     else:
+#         print """\nBetter luck next time!\n"""
+
+
+# dictionary of expression number compatibility based on combinations
+
+
+ed_comp_dict = {
+    (1, 1): """\nThis combination comprises two people with a strong desire to lead and two people who want very much to be independent. Two 1s in a relationship understand and accept each other perhaps better than any other number can understand the 1.\n
+This is a relationship not without pitfalls as the match can get dicey when they start to compete. But for the most part, it is a good one filled with excitement and activity.\n""",
+    (1, 2): """\nTwo very different people who do well if they remember their roles. The 1 is best equipped to be the breadwinner, and the 2 will be the one to feather the nest and keep the warmth of romance alive and well.\n
+The 1 must avoid being distracted and never forget how important attention is for the 2 partner.\n""",
+    (1, 3): """\nThis is a very lively couple that seem to shamelessly enjoy life and each other. The 3 is good at acknowledging the 1's accomplishments and stroking the ego. The 3 provides the ideas and the 1 provides the push, so this couple can cover a lot of ground. Yet they have to be careful about what they say since neither handles criticism very well.\n""",
+    (1, 4): """\nFour's desire for control is a tough sell on the 1. The 1's need to make things happen now, frustrates the meticulous 4. Opposites in many ways, these two should not expect easy compromise.\n
+If they ever can accept one another for who they are, their respective strengths will make a solid relationship.\n""",
+    (1, 5): """\nThis is a very compatible combination as both of these numbers are ones that like to have a lot of freedom in a relationship. The drive for independence is paramount for each.\n
+They may be so busy with their own 'thing' that time together is limited, very special, and often exciting. As you might expect, the most serious threat is when either tries to impose his or her will on the other.\n""",
+    (1, 6): """\nThis is a power struggle waiting to happen. The 6 wants and needs to a caretaker. The 1 has an absolute need to be independent and unrestrained. This can be a successful pairing only if they can work past this roadblock, and give each other the support they both need.\n""",
+    (1, 7): """\nThese are very different energies but ones that somehow blend nicely. The 7 provides wise insights while the 1 becomes a needed motivator. The key is to understand the tendencies; the 1 can get too busy with the outer world to always be there for the 7, and the 7 can be too into their own world to be there for the 1. Neither should take this absence personally.\n""",
+    (1, 8): """\nFrom a business standpoint, this is a good match. But from the love angle, it is questionable at best. Both are so assertive and demanding, that expectations can far exceed reality.\n
+Negative feedback from either will be deadly in this pairing. Success depends on a open and mutual willingness to compromise and limit demands.\n""",
+    (1, 9): """\nThe 9 brings a selflessness to the relationship which allows the 1 to operate in an environment that is understanding and smooth flowing. The 1 will have to learn to share the partner who is inclined to extend a giving nature outside the home.\n
+If there is trouble in this partnership, it will generally come from the 9's difficulty tolerating the 1's assertive and individualistic behavior.\n""",
+    (2, 2): """\nA great match of two souls both needing to give and receive love. Experts at mediation, they have little difficulty finding common ground on just about any issue that arises.\n
+The only word of caution for this pairing is that they must each remember how thin their own skin is so as to not cause verbal injury to the other. Generally this is not a problem because of their polite manner and mutual respect.\n""",
+    (2, 3): """\nThese are potentially very good partners because of the good humor and good chemistry. The 3 is always 'on stage' and full of life and social energy, while the 2 is happy as a lark standing back and enjoying the show. The 2 balances the needs of the 3 by providing a soothing and calming influence.\n""",
+    (2, 4): """\nThis is a steady pairing resulting in comfort personified. When it comes to home and family, the 4 is the ultimate builder and provider. Security is 4's forte. Nothing is more appealing to the 2 than home, hearth, and family.\n
+The only difficulty likely here is one of perception. The 2 needs love to be shown and always physically apparent, and the 4 is sometimes not so demonstrative.\n""",
+    (2, 5): """\nThe 2 needs family and an ever present sense of being loved, and the 5 need total freedom to pursue whatever avenues appear on the horizon. This is one where the chemistry has to be very strong in order for the two very different souls to forge some significant compromises.\n
+Obviously, these two can provide a lot that may otherwise be missing, but it won't be an easy road.\n""",
+    (2, 6): """\nThis is another good love match. The 6 ranks first in family while the 2 tops the chart in love and caring. Still the pair needs to watch their 'Ps and Qs' as the 6 has a surprising need for approbation, and 2's thin skin can suffer with the direct and demanding approach that sometimes characterizes the 6. Considerations of feelings is a must.\n""",
+    (2, 7): """\nThis is a couple that has some strong and dissimilar needs. The 2's need for demonstrative love and 7's need for a good deal of space and solitude make this a pairing that will work only if both can stay tuned in to the other's needs and be willing to cater to them at least to some degree.\n
+Generally the 2 will have to find something to occupy much of the time that would otherwise be devoted to the mate.\n""",
+    (2, 8): """\nA pairing that usually works very well because it is likely that each has a clear vision of their role. The 8 is about the outer world of business and attainment, taking care of the financial needs of the family. The 2 takes care of the family and is there to pamper the ego of their partner.\n
+A pitfall in this relationship can occur if the 8 fails to sufficiently value the labors of the 2. Generally, this is the classic traditional family model, or in the case of the male 2, female 8, the classic male/female role reversal.\n""",
+    (2, 9): """\nThese two can have a wonderful relationship or it can be not so wonderful. The 2 needs constant attention, and certainly the 9 is a caring individual. But the care they naturally possess is spread to all humanity and often it is not focused enough at home.\n
+The 9 is a natural leader and the 2 is a natural follower, so there is always hope. The 9 needs to remember that the 2 hates to be alone, and the 2 needs to be forewarned that the 9's love will only stretch so far.\n""",
+    (3, 3): """\nWild and interesting describes this pairing of two with so much creative and social potential. No one has more fun that a pair of 3s who understand and support one another.\n
+The question may become who is going to take care of the mundane. The pitfall of this relationship comes when neither partner can hold on to reins of practical everyday details.\n""",
+    (3, 4): """\nWhen the spontaneous 3 pairs with the micro-manager 4, something has to give, and often it won't. The 3 will take each day as it comes while the 4 has to have a definite plan far into the future. If the two can ever figure out how to meet in the middle, they will do a good job of balancing each other's shortcomings.\n
+The 3 will show the 4 how to have fun while the 4 can give the 3 a needed sense of security.\n""",
+    (3, 5): """\nThis is one of the most social combinations you will find. The two will generally find each other very interesting and their ability to entertain will be never ending.\n
+Social opportunities, travel, and numerous activities promise this relationship won't get boring. Both are creative by nature, yet neither excels at managing the budget, so everyday affairs can cause problems sometimes.\n""",
+    (3, 6): """\nThis is a natural combination that works well in most cases. The 3 is full of enthusiasm and ideas, and the 6 provides the stability, support, and encouragement that often makes this combination an idea team in many ways. The chemistry here is very strong and durable.\n
+The challenge of this combination can come in the form of 6's jealous feelings toward the oft flirtatious 3. Usually it will be the 6 who will have to learn to deal with an inborn trait.\n""",
+    (3, 7): """\nThese two are about as different as people get. The 3 wants to be constantly on the go with a swirl of activity, travel, and social contact that the 7 will find intolerable. The 7 needs solitude and can only take so much human contact before retreating to their preferred peace and quiet.\n
+Confrontation in this pairing never works well, and it will be up to both to understand the long-term need for compromise. The key to success here is open dialog regarding wants, needs, and goals.\n""",
+    (3, 8): """\nThis is a combination that requires extra effort mostly because of the departure of needs. The 8 needs goals and authority to feel happy, and efforts focused here leave the 3 without needed attention and stimulation.\n
+The secret to success in this combination, if there is one, is frequent getaways; periods when the 3 gets the 8 away from business and relaxed enough to have some fun. There isn't much frivolity in the 8, and this can sometimes be a tough sale.\n""",
+    (3, 9): """\nThis is a wonderful combination of two people who are apt to keep each other endlessly engaged in a variety of creative ways. Both like to be on stage and both are interested in people. They care about people and the 9 can be generous to a fault.\n
+The 9 is the teacher, and the 3 is the ever eager student. Sharing experience is a never ending joy of this pairing. The problem the couple faces is settling down, feathering a nest, and keeping the bills paid. Even after they are settled and set, romantic adventures will always be important.\n""",
+    (4, 4): """\nThe keywords for this combination are solid and secure. For individuals who need to know that the bills are paid and future is totally secure, who better to fill this need than another 4.\n
+These two will share goals that they work for and nearly always achieve. Success is measured by a sense that growth is continual, and this includes love and romance.\n
+The down side of this pairing, if there is one, is the sense that nothing is ever completely okay. It's hard to relax , be spontaneous, and enjoy the moment and each other. Nonetheless, there are few relationships destined to be more stable than this one.\n""",
+    (4, 5): """\nThe 4 and the 5 have different temperaments and different ways of communicating. The 4 is very direct to the point, while the 5 will be more diplomatic and indirect. Fours don't like change, and 5s have to have it.\n
+To find success, this couple will need to respect the difference and pay attention to what is said and what is inferred.\n""",
+    (4, 6): """\nA comfortable match of traditional types, this pairing has promise from the very beginning. Chances are the 6 will want to take the lead in this relationship, and a secure home and family are all that is needed to produce a satisfying long-term situation.\n
+The challenge of this relationship is compromise. Neither is very good at this.\n""",
+    (4, 7): """\nThis is a relationship that has a serious tone about it and may be driven by a mutual need for security. It is loyal and devoted, even it it may lack the fire and passion of some combinations.\n
+The 4 is a natural provider of rock solid security and home values. The 7 provides a quest for continued mental development and adventure. The combination makes life both secure and yet more interesting for both.\n""",
+    (4, 8): """\nThis is a comfortable pairing because both parties understand hard work and have a good head for business and getting ahead in the world. The 4 is the cautious planner, while the 8 has a more grandiose approach to endeavors.\n
+The only problem probably can be one of finding the time to spend together in a quest for romance. Yet this is a couple that knows how to build for the future and develop a very secure relationship.\n""",
+    (4, 9): """\nThese two are so very different that successful pairings are rare. The 9 is far more social and fosters deep humanitarian instincts. The 4 is focused on the basics of building a secure and solid immediate world.\n
+To succeed in a relationship requires both to be aware of how different their approaches are, and somehow muster a willingness to accept. The 4 will certainly appreciate the 9's knowledge and intelligence, and the 9 must likewise value the 4's ruthless consistency.\n""",
+    (5, 5): """\nA pair of 5s is a very compatible couple who prize their freedom to be different and adventuresome. Few others will be as open to the constant flow of new ideas and changes so common in the 5.\n
+In this relationship, partners easily anticipate what the other is thinking and where they are going. They also have a sense for staying out of the way and accepting the freewheeling lifestyle. Fives choosing to support one another can do just about anything.\n
+The difficulty with this pairing is focus, and there may be a problem handling the mundane day-to-day affairs.\n""",
+    (5, 6): """\nThis is a combination requiring great compromise since the 5 thrives on freedom and space, and the 6 is noted for exerting control and nurturing supervision. The 6 wants complete commitment, and the 5 is looking for adventure and new horizons.\n
+In a relationship, they would probably be good for each other if they could find a way to meet somewhere near the middle. They must avoid any tendency to become entrenched in positions that just won't work for the other.\n""",
+    (5, 7): """\nThis is a relationship which is more or less free of rules and procedures. In some ways, these two are much alike and the relationship is generally very compatible.\n
+The 7 values the time to be alone and enjoy the world of study and reflection in their private space. At the same time, the 5 has plenty going on and appreciates not having demands for attention being the paramount feature of the relationship.\n
+Yet these two can get together and find a never ending stream of mutual interests to discuss and explore.\n""",
+    (5, 8): """\nThis is a relationship between two individuals who don't always follow the rules, and they might find themselves locking horns on the rules of a relationship. The 8 is used to being the boss and dominating most situations. The 5 seeks freedom from any restraints.\n
+The 8 is focused on success, particularly in a financial sense, and the 5 doesn't even want to think about money. It will take careful planning and compromise to make this relationship work.\n""",
+    (5, 9): """\nThis is a relationship between two who may find it hard to work the relationship into their busy schedules. Both of these numbers represent people who are apt to be in a constant state of transition and change. In this regard they have much in common and will generally find each other very interesting, for the moment or for the long haul.\n
+The compassion of the 9 and progressive thinking of the 5 seems to blend well. Establishing a commitment to security is a must.\n""",
+    (6, 6): """\nThis is a combination charged with romance, but in essence it is rather practical by nature. Home and family is second nature here, and these will be the top priorities for sure. This is a very compatible pairing.\n
+The 6 knows what's best for their partner, so they do a good job of taking care of each other, and a family is a must. Yet the 6 by its nature wants the whole family under his/her thumb, so the challenge may be in agreeing who is going to be charge. The circumstances of the relationship will usually be able to sort this out.\n""",
+    (6, 7): """\nThese are two very different people with very different ideas about a relationship. The 6 is openly interested in a permanent situation complete with a stable home and family. With the secretive 7, it is hard to tell what the goal might be, and only time will tell.\n
+Despite the sexual attraction that may be present, this is a very challenged combination. The 6 is too controlling, and the 7 just isn't to be closely managed. The compromises required in this relationship really bend and manipulate the natural traits of both numbers.\n""",
+    (6, 8): """\nThis is a very positive and compatible relationship of two who are usually open and positive in most that they do. This is a couple with big ideas, and their ideas are usually brought to reality in grand fashion. The home will provide plenty of space for family, work, and frequent entertaining of their many friends.\n
+A down side to the relationship can occur if the possessive 6 has to compete too much with the business interests of the 8. Likewise, the 8 will be frustrated when the demands at home cramp the executive lifestyle and obligations.\n""",
+    (6, 9): """\nThis is generally a very compatible relationship prospect as the 9 is one of the few numbers to gain 6's utmost respect. In a family situation, the 6 is unsurpassed as a manager, and the 9 is never reticent in heaping praise in recognition. This often creates a mutual admiration environment that provides a happy home for both partners.\n
+The 6 helps the 9 stay focused on details and common sense issues, while the 9 broadens the 6's outlook and sense of the world at large. The expansiveness of this pairing may suggest the need to keep a close eye on the budget.\n""",
+    (7, 7): """\nThis is one situation in which no one understands the eccentricities of a 7 nearly as well as another 7. Thus, this is a very compatible pairing. With the right attitude, this couple will find the interest to freely explore the world together, or spend their days in happy solitude together. Chances are you are on the same psychic wavelength, so you will surely catch the signals as they flash by.\n
+The downside of this pairing is the tendency to not communicate, so an effort may have to be made to keep the lines open and operating.\n""",
+    (7, 8): """\nThis is a combination that seems to work well physically, but one which is plagued with problems on the emotional level. The 8 has a tendency to dominate and control, and the 7 is a very private person prone to resist attempts to exert authority.\n
+The power of both numbers can result in frequent verbal battles. Yet there is a stability factor in the pairing that makes long-term success a possibility if accommodations can be reached.\n""",
+    (7, 9): """\nThis couple is anything but neutral in their affiliation. They are listed neutral because the relationship can go either way depending largely on spiritual beliefs. Both have strong spiritual inclinations and deeply held positions. However, these views of the spiritual and the divien often divide along rigidly held lines. In such cases, compromise is usually not an option.\n
+When the spiritual positions are in harmony, this can be a very compatible combination.\n""",
+    (8, 8): """\nThis pairing might be known as the 'Dynamic Duo' as this is a combination that is full of passion and romance. Indeed, this pairing is a strong and enduring match-up. Yet both partners will be easily distracted by the events in their life as goals and professional demands often supersede romantic possibilities.\n
+Solid as the relationship probably is, the couple may have a hard time communicating the depth of feeling in either word or deed. Guard against competing with one another, and getting caught up in schedules and the demands of work. Make time for each other and always focus on being equal partners.\n""",
+    (8, 9): """\nThis is a challenging combination in which two highly motivated individuals - motivated in very different ways - find it hard to accept the ways of the other. In general the goals of the 9 are lofty and may have a humanitarian bend, while the 8 seeks the reward that comes with development of leadership and material success.\n
+To have much of a chance, the 8 will have to appreciate the lessons that can be learned from their generous partner. When they are able to work as a team, this is a powerful and often inspirational pair. Too often, however, the combination fails to click.\n""",
+    (9, 9): """\nThis relationship has much promise as it usually engages two charismatic types possessing much intellectual stimulation. The nature of the 9 is selfless, so this combination usually faces few challenges; each wanting to please the other and always be there for each other. A relationship offering the opportunity to grow, learn, and serve, this is often an inspiring combination.\n"""
+}
 
 
 # definition of a function to display expression number compatibility based on combinations
 
 
-def comp_exp_meaning(exp_1, exp_2):
-    # displays compatibility based on various combinations of expression numbers of individual and partner
-    # displays note that expression (destiny) numbers are reduced to single digit for relationship purposes
-    print """\nFor relationship purposes, expression (destiny) numbers are reduced to single digits (e.g., master numbers 11 and 22 are reduced to 2 and 4, respectively).\n"""
+# def comp_exp_meaning(exp_1, exp_2):
+#     # displays compatibility based on various combinations of expression numbers of individual and partner
+#     # displays note that expression (destiny) numbers are reduced to single digit for relationship purposes
+#     print """\nFor relationship purposes, expression (destiny) numbers are reduced to single digits (e.g., master numbers 11 and 22 are reduced to 2 and 4, respectively).\n"""
 
-    # the following are "very good" pairings
-    if exp_1 == exp_2 == 1:
-        print """\nThis combination comprises two people with a strong desire to lead and two people who want very much to be independent. Two 1s in a relationship understand and accept each other perhaps better than any other number can understand the 1.\n
-This is a relationship not without pitfalls as the match can get dicey when they start to compete. But for the most part, it is a good one filled with excitement and activity.\n"""
-    elif ((exp_1 == 1) and (exp_2 == 5)) or ((exp_1 == 5) and (exp_2 == 1)):
-        print """\nThis is a very compatible combination as both of these numbers are ones that like to have a lot of freedom in a relationship. The drive for independence is paramount for each.\n
-They may be so busy with their own 'thing' that time together is limited, very special, and often exciting. As you might expect, the most serious threat is when either tries to impose his or her will on the other.\n"""
-    elif ((exp_1 == 1) and (exp_2 == 7)) or ((exp_1 == 7) and (exp_2 == 1)):
-        print """\nThese are very different energies but ones that somehow blend nicely. The 7 provides wise insights while the 1 becomes a needed motivator. The key is to understand the tendencies; the 1 can get too busy with the outer world to always be there for the 7, and the 7 can be too into their own world to be there for the 1. Neither should take this absence personally.\n"""
-    elif exp_1 == exp_2 == 2:
-        print """\nA great match of two souls both needing to give and receive love. Experts at mediation, they have little difficulty finding common ground on just about any issue that arises.\n
-The only word of caution for this pairing is that they must each remember how thin their own skin is so as to not cause verbal injury to the other. Generally this is not a problem because of their polite manner and mutual respect.\n"""
-    elif ((exp_1 == 2) and (exp_2 == 4)) or ((exp_1 == 4) and (exp_2 == 2)):
-        print """\nThis is a steady pairing resulting in comfort personified. When it comes to home and family, the 4 is the ultimate builder and provider. Security is 4's forte. Nothing is more appealing to the 2 than home, hearth, and family.\n
-The only difficulty likely here is one of perception. The 2 needs love to be shown and always physically apparent, and the 4 is sometimes not so demonstrative.\n"""
-    elif ((exp_1 == 2) and (exp_2 == 8)) or ((exp_1 == 8) and (exp_2 == 2)):
-        print """\nA pairing that usually works very well because it is likely that each has a clear vision of their role. The 8 is about the outer world of business and attainment, taking care of the financial needs of the family. The 2 takes care of the family and is there to pamper the ego of their partner.\n
-A pitfall in this relationship can occur if the 8 fails to sufficiently value the labors of the 2. Generally, this is the classic traditional family model, or in the case of the male 2, female 8, the classic male/female role reversal.\n"""
-    elif exp_1 == exp_2 == 3:
-        print """\nWild and interesting describes this pairing of two with so much creative and social potential. No one has more fun that a pair of 3s who understand and support one another.\n
-The question may become who is going to take care of the mundane. The pitfall of this relationship comes when neither partner can hold on to reins of practical everyday details.\n"""
-    elif ((exp_1 == 3) and (exp_2 == 6)) or ((exp_1 == 6) and (exp_2 == 3)):
-        print """\nThis is a natural combination that works well in most cases. The 3 is full of enthusiasm and ideas, and the 6 provides the stability, support, and encouragement that often makes this combination an idea team in many ways. The chemistry here is very strong and durable.\n
-The challenge of this combination can come in the form of 6's jealous feelings toward the oft flirtatious 3. Usually it will be the 6 who will have to learn to deal with an inborn trait.\n"""
-    elif ((exp_1 == 3) and (exp_2 == 9)) or ((exp_1 == 9) and (exp_2 == 3)):
-        print """\nThis is a wonderful combination of two people who are apt to keep each other endlessly engaged in a variety of creative ways. Both like to be on stage and both are interested in people. They care about people and the 9 can be generous to a fault.\n
-The 9 is the teacher, and the 3 is the ever eager student. Sharing experience is a never ending joy of this pairing. The problem the couple faces is settling down, feathering a nest, and keeping the bills paid. Even after they are settled and set, romantic adventures will always be important.\n"""
-    elif exp_1 == exp_2 == 4:
-        print """\nThe keywords for this combination are solid and secure. For individuals who need to know that the bills are paid and future is totally secure, who better to fill this need than another 4.\n
-These two will share goals that they work for and nearly always achieve. Success is measured by a sense that growth is continual, and this includes love and romance.\n
-The down side of this pairing, if there is one, is the sense that nothing is ever completely okay. It's hard to relax , be spontaneous, and enjoy the moment and each other. Nonetheless, there are few relationships destined to be more stable than this one.\n"""
-    elif ((exp_1 == 4) and (exp_2 == 8)) or ((exp_1 == 8) and (exp_2 == 4)):
-        print """\nThis is a comfortable pairing because both parties understand hard work and have a good head for business and getting ahead in the world. The 4 is the cautious planner, while the 8 has a more grandiose approach to endeavors.\n
-The only problem probably can be one of finding the time to spend together in a quest for romance. Yet this is a couple that knows how to build for the future and develop a very secure relationship.\n"""
-    elif exp_1 == exp_2 == 5:
-        print """\nA pair of 5s is a very compatible couple who prize their freedom to be different and adventuresome. Few others will be as open to the constant flow of new ideas and changes so common in the 5.\n
-In this relationship, partners easily anticipate what the other is thinking and where they are going. They also have a sense for staying out of the way and accepting the freewheeling lifestyle. Fives choosing to support one another can do just about anything.\n
-The difficulty with this pairing is focus, and there may be a problem handling the mundane day-to-day affairs.\n"""
-    elif ((exp_1 == 5) and (exp_2 == 7)) or ((exp_1 == 7) and (exp_2 == 5)):
-        print """\nThis is a relationship which is more or less free of rules and procedures. In some ways, these two are much alike and the relationship is generally very compatible.\n
-The 7 values the time to be alone and enjoy the world of study and reflection in their private space. At the same time, the 5 has plenty going on and appreciates not having demands for attention being the paramount feature of the relationship.\n
-Yet these two can get together and find a never ending stream of mutual interests to discuss and explore.\n"""
-    elif exp_1 == exp_2 == 6:
-        print """\nThis is a combination charged with romance, but in essence it is rather practical by nature. Home and family is second nature here, and these will be the top priorities for sure. This is a very compatible pairing.\n
-The 6 knows what's best for their partner, so they do a good job of taking care of each other, and a family is a must. Yet the 6 by its nature wants the whole family under his/her thumb, so the challenge may be in agreeing who is going to be charge. The circumstances of the relationship will usually be able to sort this out.\n"""
-    elif ((exp_1 == 6) and (exp_2 == 9)) or ((exp_1 == 9) and (exp_2 == 6)):
-        print """\nThis is generally a very compatible relationship prospect as the 9 is one of the few numbers to gain 6's utmost respect. In a family situation, the 6 is unsurpassed as a manager, and the 9 is never reticent in heaping praise in recognition. This often creates a mutual admiration environment that provides a happy home for both partners.\n
-The 6 helps the 9 stay focused on details and common sense issues, while the 9 broadens the 6's outlook and sense of the world at large. The expansiveness of this pairing may suggest the need to keep a close eye on the budget.\n"""
-    elif exp_1 == exp_2 == 7:
-        print """\nThis is one situation in which no one understands the eccentricities of a 7 nearly as well as another 7. Thus, this is a very compatible pairing. With the right attitude, this couple will find the interest to freely explore the world together, or spend their days in happy solitude together. Chances are you are on the same psychic wavelength, so you will surely catch the signals as they flash by.\n
-The downside of this pairing is the tendency to not communicate, so an effort may have to be made to keep the lines open and operating.\n"""
-    elif exp_1 == exp_2 == 8:
-        print """\nThis pairing might be known as the 'Dynamic Duo' as this is a combination that is full of passion and romance. Indeed, this pairing is a strong and enduring match-up. Yet both partners will be easily distracted by the events in their life as goals and professional demands often supersede romantic possibilities.\n
-Solid as the relationship probably is, the couple may have a hard time communicating the depth of feeling in either word or deed. Guard against competing with one another, and getting caught up in schedules and the demands of work. Make time for each other and always focus on being equal partners.\n"""
-    elif exp_1 == exp_2 == 9:
-        print """\nThis relationship has much promise as it usually engages two charismatic types possessing much intellectual stimulation. The nature of the 9 is selfless, so this combination usually faces few challenges; each wanting to please the other and always be there for each other. A relationship offering the opportunity to grow, learn, and serve, this is often an inspiring combination.\n"""
-    # the following are "ok" pairings
-    elif ((exp_1 == 1) and (exp_2 == 3)) or ((exp_1 == 3) and (exp_2 == 1)):
-        print """\nThis is a very lively couple that seem to shamelessly enjoy life and each other. The 3 is good at acknowledging the 1's accomplishments and stroking the ego. The 3 provides the ideas and the 1 provides the push, so this couple can cover a lot of ground. Yet they have to be careful about what they say since neither handles criticism very well.\n"""
-    elif ((exp_1 == 1) and (exp_2 == 9)) or ((exp_1 == 9) and (exp_2 == 1)):
-        print """\nThe 9 brings a selflessness to the relationship which allows the 1 to operate in an environment that is understanding and smooth flowing. The 1 will have to learn to share the partner who is inclined to extend a giving nature outside the home.\n
-If there is trouble in this partnership, it will generally come from the 9's difficulty tolerating the 1's assertive and individualistic behavior.\n"""
-    elif ((exp_1 == 2) and (exp_2 == 3)) or ((exp_1 == 3) and (exp_2 == 2)):
-        print """\nThese are potentially very good partners because of the good humor and good chemistry. The 3 is always 'on stage' and full of life and social energy, while the 2 is happy as a lark standing back and enjoying the show. The 2 balances the needs of the 3 by providing a soothing and calming influence.\n"""
-    elif ((exp_1 == 2) and (exp_2 == 6)) or ((exp_1 == 6) and (exp_2 == 2)):
-        print """\nThis is another good love match. The 6 ranks first in family while the 2 tops the chart in love and caring. Still the pair needs to watch their 'Ps and Qs' as the 6 has a surprising need for approbation, and 2's thin skin can suffer with the direct and demanding approach that sometimes characterizes the 6. Considerations of feelings is a must.\n"""
-    elif ((exp_1 == 3) and (exp_2 == 5)) or ((exp_1 == 5) and (exp_2 == 3)):
-        print """\nThis is one of the most social combinations you will find. The two will generally find each other very interesting and their ability to entertain will be never ending.\n
-Social opportunities, travel, and numerous activities promise this relationship won't get boring. Both are creative by nature, yet neither excels at managing the budget, so everyday affairs can cause problems sometimes.\n"""
-    elif ((exp_1 == 4) and (exp_2 == 6)) or ((exp_1 == 6) and (exp_2 == 4)):
-        print """\nA comfortable match of traditional types, this pairing has promise from the very beginning. Chances are the 6 will want to take the lead in this relationship, and a secure home and family are all that is needed to produce a satisfying long-term situation.\n
-The challenge of this relationship is compromise. Neither is very good at this.\n"""
-    elif ((exp_1 == 4) and (exp_2 == 7)) or ((exp_1 == 7) and (exp_2 == 4)):
-        print """\nThis is a relationship that has a serious tone about it and may be driven by a mutual need for security. It is loyal and devoted, even it it may lack the fire and passion of some combinations.\n
-The 4 is a natural provider of rock solid security and home values. The 7 provides a quest for continued mental development and adventure. The combination makes life both secure and yet more interesting for both.\n"""
-    elif ((exp_1 == 5) and (exp_2 == 9)) or ((exp_1 == 9) and (exp_2 == 5)):
-        print """\nThis is a relationship between two who may find it hard to work the relationship into their busy schedules. Both of these numbers represent people who are apt to be in a constant state of transition and change. In this regard they have much in common and will generally find each other very interesting, for the moment or for the long haul.\n
-The compassion of the 9 and progressive thinking of the 5 seems to blend well. Establishing a commitment to security is a must.\n"""
-    elif ((exp_1 == 6) and (exp_2 == 8)) or ((exp_1 == 8) and (exp_2 == 6)):
-        print """\nThis is a very positive and compatible relationship of two who are usually open and positive in most that they do. This is a couple with big ideas, and their ideas are usually brought to reality in grand fashion. The home will provide plenty of space for family, work, and frequent entertaining of their many friends.\n
-A down side to the relationship can occur if the possessive 6 has to compete too much with the business interests of the 8. Likewise, the 8 will be frustrated when the demands at home cramp the executive lifestyle and obligations.\n"""
-    # the following could go either way
-    elif ((exp_1 == 1) and (exp_2 == 8)) or ((exp_1 == 8) and (exp_2 == 1)):
-        print """\nFrom a business standpoint, this is a good match. But from the love angle, it is questionable at best. Both are so assertive and demanding, that expectations can far exceed reality.\n
-Negative feedback from either will be deadly in this pairing. Success depends on a open and mutual willingness to compromise and limit demands.\n"""
-    elif ((exp_1 == 2) and (exp_2 == 9)) or ((exp_1 == 9) and (exp_2 == 2)):
-        print """\nThese two can have a wonderful relationship or it can be not so wonderful. The 2 needs constant attention, and certainly the 9 is a caring individual. But the care they naturally possess is spread to all humanity and often it is not focused enough at home.\n
-The 9 is a natural leader and the 2 is a natural follower, so there is always hope. The 9 needs to remember that the 2 hates to be alone, and the 2 needs to be forewarned that the 9's love will only stretch so far.\n"""
-    elif ((exp_1 == 5) and (exp_2 == 8)) or ((exp_1 == 8) and (exp_2 == 5)):
-        print """\nThis is a relationship between two individuals who don't always follow the rules, and they might find themselves locking horns on the rules of a relationship. The 8 is used to being the boss and dominating most situations. The 5 seeks freedom from any restraints.\n
-The 8 is focused on success, particularly in a financial sense, and the 5 doesn't even want to think about money. It will take careful planning and compromise to make this relationship work.\n"""
-    elif ((exp_1 == 7) and (exp_2 == 9)) or ((exp_1 == 9) and (exp_2 == 7)):
-        print """\nThis couple is anything but neutral in their affiliation. They are listed neutral because the relationship can go either way depending largely on spiritual beliefs. Both have strong spiritual inclinations and deeply held positions. However, these views of the spiritual and the divien often divide along rigidly held lines. In such cases, compromise is usually not an option.\n
-When the spiritual positions are in harmony, this can be a very compatible combination.\n"""
-    # the following are "challenging" pairings
-    elif ((exp_1 == 1) and (exp_2 == 2)) or ((exp_1 == 2) and (exp_2 == 1)):
-        print """\nTwo very different people who do well if they remember their roles. The 1 is best equipped to be the breadwinner, and the 2 will be the one to feather the nest and keep the warmth of romance alive and well.\n
-The 1 must avoid being distracted and never forget how important attention is for the 2 partner.\n"""
-    elif ((exp_1 == 1) and (exp_2 == 4)) or ((exp_1 == 4) and (exp_2 == 1)):
-        print """\nFour's desire for control is a tough sell on the 1. The 1's need to make things happen now, frustrates the meticulous 4. Opposites in many ways, these two should not expect easy compromise.\n
-If they ever can accept one another for who they are, their respective strengths will make a solid relationship.\n"""
-    elif ((exp_1 == 1) and (exp_2 == 6)) or ((exp_1 == 6) and (exp_2 == 1)):
-        print """\nThis is a power struggle waiting to happen. The 6 wants and needs to a caretaker. The 1 has an absolute need to be independent and unrestrained. This can be a successful pairing only if they can work past this roadblock, and give each other the support they both need.\n"""
-    elif ((exp_1 == 2) and (exp_2 == 5)) or ((exp_1 == 5) and (exp_2 == 2)):
-        print """\nThe 2 needs family and an ever present sense of being loved, and the 5 need total freedom to pursue whatever avenues appear on the horizon. This is one where the chemistry has to be very strong in order for the two very different souls to forge some significant compromises.\n
-Obviously, these two can provide a lot that may otherwise be missing, but it won't be an easy road.\n"""
-    elif ((exp_1 == 2) and (exp_2 == 7)) or ((exp_1 == 7) and (exp_2 == 2)):
-        print """\nThis is a couple that has some strong and dissimilar needs. The 2's need for demonstrative love and 7's need for a good deal of space and solitude make this a pairing that will work only if both can stay tuned in to the other's needs and be willing to cater to them at least to some degree.\n
-Generally the 2 will have to find something to occupy much of the time that would otherwise be devoted to the mate.\n"""
-    elif ((exp_1 == 3) and (exp_2 == 4)) or ((exp_1 == 4) and (exp_2 == 3)):
-        print """\nWhen the spontaneous 3 pairs with the micro-manager 4, something has to give, and often it won't. The 3 will take each day as it comes while the 4 has to have a definite plan far into the future. If the two can ever figure out how to meet in the middle, they will do a good job of balancing each other's shortcomings.\n
-The 3 will show the 4 how to have fun while the 4 can give the 3 a needed sense of security.\n"""
-    elif ((exp_1 == 3) and (exp_2 == 7)) or ((exp_1 == 7) and (exp_2 == 3)):
-        print """\nThese two are about as different as people get. The 3 wants to be constantly on the go with a swirl of activity, travel, and social contact that the 7 will find intolerable. The 7 needs solitude and can only take so much human contact before retreating to their preferred peace and quiet.\n
-Confrontation in this pairing never works well, and it will be up to both to understand the long-term need for compromise. The key to success here is open dialog regarding wants, needs, and goals.\n"""
-    elif ((exp_1 == 3) and (exp_2 == 8)) or ((exp_1 == 8) and (exp_2 == 3)):
-        print """\nThis is a combination that requires extra effort mostly because of the departure of needs. The 8 needs goals and authority to feel happy, and efforts focused here leave the 3 without needed attention and stimulation.\n
-The secret to success in this combination, if there is one, is frequent getaways; periods when the 3 gets the 8 away from business and relaxed enough to have some fun. There isn't much frivolity in the 8, and this can sometimes be a tough sale.\n"""
-    elif ((exp_1 == 4) and (exp_2 == 5)) or ((exp_1 == 5) and (exp_2 == 4)):
-        print """\nThe 4 and the 5 have different temperaments and different ways of communicating. The 4 is very direct to the point, while the 5 will be more diplomatic and indirect. Fours don't like change, and 5s have to have it.\n
-To find success, this couple will need to respect the difference and pay attention to what is said and what is inferred.\n"""
-    elif ((exp_1 == 4) and (exp_2 == 9)) or ((exp_1 == 9) and (exp_2 == 4)):
-        print """\nThese two are so very different that successful pairings are rare. The 9 is far more social and fosters deep humanitarian instincts. The 4 is focused on the basics of building a secure and solid immediate world.\n
-To succeed in a relationship requires both to be aware of how different their approaches are, and somehow muster a willingness to accept. The 4 will certainly appreciate the 9's knowledge and intelligence, and the 9 must likewise value the 4's ruthless consistency.\n"""
-    elif ((exp_1 == 5) and (exp_2 == 6)) or ((exp_1 == 6) and (exp_2 == 5)):
-        print """\nThis is a combination requiring great compromise since the 5 thrives on freedom and space, and the 6 is noted for exerting control and nurturing supervision. The 6 wants complete commitment, and the 5 is looking for adventure and new horizons.\n
-In a relationship, they would probably be good for each other if they could find a way to meet somewhere near the middle. They must avoid any tendency to become entrenched in positions that just won't work for the other.\n"""
-    elif ((exp_1 == 6) and (exp_2 == 7)) or ((exp_1 == 7) and (exp_2 == 6)):
-        print """\nThese are two very different people with very different ideas about a relationship. The 6 is openly interested in a permanent situation complete with a stable home and family. With the secretive 7, it is hard to tell what the goal might be, and only time will tell.\n
-Despite the sexual attraction that may be present, this is a very challenged combination. The 6 is too controlling, and the 7 just isn't to be closely managed. The compromises required in this relationship really bend and manipulate the natural traits of both numbers.\n"""
-    elif ((exp_1 == 7) and (exp_2 == 8)) or ((exp_1 == 8) and (exp_2 == 7)):
-        print """\nThis is a combination that seems to work well physically, but one which is plagued with problems on the emotional level. The 8 has a tendency to dominate and control, and the 7 is a very private person prone to resist attempts to exert authority.\n
-The power of both numbers can result in frequent verbal battles. Yet there is a stability factor in the pairing that makes long-term success a possibility if accommodations can be reached.\n"""
-    elif ((exp_1 == 8) and (exp_2 == 9)) or ((exp_1 == 9) and (exp_2 == 8)):
-        print """\nThis is a challenging combination in which two highly motivated individuals - motivated in very different ways - find it hard to accept the ways of the other. In general the goals of the 9 are lofty and may have a humanitarian bend, while the 8 seeks the reward that comes with development of leadership and material success.\n
-To have much of a chance, the 8 will have to appreciate the lessons that can be learned from their generous partner. When they are able to work as a team, this is a powerful and often inspirational pair. Too often, however, the combination fails to click.\n"""
-    else:
-        print """\nBetter luck next time!\n"""
+#     # the following are "very good" pairings
+#     if exp_1 == exp_2 == 1:
+#         print """\nThis combination comprises two people with a strong desire to lead and two people who want very much to be independent. Two 1s in a relationship understand and accept each other perhaps better than any other number can understand the 1.\n
+# This is a relationship not without pitfalls as the match can get dicey when they start to compete. But for the most part, it is a good one filled with excitement and activity.\n"""
+#     elif ((exp_1 == 1) and (exp_2 == 5)) or ((exp_1 == 5) and (exp_2 == 1)):
+#         print """\nThis is a very compatible combination as both of these numbers are ones that like to have a lot of freedom in a relationship. The drive for independence is paramount for each.\n
+# They may be so busy with their own 'thing' that time together is limited, very special, and often exciting. As you might expect, the most serious threat is when either tries to impose his or her will on the other.\n"""
+#     elif ((exp_1 == 1) and (exp_2 == 7)) or ((exp_1 == 7) and (exp_2 == 1)):
+#         print """\nThese are very different energies but ones that somehow blend nicely. The 7 provides wise insights while the 1 becomes a needed motivator. The key is to understand the tendencies; the 1 can get too busy with the outer world to always be there for the 7, and the 7 can be too into their own world to be there for the 1. Neither should take this absence personally.\n"""
+#     elif exp_1 == exp_2 == 2:
+#         print """\nA great match of two souls both needing to give and receive love. Experts at mediation, they have little difficulty finding common ground on just about any issue that arises.\n
+# The only word of caution for this pairing is that they must each remember how thin their own skin is so as to not cause verbal injury to the other. Generally this is not a problem because of their polite manner and mutual respect.\n"""
+#     elif ((exp_1 == 2) and (exp_2 == 4)) or ((exp_1 == 4) and (exp_2 == 2)):
+#         print """\nThis is a steady pairing resulting in comfort personified. When it comes to home and family, the 4 is the ultimate builder and provider. Security is 4's forte. Nothing is more appealing to the 2 than home, hearth, and family.\n
+# The only difficulty likely here is one of perception. The 2 needs love to be shown and always physically apparent, and the 4 is sometimes not so demonstrative.\n"""
+#     elif ((exp_1 == 2) and (exp_2 == 8)) or ((exp_1 == 8) and (exp_2 == 2)):
+#         print """\nA pairing that usually works very well because it is likely that each has a clear vision of their role. The 8 is about the outer world of business and attainment, taking care of the financial needs of the family. The 2 takes care of the family and is there to pamper the ego of their partner.\n
+# A pitfall in this relationship can occur if the 8 fails to sufficiently value the labors of the 2. Generally, this is the classic traditional family model, or in the case of the male 2, female 8, the classic male/female role reversal.\n"""
+#     elif exp_1 == exp_2 == 3:
+#         print """\nWild and interesting describes this pairing of two with so much creative and social potential. No one has more fun that a pair of 3s who understand and support one another.\n
+# The question may become who is going to take care of the mundane. The pitfall of this relationship comes when neither partner can hold on to reins of practical everyday details.\n"""
+#     elif ((exp_1 == 3) and (exp_2 == 6)) or ((exp_1 == 6) and (exp_2 == 3)):
+#         print """\nThis is a natural combination that works well in most cases. The 3 is full of enthusiasm and ideas, and the 6 provides the stability, support, and encouragement that often makes this combination an idea team in many ways. The chemistry here is very strong and durable.\n
+# The challenge of this combination can come in the form of 6's jealous feelings toward the oft flirtatious 3. Usually it will be the 6 who will have to learn to deal with an inborn trait.\n"""
+#     elif ((exp_1 == 3) and (exp_2 == 9)) or ((exp_1 == 9) and (exp_2 == 3)):
+#         print """\nThis is a wonderful combination of two people who are apt to keep each other endlessly engaged in a variety of creative ways. Both like to be on stage and both are interested in people. They care about people and the 9 can be generous to a fault.\n
+# The 9 is the teacher, and the 3 is the ever eager student. Sharing experience is a never ending joy of this pairing. The problem the couple faces is settling down, feathering a nest, and keeping the bills paid. Even after they are settled and set, romantic adventures will always be important.\n"""
+#     elif exp_1 == exp_2 == 4:
+#         print """\nThe keywords for this combination are solid and secure. For individuals who need to know that the bills are paid and future is totally secure, who better to fill this need than another 4.\n
+# These two will share goals that they work for and nearly always achieve. Success is measured by a sense that growth is continual, and this includes love and romance.\n
+# The down side of this pairing, if there is one, is the sense that nothing is ever completely okay. It's hard to relax , be spontaneous, and enjoy the moment and each other. Nonetheless, there are few relationships destined to be more stable than this one.\n"""
+#     elif ((exp_1 == 4) and (exp_2 == 8)) or ((exp_1 == 8) and (exp_2 == 4)):
+#         print """\nThis is a comfortable pairing because both parties understand hard work and have a good head for business and getting ahead in the world. The 4 is the cautious planner, while the 8 has a more grandiose approach to endeavors.\n
+# The only problem probably can be one of finding the time to spend together in a quest for romance. Yet this is a couple that knows how to build for the future and develop a very secure relationship.\n"""
+#     elif exp_1 == exp_2 == 5:
+#         print """\nA pair of 5s is a very compatible couple who prize their freedom to be different and adventuresome. Few others will be as open to the constant flow of new ideas and changes so common in the 5.\n
+# In this relationship, partners easily anticipate what the other is thinking and where they are going. They also have a sense for staying out of the way and accepting the freewheeling lifestyle. Fives choosing to support one another can do just about anything.\n
+# The difficulty with this pairing is focus, and there may be a problem handling the mundane day-to-day affairs.\n"""
+#     elif ((exp_1 == 5) and (exp_2 == 7)) or ((exp_1 == 7) and (exp_2 == 5)):
+#         print """\nThis is a relationship which is more or less free of rules and procedures. In some ways, these two are much alike and the relationship is generally very compatible.\n
+# The 7 values the time to be alone and enjoy the world of study and reflection in their private space. At the same time, the 5 has plenty going on and appreciates not having demands for attention being the paramount feature of the relationship.\n
+# Yet these two can get together and find a never ending stream of mutual interests to discuss and explore.\n"""
+#     elif exp_1 == exp_2 == 6:
+#         print """\nThis is a combination charged with romance, but in essence it is rather practical by nature. Home and family is second nature here, and these will be the top priorities for sure. This is a very compatible pairing.\n
+# The 6 knows what's best for their partner, so they do a good job of taking care of each other, and a family is a must. Yet the 6 by its nature wants the whole family under his/her thumb, so the challenge may be in agreeing who is going to be charge. The circumstances of the relationship will usually be able to sort this out.\n"""
+#     elif ((exp_1 == 6) and (exp_2 == 9)) or ((exp_1 == 9) and (exp_2 == 6)):
+#         print """\nThis is generally a very compatible relationship prospect as the 9 is one of the few numbers to gain 6's utmost respect. In a family situation, the 6 is unsurpassed as a manager, and the 9 is never reticent in heaping praise in recognition. This often creates a mutual admiration environment that provides a happy home for both partners.\n
+# The 6 helps the 9 stay focused on details and common sense issues, while the 9 broadens the 6's outlook and sense of the world at large. The expansiveness of this pairing may suggest the need to keep a close eye on the budget.\n"""
+#     elif exp_1 == exp_2 == 7:
+#         print """\nThis is one situation in which no one understands the eccentricities of a 7 nearly as well as another 7. Thus, this is a very compatible pairing. With the right attitude, this couple will find the interest to freely explore the world together, or spend their days in happy solitude together. Chances are you are on the same psychic wavelength, so you will surely catch the signals as they flash by.\n
+# The downside of this pairing is the tendency to not communicate, so an effort may have to be made to keep the lines open and operating.\n"""
+#     elif exp_1 == exp_2 == 8:
+#         print """\nThis pairing might be known as the 'Dynamic Duo' as this is a combination that is full of passion and romance. Indeed, this pairing is a strong and enduring match-up. Yet both partners will be easily distracted by the events in their life as goals and professional demands often supersede romantic possibilities.\n
+# Solid as the relationship probably is, the couple may have a hard time communicating the depth of feeling in either word or deed. Guard against competing with one another, and getting caught up in schedules and the demands of work. Make time for each other and always focus on being equal partners.\n"""
+#     elif exp_1 == exp_2 == 9:
+#         print """\nThis relationship has much promise as it usually engages two charismatic types possessing much intellectual stimulation. The nature of the 9 is selfless, so this combination usually faces few challenges; each wanting to please the other and always be there for each other. A relationship offering the opportunity to grow, learn, and serve, this is often an inspiring combination.\n"""
+#     # the following are "ok" pairings
+#     elif ((exp_1 == 1) and (exp_2 == 3)) or ((exp_1 == 3) and (exp_2 == 1)):
+#         print """\nThis is a very lively couple that seem to shamelessly enjoy life and each other. The 3 is good at acknowledging the 1's accomplishments and stroking the ego. The 3 provides the ideas and the 1 provides the push, so this couple can cover a lot of ground. Yet they have to be careful about what they say since neither handles criticism very well.\n"""
+#     elif ((exp_1 == 1) and (exp_2 == 9)) or ((exp_1 == 9) and (exp_2 == 1)):
+#         print """\nThe 9 brings a selflessness to the relationship which allows the 1 to operate in an environment that is understanding and smooth flowing. The 1 will have to learn to share the partner who is inclined to extend a giving nature outside the home.\n
+# If there is trouble in this partnership, it will generally come from the 9's difficulty tolerating the 1's assertive and individualistic behavior.\n"""
+#     elif ((exp_1 == 2) and (exp_2 == 3)) or ((exp_1 == 3) and (exp_2 == 2)):
+#         print """\nThese are potentially very good partners because of the good humor and good chemistry. The 3 is always 'on stage' and full of life and social energy, while the 2 is happy as a lark standing back and enjoying the show. The 2 balances the needs of the 3 by providing a soothing and calming influence.\n"""
+#     elif ((exp_1 == 2) and (exp_2 == 6)) or ((exp_1 == 6) and (exp_2 == 2)):
+#         print """\nThis is another good love match. The 6 ranks first in family while the 2 tops the chart in love and caring. Still the pair needs to watch their 'Ps and Qs' as the 6 has a surprising need for approbation, and 2's thin skin can suffer with the direct and demanding approach that sometimes characterizes the 6. Considerations of feelings is a must.\n"""
+#     elif ((exp_1 == 3) and (exp_2 == 5)) or ((exp_1 == 5) and (exp_2 == 3)):
+#         print """\nThis is one of the most social combinations you will find. The two will generally find each other very interesting and their ability to entertain will be never ending.\n
+# Social opportunities, travel, and numerous activities promise this relationship won't get boring. Both are creative by nature, yet neither excels at managing the budget, so everyday affairs can cause problems sometimes.\n"""
+#     elif ((exp_1 == 4) and (exp_2 == 6)) or ((exp_1 == 6) and (exp_2 == 4)):
+#         print """\nA comfortable match of traditional types, this pairing has promise from the very beginning. Chances are the 6 will want to take the lead in this relationship, and a secure home and family are all that is needed to produce a satisfying long-term situation.\n
+# The challenge of this relationship is compromise. Neither is very good at this.\n"""
+#     elif ((exp_1 == 4) and (exp_2 == 7)) or ((exp_1 == 7) and (exp_2 == 4)):
+#         print """\nThis is a relationship that has a serious tone about it and may be driven by a mutual need for security. It is loyal and devoted, even it it may lack the fire and passion of some combinations.\n
+# The 4 is a natural provider of rock solid security and home values. The 7 provides a quest for continued mental development and adventure. The combination makes life both secure and yet more interesting for both.\n"""
+#     elif ((exp_1 == 5) and (exp_2 == 9)) or ((exp_1 == 9) and (exp_2 == 5)):
+#         print """\nThis is a relationship between two who may find it hard to work the relationship into their busy schedules. Both of these numbers represent people who are apt to be in a constant state of transition and change. In this regard they have much in common and will generally find each other very interesting, for the moment or for the long haul.\n
+# The compassion of the 9 and progressive thinking of the 5 seems to blend well. Establishing a commitment to security is a must.\n"""
+#     elif ((exp_1 == 6) and (exp_2 == 8)) or ((exp_1 == 8) and (exp_2 == 6)):
+#         print """\nThis is a very positive and compatible relationship of two who are usually open and positive in most that they do. This is a couple with big ideas, and their ideas are usually brought to reality in grand fashion. The home will provide plenty of space for family, work, and frequent entertaining of their many friends.\n
+# A down side to the relationship can occur if the possessive 6 has to compete too much with the business interests of the 8. Likewise, the 8 will be frustrated when the demands at home cramp the executive lifestyle and obligations.\n"""
+#     # the following could go either way
+#     elif ((exp_1 == 1) and (exp_2 == 8)) or ((exp_1 == 8) and (exp_2 == 1)):
+#         print """\nFrom a business standpoint, this is a good match. But from the love angle, it is questionable at best. Both are so assertive and demanding, that expectations can far exceed reality.\n
+# Negative feedback from either will be deadly in this pairing. Success depends on a open and mutual willingness to compromise and limit demands.\n"""
+#     elif ((exp_1 == 2) and (exp_2 == 9)) or ((exp_1 == 9) and (exp_2 == 2)):
+#         print """\nThese two can have a wonderful relationship or it can be not so wonderful. The 2 needs constant attention, and certainly the 9 is a caring individual. But the care they naturally possess is spread to all humanity and often it is not focused enough at home.\n
+# The 9 is a natural leader and the 2 is a natural follower, so there is always hope. The 9 needs to remember that the 2 hates to be alone, and the 2 needs to be forewarned that the 9's love will only stretch so far.\n"""
+#     elif ((exp_1 == 5) and (exp_2 == 8)) or ((exp_1 == 8) and (exp_2 == 5)):
+#         print """\nThis is a relationship between two individuals who don't always follow the rules, and they might find themselves locking horns on the rules of a relationship. The 8 is used to being the boss and dominating most situations. The 5 seeks freedom from any restraints.\n
+# The 8 is focused on success, particularly in a financial sense, and the 5 doesn't even want to think about money. It will take careful planning and compromise to make this relationship work.\n"""
+#     elif ((exp_1 == 7) and (exp_2 == 9)) or ((exp_1 == 9) and (exp_2 == 7)):
+#         print """\nThis couple is anything but neutral in their affiliation. They are listed neutral because the relationship can go either way depending largely on spiritual beliefs. Both have strong spiritual inclinations and deeply held positions. However, these views of the spiritual and the divien often divide along rigidly held lines. In such cases, compromise is usually not an option.\n
+# When the spiritual positions are in harmony, this can be a very compatible combination.\n"""
+#     # the following are "challenging" pairings
+#     elif ((exp_1 == 1) and (exp_2 == 2)) or ((exp_1 == 2) and (exp_2 == 1)):
+#         print """\nTwo very different people who do well if they remember their roles. The 1 is best equipped to be the breadwinner, and the 2 will be the one to feather the nest and keep the warmth of romance alive and well.\n
+# The 1 must avoid being distracted and never forget how important attention is for the 2 partner.\n"""
+#     elif ((exp_1 == 1) and (exp_2 == 4)) or ((exp_1 == 4) and (exp_2 == 1)):
+#         print """\nFour's desire for control is a tough sell on the 1. The 1's need to make things happen now, frustrates the meticulous 4. Opposites in many ways, these two should not expect easy compromise.\n
+# If they ever can accept one another for who they are, their respective strengths will make a solid relationship.\n"""
+#     elif ((exp_1 == 1) and (exp_2 == 6)) or ((exp_1 == 6) and (exp_2 == 1)):
+#         print """\nThis is a power struggle waiting to happen. The 6 wants and needs to a caretaker. The 1 has an absolute need to be independent and unrestrained. This can be a successful pairing only if they can work past this roadblock, and give each other the support they both need.\n"""
+#     elif ((exp_1 == 2) and (exp_2 == 5)) or ((exp_1 == 5) and (exp_2 == 2)):
+#         print """\nThe 2 needs family and an ever present sense of being loved, and the 5 need total freedom to pursue whatever avenues appear on the horizon. This is one where the chemistry has to be very strong in order for the two very different souls to forge some significant compromises.\n
+# Obviously, these two can provide a lot that may otherwise be missing, but it won't be an easy road.\n"""
+#     elif ((exp_1 == 2) and (exp_2 == 7)) or ((exp_1 == 7) and (exp_2 == 2)):
+#         print """\nThis is a couple that has some strong and dissimilar needs. The 2's need for demonstrative love and 7's need for a good deal of space and solitude make this a pairing that will work only if both can stay tuned in to the other's needs and be willing to cater to them at least to some degree.\n
+# Generally the 2 will have to find something to occupy much of the time that would otherwise be devoted to the mate.\n"""
+#     elif ((exp_1 == 3) and (exp_2 == 4)) or ((exp_1 == 4) and (exp_2 == 3)):
+#         print """\nWhen the spontaneous 3 pairs with the micro-manager 4, something has to give, and often it won't. The 3 will take each day as it comes while the 4 has to have a definite plan far into the future. If the two can ever figure out how to meet in the middle, they will do a good job of balancing each other's shortcomings.\n
+# The 3 will show the 4 how to have fun while the 4 can give the 3 a needed sense of security.\n"""
+#     elif ((exp_1 == 3) and (exp_2 == 7)) or ((exp_1 == 7) and (exp_2 == 3)):
+#         print """\nThese two are about as different as people get. The 3 wants to be constantly on the go with a swirl of activity, travel, and social contact that the 7 will find intolerable. The 7 needs solitude and can only take so much human contact before retreating to their preferred peace and quiet.\n
+# Confrontation in this pairing never works well, and it will be up to both to understand the long-term need for compromise. The key to success here is open dialog regarding wants, needs, and goals.\n"""
+#     elif ((exp_1 == 3) and (exp_2 == 8)) or ((exp_1 == 8) and (exp_2 == 3)):
+#         print """\nThis is a combination that requires extra effort mostly because of the departure of needs. The 8 needs goals and authority to feel happy, and efforts focused here leave the 3 without needed attention and stimulation.\n
+# The secret to success in this combination, if there is one, is frequent getaways; periods when the 3 gets the 8 away from business and relaxed enough to have some fun. There isn't much frivolity in the 8, and this can sometimes be a tough sale.\n"""
+#     elif ((exp_1 == 4) and (exp_2 == 5)) or ((exp_1 == 5) and (exp_2 == 4)):
+#         print """\nThe 4 and the 5 have different temperaments and different ways of communicating. The 4 is very direct to the point, while the 5 will be more diplomatic and indirect. Fours don't like change, and 5s have to have it.\n
+# To find success, this couple will need to respect the difference and pay attention to what is said and what is inferred.\n"""
+#     elif ((exp_1 == 4) and (exp_2 == 9)) or ((exp_1 == 9) and (exp_2 == 4)):
+#         print """\nThese two are so very different that successful pairings are rare. The 9 is far more social and fosters deep humanitarian instincts. The 4 is focused on the basics of building a secure and solid immediate world.\n
+# To succeed in a relationship requires both to be aware of how different their approaches are, and somehow muster a willingness to accept. The 4 will certainly appreciate the 9's knowledge and intelligence, and the 9 must likewise value the 4's ruthless consistency.\n"""
+#     elif ((exp_1 == 5) and (exp_2 == 6)) or ((exp_1 == 6) and (exp_2 == 5)):
+#         print """\nThis is a combination requiring great compromise since the 5 thrives on freedom and space, and the 6 is noted for exerting control and nurturing supervision. The 6 wants complete commitment, and the 5 is looking for adventure and new horizons.\n
+# In a relationship, they would probably be good for each other if they could find a way to meet somewhere near the middle. They must avoid any tendency to become entrenched in positions that just won't work for the other.\n"""
+#     elif ((exp_1 == 6) and (exp_2 == 7)) or ((exp_1 == 7) and (exp_2 == 6)):
+#         print """\nThese are two very different people with very different ideas about a relationship. The 6 is openly interested in a permanent situation complete with a stable home and family. With the secretive 7, it is hard to tell what the goal might be, and only time will tell.\n
+# Despite the sexual attraction that may be present, this is a very challenged combination. The 6 is too controlling, and the 7 just isn't to be closely managed. The compromises required in this relationship really bend and manipulate the natural traits of both numbers.\n"""
+#     elif ((exp_1 == 7) and (exp_2 == 8)) or ((exp_1 == 8) and (exp_2 == 7)):
+#         print """\nThis is a combination that seems to work well physically, but one which is plagued with problems on the emotional level. The 8 has a tendency to dominate and control, and the 7 is a very private person prone to resist attempts to exert authority.\n
+# The power of both numbers can result in frequent verbal battles. Yet there is a stability factor in the pairing that makes long-term success a possibility if accommodations can be reached.\n"""
+#     elif ((exp_1 == 8) and (exp_2 == 9)) or ((exp_1 == 9) and (exp_2 == 8)):
+#         print """\nThis is a challenging combination in which two highly motivated individuals - motivated in very different ways - find it hard to accept the ways of the other. In general the goals of the 9 are lofty and may have a humanitarian bend, while the 8 seeks the reward that comes with development of leadership and material success.\n
+# To have much of a chance, the 8 will have to appreciate the lessons that can be learned from their generous partner. When they are able to work as a team, this is a powerful and often inspirational pair. Too often, however, the combination fails to click.\n"""
+#     else:
+#         print """\nBetter luck next time!\n"""
