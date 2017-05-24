@@ -46,7 +46,7 @@ def main_menu_choice():
     print """     5 - Create report of numerology results."""
     print """     6 - Exit the program.\n"""
 
-    choice = int(raw_input("Choose from the menu options: "))
+    choice = raw_input("Choose from the menu options: ")
 
     return choice
 
@@ -61,7 +61,7 @@ def birthday_menu_choice():
     print """     3 - Show challenge number(s)."""
     print """     4 - Show personal year number.\n"""
 
-    choice = int(raw_input("Choose from the menu options (return to main menu to exit): "))
+    choice = raw_input("Choose from the menu options (return to main menu to exit): ")
 
     return choice
 
@@ -76,7 +76,7 @@ def challenge_menu_choice():
     print """     3 - Show third challenge number."""
     print """     4 - Show fourth challenge number.\n"""
 
-    choice = int(raw_input("Choose from the menu options: "))
+    choice = raw_input("Choose from the menu options: ")
 
     return choice
 
@@ -93,7 +93,7 @@ def name_menu_choice():
     print """     5 - Show karmic number."""
     print """     6 - Show cornerstone and capstone.\n"""
 
-    choice = int(raw_input("Choose from the menu options (return to main menu to exit): "))
+    choice = raw_input("Choose from the menu options (return to main menu to exit): ")
 
     return choice
 
@@ -106,7 +106,7 @@ def compatibility_menu_choice():
     print """     1 - Based on birthday."""
     print """     2 - Based on name.\n"""
 
-    choice = int(raw_input("Choose from the menu options (return to main menu to exit): "))
+    choice = raw_input("Choose from the menu options (return to main menu to exit): ")
 
     return choice
 
@@ -122,10 +122,12 @@ def challenge_exec_repl(single_day_uno, single_month_uno, single_year_uno):
         # gets choice from user from challenge menu
         choice = challenge_menu_choice()
 
-        if not (choice >= 0) and (choice <= 4):
+        if not choice.isdigit() or not ((int(choice) >= 0) and (int(choice) <= 4)):
             # if choice was not on menu, notes error
             print """\nPlease choose from the menu options.\n"""
         else:
+            choice = int(choice)
+
             if choice == 0:
                 # returns to birthday menu
                 break
@@ -167,10 +169,12 @@ def birthday_exec_repl(year, month, day):
         # gets choice from user from birthday menu
         choice = birthday_menu_choice()
 
-        if not (choice >= 0) and (choice <= 4):
+        if not choice.isdigit() or not ((int(choice) >= 0) and (int(choice) <= 4)):
             # if choice was not on menu, notes error
             print """\nPlease choose from the menu options.\n"""
         else:
+            choice = int(choice)
+
             if choice == 0:
                 # returns to main menu
                 break
@@ -227,10 +231,12 @@ def name_exec_repl(last, middle, first):
         # gets choice from user from name menu
         choice = name_menu_choice()
 
-        if not (choice >= 0) and (choice <= 6):
+        if not choice.isdigit() or not ((int(choice) >= 0) and (int(choice) <= 6)):
             # if choice was not on menu, notes error
             print """\nPlease choose from the menu options.\n"""
         else:
+            choice = int(choice)
+
             if choice == 0:
                 # returns to main menu
                 break
@@ -296,10 +302,12 @@ def compatibility_exec_repl(year, month, day, last, middle, first):
             # gets choice from user from compatibility menu
             choice = compatibility_menu_choice()
 
-            if not (choice >= 0) and (choice <= 2):
+            if not choice.isdigit() or not ((int(choice) >= 0) and (int(choice) <= 2)):
                 # if choice was not on menu, notes error
                 print """\nPlease choose from the menu options.\n"""
             else:
+                choice = int(choice)
+                
                 if choice == 0:
                     # returns to main menu
                     break
@@ -353,30 +361,32 @@ def execute_repl():
         # gets choice from user from main menu
         choice = main_menu_choice()
 
-        if not (choice >= 1) and (choice <= 6):
+        if not choice.isdigit() or not ((int(choice) >= 1) and (int(choice) <= 6)):
             # if choice is not on menu, notes error
             print """\nPlease choose from the menu options.\n"""
-
-        if choice == 1:
-            # gets choice from user from birthday menu and repl within that menu
-            birthday_exec_repl(year, month, day)
-        elif choice == 2:
-            # gets choice from user from name menu and repl within that menu based on birth name
-            name_exec_repl(last_name, middle_name, clean_first_name)
-        elif choice == 3:
-            # gets choice from user from name menu and repl within that menu based on nick name
-            name_exec_repl(nick_last_name, nick_middle_name, clean_nick_first_name)
-        elif choice == 4:
-            # gets choice from user from compatibility menu and repl within that menu
-            compatibility_exec_repl(year, month, day, last_name, middle_name, clean_first_name)
-        elif choice == 5:
-            # creates file object to write output of results of various numerology numbers and meanings with only generic compatibility chart since details of partner is in "child" menu
-            calcnprint.numerology_rpt(nick_name, first_name, nick_first_name, year, month, day, last_name, middle_name, clean_first_name, nick_last_name, nick_middle_name, clean_nick_first_name, vowel)
         else:
-            if nick_name == "y":
-                print """\nHave a wonderful day with your numerical vibrations, {}. Namaste!\n""".format(nick_first_name.title())
+            choice = int(choice)
+
+            if choice == 1:
+                # gets choice from user from birthday menu and repl within that menu
+                birthday_exec_repl(year, month, day)
+            elif choice == 2:
+                # gets choice from user from name menu and repl within that menu based on birth name
+                name_exec_repl(last_name, middle_name, clean_first_name)
+            elif choice == 3:
+                # gets choice from user from name menu and repl within that menu based on nick name
+                name_exec_repl(nick_last_name, nick_middle_name, clean_nick_first_name)
+            elif choice == 4:
+                # gets choice from user from compatibility menu and repl within that menu
+                compatibility_exec_repl(year, month, day, last_name, middle_name, clean_first_name)
+            elif choice == 5:
+                # creates file object to write output of results of various numerology numbers and meanings with only generic compatibility chart since details of partner is in "child" menu
+                calcnprint.numerology_rpt(nick_name, first_name, nick_first_name, year, month, day, last_name, middle_name, clean_first_name, nick_last_name, nick_middle_name, clean_nick_first_name, vowel)
             else:
-                print """\nHave a wonderful day with your numerical vibrations, {}. Namaste!\n""".format(first_name.title())
-            break
+                if nick_name == "y":
+                    print """\nHave a wonderful day with your numerical vibrations, {}. Namaste!\n""".format(nick_first_name.title())
+                else:
+                    print """\nHave a wonderful day with your numerical vibrations, {}. Namaste!\n""".format(first_name.title())
+                break
 
 execute_repl()

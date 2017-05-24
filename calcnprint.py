@@ -110,93 +110,6 @@ def ask_name(birth_or_nick, name_type):
             return raw_name
 
 
-# # definition of function for last name
-
-
-# def ask_last_name(birth_or_nick):
-#     # asks individual for last name, with error for integers
-#     # gives option for individual to provide birth name vs. common (nick) name, includes option for partner input
-#     if birth_or_nick == "birth":
-#         while True:
-#             last_name = raw_input("\nInput your family (last) name at birth: ")
-#             if last_name.isdigit():
-#                 print "Your parents are so hipster that they named you a number."
-#             else:
-#                 return last_name
-#     elif birth_or_nick == "partner":
-#         while True:
-#             last_name = raw_input("\nInput your partner's family (last) name: ")
-#             if last_name.isdigit():
-#                 print "Your parents are so hipster that they named you a number."
-#             else:
-#                 return last_name
-#     else:
-#         while True:
-#             last_name = raw_input("\nInput your family (last) name: ")
-#             if last_name.isdigit():
-#                 print "Your parents are so hipster that they named you a number."
-#             else:
-#                 return last_name
-
-
-# # definition of function for middle name
-
-
-# def ask_middle_name(birth_or_nick):
-#     # asks individual for middle name, with error for integers
-#     # gives option for individual to provide birth name vs. common (nick) name, includes option for partner input
-#     if birth_or_nick == "birth":
-#         while True:
-#             middle_name = raw_input("Input your middle name at birth: ")
-#             if middle_name.isdigit():
-#                 print "Your parents are so hipster that they named you a number."
-#             else:
-#                 return middle_name
-#     elif birth_or_nick == "partner":
-#         while True:
-#             middle_name = raw_input("Input your partner's middle name: ")
-#             if middle_name.isdigit():
-#                 print "Your parents are so hipster that they named you a number."
-#             else:
-#                 return middle_name
-#     else:
-#         while True:
-#             middle_name = raw_input("Input your middle name: ")
-#             if middle_name.isdigit():
-#                 print "Your parents are so hipster that they named you a number."
-#             else:
-#                 return middle_name
-
-
-# # definition of function for first name
-
-
-# def ask_first_name(birth_or_nick):
-#     # asks individual for first name, with error for integers
-#     # gives option for individual to provide birth name vs. common (nick) name, includes option for partner input
-#     if birth_or_nick == "birth":
-#         while True:
-#             first_name = raw_input("Input your first (given) name at birth: ")
-#             if first_name.isdigit():
-#                 print "Your parents are so hipster that they named you a number."
-#             else:
-#                 return first_name
-#     elif birth_or_nick == "partner":
-#         while True:
-#             first_name = raw_input("Input your partner's first name: ")
-#             if first_name.isdigit():
-#                 print "Your parents are so hipster that they named you a number."
-#             else:
-#                 return first_name
-#     else:
-#         while True:
-#             first_name = raw_input("Input your first (nick) name: ")
-#             if first_name.isdigit():
-#                 print "Your parents are so hipster that they named you a number."
-#             else:
-#                 return first_name
-
-
 # definition of function to clean name for miscellaneous characters that are not part of alphabet and case sensitivities
 
 
@@ -208,10 +121,6 @@ def clean_name(name):
     for letter in name:
         if letter in string.ascii_lowercase:
             partial_name += letter
-
-    # name = name.replace("-", "")
-    # name = name.replace(".", "")
-    # name = name.replace(" ", "")
 
     return partial_name
 
