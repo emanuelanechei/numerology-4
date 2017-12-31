@@ -3,26 +3,26 @@ import meanings
 import calcnprint
 
 
-# definition of function to print introduction message
-
-
 def greeting():
-    # introduction message in numerology program
+    """Displays introduction message in numerology program."""
+
     print """\nWelcome to the nexus of numerology.\n
-Numerology is the study of the numerical value of letters in words, names and birthdays.\n
-It is similar to astrology, and often associated with the belief in the divine, mystical relationship between numbers (and their related vibrations) and one or more coinciding events.\n"""
-
-
-# definition of function for common (nick) name
+            Numerology is the study of the numerical value of letters in words,
+            names and birthdays.\n
+            It is similar to astrology, and often associated with the belief in
+            the divine, mystical relationship between numbers (and their related
+            vibrations) and one or more coinciding events.\n"""
 
 
 def ask_nick_name():
-    # asks individual if he/she has common (nick) name
+    """User input for nickname or common name."""
+
     while True:
         # asks individual if he/she goes by another name
         nick_raw = raw_input("\nDo you go by another name (e.g., nickname)? (Y/N): ")
         nick_raw = nick_raw.lower()
 
+        # verify for edge cases
         if not ((nick_raw == "y") or (nick_raw == "n")):
             print "Please input Y or N."
         else:
@@ -30,15 +30,12 @@ def ask_nick_name():
 
 
 # set list of vowels
-
-
 vowel = ("a", "e", "i", "o", "u")
 
 
-# definition of a function to display main menu
-
-
 def main_menu_choice():
+    """Displays main menu."""
+
     print """\n     1 - Show numerology by birthday."""
     print """     2 - Show numerology by birth name."""
     print """     3 - Show numerology by common or nick name."""
@@ -51,25 +48,24 @@ def main_menu_choice():
     return choice
 
 
-# definition of a function to display birthday numerology menu
-
-
 def birthday_menu_choice():
+    """Displays birthday numerology menu."""
+
     print """\n     0 - Return to main menu."""
     print """     1 - Show life path number."""
     print """     2 - Show birth day number."""
     print """     3 - Show challenge number(s)."""
     print """     4 - Show personal year number.\n"""
 
-    choice = raw_input("Choose from the menu options (return to main menu to exit): ")
+    choice = raw_input("""Choose from the menu options (return to main menu to
+                        exit): """)
 
     return choice
 
 
-# definition of a function to display challenge numbbers menu
-
-
 def challenge_menu_choice():
+    """Displays challenge numbers menu."""
+
     print """\n     0 - Return to birthday main menu."""
     print """     1 - Show first challenge number."""
     print """     2 - Show second challenge number."""
@@ -81,10 +77,9 @@ def challenge_menu_choice():
     return choice
 
 
-# definition of a function to display name numerology menu
-
-
 def name_menu_choice():
+    """Displays name numerology menu."""
+
     print """\n     0 - Return to main menu."""
     print """     1 - Show expression (destiny) number."""
     print """     2 - Show soul urge number."""
@@ -93,29 +88,28 @@ def name_menu_choice():
     print """     5 - Show karmic number."""
     print """     6 - Show cornerstone and capstone.\n"""
 
-    choice = raw_input("Choose from the menu options (return to main menu to exit): ")
+    choice = raw_input("""Choose from the menu options (return to main menu to
+                        exit): """)
 
     return choice
 
 
-# definition of a function to display compatibility menu
-
-
 def compatibility_menu_choice():
+    """Displays compatibility menu."""
+
     print """\n     0 - Return to main menu."""
     print """     1 - Based on birthday."""
     print """     2 - Based on name.\n"""
 
-    choice = raw_input("Choose from the menu options (return to main menu to exit): ")
+    choice = raw_input("""Choose from the menu options (return to main menu to
+                        exit): """)
 
     return choice
 
 
-# definition of a function to execute within the challenge menu
-
-
 def challenge_exec_repl(single_day_uno, single_month_uno, single_year_uno):
-    # displays objective of challenge numbers
+    """Displays objective of challenge numbers and menu options."""
+
     meanings.challenge_intro()
 
     while True:
@@ -131,30 +125,40 @@ def challenge_exec_repl(single_day_uno, single_month_uno, single_year_uno):
             if choice == 0:
                 # returns to birthday menu
                 break
+
             elif choice == 1:
                 # calculates and displays meaning for first challenge number
-                first_chall = calcnprint.first_chall_calc(single_day_uno, single_month_uno)
+                first_chall = (calcnprint.first_chall_calc(single_day_uno,
+                               single_month_uno))
                 calcnprint.first_chall_meaning(first_chall)
+
             elif choice == 2:
                 # calculates and displays meaning for second challenge number
                 sec_chall = calcnprint.sec_chall_calc(single_day_uno, single_year_uno)
                 calcnprint.sec_chall_meaning(sec_chall)
+
             elif choice == 3:
-                # calculates and displays meaning for third challenge number (note that since user may not choose option 1 or 2, first and second challenge functions would have to be called here to calculate variabbles used in third challenge number)
-                first_chall = calcnprint.first_chall_calc(single_day_uno, single_month_uno)
-                sec_chall = calcnprint.sec_chall_calc(single_day_uno, single_year_uno)
+                # calculates and displays meaning for third challenge number
+                # (note that since user may not choose option 1 or 2, first and
+                # second challenge functions would have to be called here to
+                # calculate variables used in third challenge number)
+                first_chall = (calcnprint.first_chall_calc(single_day_uno,
+                               single_month_uno))
+                sec_chall = (calcnprint.sec_chall_calc(single_day_uno,
+                             single_year_uno))
                 third_chall = calcnprint.third_chall_calc(first_chall, sec_chall)
                 calcnprint.third_chall_meaning(third_chall)
+
             elif choice == 4:
                 # calculates and displays meaning for fourth challenge number
-                fourth_chall = calcnprint.fourth_chall_calc(single_month_uno, single_year_uno)
+                fourth_chall = (calcnprint.fourth_chall_calc(single_month_uno,
+                                single_year_uno))
                 calcnprint.fourth_chall_meaning(fourth_chall)
 
 
-# definition of a function to execute within the birthday menu
-
-
 def birthday_exec_repl(year, month, day):
+    """Displays birthday menu options."""
+
     # calculates single digits master for year, month and day
     single_year_master = calcnprint.single_digit_master(year)
     single_month_master = calcnprint.single_digit_master(month)
@@ -178,27 +182,33 @@ def birthday_exec_repl(year, month, day):
             if choice == 0:
                 # returns to main menu
                 break
+
             elif choice == 1:
                 # calculates and displays meaning for life path number
-                life_path = calcnprint.life_path_calc(single_year_master, single_month_master, single_day_master)
+                life_path = (calcnprint.life_path_calc(single_year_master,
+                             single_month_master, single_day_master))
                 meanings.life_path_meaning(life_path)
+
             elif choice == 2:
                 # calculates and displays meaning for birth day number
                 meanings.birth_day_meaning(single_day_master)
+
             elif choice == 3:
-                # executes repl loop for challenge numbers, which takes it to challenge numbers menu
-                challenge_exec_repl(single_day_uno, single_month_uno, single_year_uno)
+                # executes repl loop for challenge numbers, which takes it to
+                # challenge numbers menu
+                challenge_exec_repl(single_day_uno, single_month_uno,
+                                    single_year_uno)
+
             elif choice == 4:
                 # calculates and displays meaning for personal year number
                 personal_year = calcnprint.pers_year_calc(single_day_uno, single_month_uno, single_year_uno, month, day)
                 meanings.pers_year_meaning(personal_year)
 
 
-# definition of a function to execute within the name menu
-
-
 def name_exec_repl(last, middle, first):
-    # concatenates full name (maybe use strip function if "0" used for blank names but it seems to not work)
+    """Displays options within the name menu."""
+
+    # concatenates full name
     full_name = last + middle + first
 
     # calculates single digits master for first, middle and last names
@@ -217,12 +227,14 @@ def name_exec_repl(last, middle, first):
     vow_middle_name = calcnprint.vowels(middle, vowel)
     vow_first_name = calcnprint.vowels(first, vowel)
 
-    # calculates single digits master of first, middle and last names by consonants only
+    # calculates single digits master of first, middle and last names by
+    # consonants only
     single_cons_last_master = calcnprint.single_digit_master(calcnprint.name_calc(cons_last_name))
     single_cons_middle_master = calcnprint.single_digit_master(calcnprint.name_calc(cons_middle_name))
     single_cons_first_master = calcnprint.single_digit_master(calcnprint.name_calc(cons_first_name))
 
-    # calculates single digits master of first, middle and last names by vowels only
+    # calculates single digits master of first, middle and last names by vowels
+    # only
     single_vow_last_master = calcnprint.single_digit_master(calcnprint.name_calc(vow_last_name))
     single_vow_middle_master = calcnprint.single_digit_master(calcnprint.name_calc(vow_middle_name))
     single_vow_first_master = calcnprint.single_digit_master(calcnprint.name_calc(vow_first_name))
@@ -240,35 +252,45 @@ def name_exec_repl(last, middle, first):
             if choice == 0:
                 # returns to main menu
                 break
+
             elif choice == 1:
                 # calculates and displays meaning for expression (destiny) number
-                exp_dest = calcnprint.exp_calc(single_last_master, single_middle_master, single_first_master)
+                exp_dest = (calcnprint.exp_calc(single_last_master,
+                            single_middle_master, single_first_master))
                 meanings.exp_dest_meaning(exp_dest)
+
             elif choice == 2:
                 # calculates and displays meaning for soul urge number
-                soul_urge = calcnprint.soul_urge_calc(single_vow_last_master, single_vow_middle_master, single_vow_first_master)
+                soul_urge = (calcnprint.soul_urge_calc(single_vow_last_master,
+                             single_vow_middle_master, single_vow_first_master))
                 meanings.soul_urge_meaning(soul_urge)
+
             elif choice == 3:
                 # calculates and displays meaning for personality number
-                personality = calcnprint.personality_cal(single_cons_last_master, single_cons_middle_master, single_cons_first_master)
+                personality = (calcnprint.personality_cal(single_cons_last_master,
+                               single_cons_middle_master, single_cons_first_master))
                 meanings.personality_meaning(personality)
+
             elif choice == 4:
                 # calculates and displays meaning for hidden passion number
                 hid_pass = calcnprint.pass_calc(full_name)
                 meanings.hid_pass_meaning(hid_pass)
+
             elif choice == 5:
                 # calculates and displays meaning for karmic number
                 karmic = calcnprint.karmic_calc(cons_full_name)
                 meanings.karmic_meaning(karmic)
+
             elif choice == 6:
                 calcnprint.corn_cap(first)
 
 
-# definition of a function to execute within the compatibility menu
-
-
 def compatibility_exec_repl(year, month, day, last, middle, first):
-    # determines compatibility based on either life path number or expression number; however, since the calculations of these numbers for the individual are buried in the birthday and name menus, need to recompute those here
+    """Displays options within the compatibility menu."""
+
+    # determines compatibility based on either life path number or expression
+    # number; however, since the calculations of these numbers for the individual
+    # are buried in the birthday and name menus, need to recompute those here
 
     # calculates single digits master for year, month and day
     single_year_master = calcnprint.single_digit_master(year)
@@ -276,7 +298,8 @@ def compatibility_exec_repl(year, month, day, last, middle, first):
     single_day_master = calcnprint.single_digit_master(day)
 
     # calculates life path number
-    life_path = calcnprint.life_path_calc(single_year_master, single_month_master, single_day_master)
+    life_path = (calcnprint.life_path_calc(single_year_master, single_month_master,
+                 single_day_master))
 
     # calculates life path number to single digit
     life_path_uno = calcnprint.single_digit_uno(life_path)
@@ -287,7 +310,8 @@ def compatibility_exec_repl(year, month, day, last, middle, first):
     single_first_master = calcnprint.single_digit_master(calcnprint.name_calc(first))
 
     # calculates expression number
-    exp_dest = calcnprint.exp_calc(single_last_master, single_middle_master, single_first_master)
+    exp_dest = (calcnprint.exp_calc(single_last_master, single_middle_master,
+                single_first_master))
 
     # calculates expression (destiny) number to single digit
     exp_dest_uno = calcnprint.single_digit_uno(exp_dest)
@@ -307,7 +331,7 @@ def compatibility_exec_repl(year, month, day, last, middle, first):
                 print """\nPlease choose from the menu options.\n"""
             else:
                 choice = int(choice)
-                
+
                 if choice == 0:
                     # returns to main menu
                     break
@@ -325,10 +349,9 @@ def compatibility_exec_repl(year, month, day, last, middle, first):
                     #meanings.comp_exp_meaning(exp_dest_uno, partner_exp_uno)
 
 
-# definition of a function to execute the numerology program
-
-
 def execute_repl():
+    """Executes numerology program."""
+
     greeting()
     # asks user for birthday information
     year = calcnprint.ask_year("individual")
@@ -338,7 +361,9 @@ def execute_repl():
     # asks user for birth name information
     last_name = calcnprint.clean_name(calcnprint.ask_name("birth", "last"))
     middle_name = calcnprint.clean_name(calcnprint.ask_name("birth", "middle"))
-    # clean function strips name of all spaces so separating first_name variables so that it could be use for exit greeting
+
+    # clean function strips name of all spaces so separating first_name
+    # variables so that it could be use for exit greeting
     first_name = calcnprint.ask_name("birth", "first")
     clean_first_name = calcnprint.clean_name(first_name)
 
@@ -347,7 +372,9 @@ def execute_repl():
     if nick_name == "y":
         nick_last_name = calcnprint.clean_name(calcnprint.ask_name("nick", "last"))
         nick_middle_name = calcnprint.clean_name(calcnprint.ask_name("nick", "middle"))
-        # clean function strips name of all spaces so separating first_name variables so that it could be use for exit greeting
+
+        # clean function strips name of all spaces so separating first_name
+        # variables so that it could be use for exit greeting
         nick_first_name = calcnprint.ask_name("nick", "first")
         clean_nick_first_name = calcnprint.clean_name(nick_first_name)
     else:
@@ -368,25 +395,44 @@ def execute_repl():
             choice = int(choice)
 
             if choice == 1:
-                # gets choice from user from birthday menu and repl within that menu
+                # gets choice from user from birthday menu and repl within that
+                # menu
                 birthday_exec_repl(year, month, day)
+
             elif choice == 2:
-                # gets choice from user from name menu and repl within that menu based on birth name
+                # gets choice from user from name menu and repl within that menu
+                # based on birth name
                 name_exec_repl(last_name, middle_name, clean_first_name)
+
             elif choice == 3:
-                # gets choice from user from name menu and repl within that menu based on nick name
+                # gets choice from user from name menu and repl within that menu
+                # based on nick name
                 name_exec_repl(nick_last_name, nick_middle_name, clean_nick_first_name)
+
             elif choice == 4:
-                # gets choice from user from compatibility menu and repl within that menu
-                compatibility_exec_repl(year, month, day, last_name, middle_name, clean_first_name)
+                # gets choice from user from compatibility menu and repl within
+                # that menu
+                compatibility_exec_repl(year, month, day, last_name, middle_name,
+                                        clean_first_name)
+
             elif choice == 5:
-                # creates file object to write output of results of various numerology numbers and meanings with only generic compatibility chart since details of partner is in "child" menu
-                calcnprint.numerology_rpt(nick_name, first_name, nick_first_name, year, month, day, last_name, middle_name, clean_first_name, nick_last_name, nick_middle_name, clean_nick_first_name, vowel)
+                # creates file object to write output of results of various
+                # numerology numbers and meanings with only generic compatibility
+                # chart since details of partner is in "child" menu
+                calcnprint.numerology_rpt(nick_name, first_name, nick_first_name,
+                                          year, month, day, last_name, middle_name,
+                                          clean_first_name, nick_last_name,
+                                          nick_middle_name, clean_nick_first_name,
+                                          vowel)
+
             else:
                 if nick_name == "y":
-                    print """\nHave a wonderful day with your numerical vibrations, {}. Namaste!\n""".format(nick_first_name.title())
+                    print """\nHave a wonderful day with your numerical
+                            vibrations, {}. Namaste!\n""".format(nick_first_name.title())
+
                 else:
-                    print """\nHave a wonderful day with your numerical vibrations, {}. Namaste!\n""".format(first_name.title())
+                    print """\nHave a wonderful day with your numerical
+                            vibrations, {}. Namaste!\n""".format(first_name.title())
                 break
 
 execute_repl()
