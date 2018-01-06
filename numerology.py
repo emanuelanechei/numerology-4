@@ -6,12 +6,11 @@ import calcnprint
 def greeting():
     """Displays introduction message in numerology program."""
 
-    print """\nWelcome to the nexus of numerology.\n
-            Numerology is the study of the numerical value of letters in words,
-            names and birthdays.\n
-            It is similar to astrology, and often associated with the belief in
-            the divine, mystical relationship between numbers (and their related
-            vibrations) and one or more coinciding events.\n"""
+    print ('\nWelcome to the nexus of numerology.\n', 'Numerology is the study',
+           'of the numerical value of letters in words, names and birthdays.\n',
+           'It is similar to astrology, and often associated with the belief in',
+           'the divine, mystical relationship between numbers (and their related',
+           'vibrations) and one or more coinciding events.\n')
 
 
 def ask_nick_name():
